@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FusionBase\Application\Database;
+namespace CubexBase\Application\Database;
 
 use Cubex\Cache\Apc;
 use Packaged\Context\ContextAware;
@@ -10,7 +10,7 @@ use function glob;
 
 /**
  * Class Article
- * @package FusionBase\Application\Database
+ * @package CubexBase\Application\Database
  */
 class Article extends AbstractDao
 {

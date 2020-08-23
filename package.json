@@ -1,13 +1,14 @@
 {
-  "name": "fusion-base",
+  "name": "cubex-base",
   "version": "1.0.0",
-  "description": "Base for Fusion Projects",
+  "description": "Base for Cubex Projects",
   "main": "rollup.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c rollup.config.js",
     "watch": "rollup -c rollup.config.js --watch",
-    "start": "./cubex serve"
+    "start": "./cubex serve",
+    "sync": "./cubex sync"
   },
   "browserslist": [
     "> 0.02%",
@@ -16,25 +17,19 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MrEssex/fusion-base.git"
+    "url": "git+https://github.com/MrEssex/cubex-base.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MrEssex/fusion-base/issues"
+    "url": "https://github.com/MrEssex/cubex-base/issues"
   },
-  "homepage": "https://github.com/MrEssex/fusion-base#readme",
-  "dependencies": {
-    "@packaged-ui/exit-callback": "^0.0.3",
-    "@packaged-ui/frame-courier": "^3.1",
-    "@packaged-ui/fusion": "https://github.com/packaged-ui/fusion",
-    "@packaged-ui/modal": "^1.1",
-    "validate.js": "^0.13.1"
-  },
+  "homepage": "https://github.com/MrEssex/cubex-base#readme",
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
     "@rollup/plugin-babel": "^5.2.0",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^9.0.0",
@@ -47,8 +42,10 @@
     "postcss-preset-env": "^6.7.0",
     "rollup": "^1.32.1",
     "rollup-plugin-css": "^1.0.10",
-    "rollup-plugin-postcss": "^2.9.0",
+    "rollup-plugin-postcss": "^3.1.5",
     "rollup-plugin-scss": "^2.5.0",
-    "rollup-plugin-terser": "^5.2.0"
+    "rollup-plugin-terser": "latest",
+    "tslib": "^2.0.1",
+    "typescript": "^4.0.2"
   }
 }

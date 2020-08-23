@@ -1,6 +1,6 @@
 {
-  "name": "MrEssex/FusionBase",
-  "description": "Base for Fusion Projects",
+  "name": "MrEssex/CubexBase",
+  "description": "Base for Cubex Projects",
   "type": "project",
   "license": "MIT",
   "authors": [
@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "FusionBase\\Application\\": "src"
+      "CubexBase\\Application\\": "src"
     }
   },
   "require": {
@@ -26,13 +26,9 @@
     "cubex/framework": "~4.0",
     "filp/whoops": "^2.3",
     "packaged-ui/fontawesome": "^3.5",
-    "packaged-ui/fusion": "dev-master",
-    "packaged-ui/pagelets": "^0.3.1",
     "packaged/dal": "^1.9",
     "packaged/dispatch": "^2.11.0",
-    "packaged/form": "^2.9",
-    "packaged/helpers": "^2.11.0",
     "packaged/http": "^1.16",
-    "packaged/rwd": "^1.3.0"
+    "packaged-ui/bem-component": "^1.1"
   }
 }

@@ -1,19 +1,19 @@
 <?php
 
 
-namespace FusionBase\Application\Routing;
+namespace CubexBase\Application\Routing;
 
 
 use Cubex\Routing\RouteProcessor;
-use FusionBase\Application\Pages\HomePage\HomeController;
-use FusionBase\Application\Pages\NotFound\NotFoundController;
+use CubexBase\Application\Pages\HomePage\HomeController;
+use CubexBase\Application\Pages\NotFound\NotFoundController;
 use Generator;
 use Packaged\Routing\Handler\Handler;
 use Packaged\Routing\Route;
 
 /**
  * Class Router
- * @package FusionBase\Application\Routing
+ * @package CubexBase\Application\Routing
  */
 class Router extends RouteProcessor
 {

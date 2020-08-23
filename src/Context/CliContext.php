@@ -1,14 +1,14 @@
 <?php
 
 
-namespace FusionBase\Application\Context;
+namespace CubexBase\Application\Context;
 
 use Packaged\Config\Provider\Ini\IniConfigProvider;
 use Packaged\Dal\DalResolver;
 
 /**
  * Class CliContext
- * @package FusionBase\Application\Context
+ * @package CubexBase\Application\Context
  */
 class CliContext extends Context
 {

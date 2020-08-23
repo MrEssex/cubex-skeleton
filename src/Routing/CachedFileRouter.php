@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FusionBase\Application\Routing;
+namespace CubexBase\Application\Routing;
 
 
 use Packaged\Context\Context;
@@ -15,7 +15,7 @@ use const DIRECTORY_SEPARATOR;
 
 /**
  * Class CachedFileRouter
- * @package FusionBase\Application\Routing
+ * @package CubexBase\Application\Routing
  */
 class CachedFileRouter implements Condition, RouteCompleter
 {

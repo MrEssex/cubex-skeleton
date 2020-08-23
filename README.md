@@ -1,2 +1,2 @@
-# fusion-base
-Base for Fusion Projects
+# cubex-base
+Base for Cubex Projects

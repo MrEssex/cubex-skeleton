@@ -1,26 +1,34 @@
 <?php
 
 
-namespace FusionBase\Application;
+namespace CubexBase\Application;
 
 
 use Cubex\Cubex;
 use Exception;
 use Packaged\Dispatch\ResourceManager;
-use PackagedUi\Fusion\Fusion;
 
 use function strpos;
 
 /**
  * Class Ui
- * @package FusionBase\Application
+ * @package CubexBase\Application
  */
-class Ui extends Fusion
+class Ui
 {
   /** @var string */
   const FILE_BASE_CSS = 'reviewed.min.css';
   /** @var string */
   const FILE_BASE_JS = 'reviewed.min.js';
+
+  /**
+   * @throws Exception
+   */
+  public static function require()
+  {
+    static::requireCss();
+    static::requireJs();
+  }
 
   /**
    * @throws Exception

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FusionBase\Application\Database;
+namespace CubexBase\Application\Database;
 
 
 use Exception;
@@ -14,12 +14,12 @@ use function json_decode;
 
 /**
  * Class AbstractDao
- * @package FusionBase\Application\Database
+ * @package CubexBase\Application\Database
  */
 class AbstractDao extends QlDao
 {
   /** @var string */
-  protected $_dataStoreName = 'fusion_sql';
+  protected $_dataStoreName = 'cubex_sql';
 
   /**
    * AbstractDao constructor.

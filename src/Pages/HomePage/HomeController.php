@@ -1,15 +1,15 @@
 <?php
 
 
-namespace FusionBase\Application\Pages\HomePage;
+namespace CubexBase\Application\Pages\HomePage;
 
 
-use FusionBase\Application\Layout\LayoutController;
-use FusionBase\Application\Pages\HomePage\Ui\HomePage;
+use CubexBase\Application\Layout\LayoutController;
+use CubexBase\Application\Pages\HomePage\Ui\HomePage;
 
 /**
  * Class HomeController
- * @package FusionBase\Application\Controller
+ * @package CubexBase\Application\Controller
  */
 class HomeController extends LayoutController
 {

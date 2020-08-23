@@ -1,11 +1,11 @@
 <?php
 
 
-namespace FusionBase\Application\Cli;
+namespace CubexBase\Application\Cli;
 
 
 use Cubex\Console\ConsoleCommand;
-use FusionBase\Application\Database\Article;
+use CubexBase\Application\Database\Article;
 use Packaged\Helpers\Path;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -16,11 +16,10 @@ use function json_encode;
 use function mkdir;
 use function strtolower;
 use function unlink;
-use function var_dump;
 
 /**
  * Class Sync
- * @package FusionBase\Application\Cli
+ * @package CubexBase\Application\Cli
  */
 class Sync extends ConsoleCommand
 {

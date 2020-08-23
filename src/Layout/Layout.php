@@ -1,10 +1,10 @@
 <?php
 
 
-namespace FusionBase\Application\Layout;
+namespace CubexBase\Application\Layout;
 
 
-use FusionBase\Application\Ui;
+use CubexBase\Application\Ui;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
 use Packaged\Dispatch\ResourceManager;
@@ -15,7 +15,7 @@ use Throwable;
 
 /**
  * Class Layout
- * @package FusionBase\Application\Layout
+ * @package CubexBase\Application\Layout
  */
 class Layout extends Element implements ContextAware
 {

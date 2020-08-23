@@ -13,7 +13,7 @@ process.chdir(__dirname);
 const defaultBrowsers = ['defaults', 'not ie > 0'];
 
 const defaultCfg = {
-  input: './src/_resources/js/entry.js',
+  input: './src/_resources/js/entry.ts',
   output: {
     file: './resources/reviewed.min.js',
     format: 'iife',
@@ -37,10 +37,14 @@ const defaultCfg = {
     commonjs(),
     babel(
       {
+        extensions: ['.js', '.ts'],
         babelHelpers: 'bundled',
         babelrc: false,
         exclude: [/\/core-js\//],
         presets: [
+          [
+            '@babel/preset-typescript'
+          ],
           [
             '@babel/preset-env',
             {
@@ -59,7 +63,7 @@ const defaultCfg = {
 const ieBrowsers = ['ie > 9', '> 0.02%', 'last 2 versions', 'Firefox ESR'];
 
 const ieConfig = {
-  input: './src/_resources/js/entry_ie.js',
+  input: './src/_resources/js/entry_ie.ts',
   output: {
     file: './resources/reviewed.ie.min.js',
     format: 'iife',
@@ -83,10 +87,14 @@ const ieConfig = {
     commonjs(),
     babel(
       {
+        extensions: ['.js', '.ts'],
         babelHelpers: 'bundled',
         babelrc: false,
         exclude: [/\/core-js\//],
         presets: [
+          [
+            '@babel/preset-typescript'
+          ],
           [
             '@babel/preset-env',
             {

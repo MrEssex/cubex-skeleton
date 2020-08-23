@@ -1,13 +1,13 @@
 <?php
 
 
-namespace FusionBase\Application\Pages\NotFound;
+namespace CubexBase\Application\Pages\NotFound;
 
-use FusionBase\Application\Layout\LayoutController;
+use CubexBase\Application\Layout\LayoutController;
 
 /**
  * Class NotFoundController
- * @package FusionBase\Application\Pages\NotFound
+ * @package CubexBase\Application\Pages\NotFound
  */
 class NotFoundController extends LayoutController
 {

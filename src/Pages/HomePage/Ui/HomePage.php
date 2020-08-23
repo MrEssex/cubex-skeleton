@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FusionBase\Application\Pages\HomePage\Ui;
+namespace CubexBase\Application\Pages\HomePage\Ui;
 
 
 use Packaged\Context\ContextAware;
@@ -17,7 +17,7 @@ use Throwable;
 
 /**
  * Class HomePage
- * @package FusionBase\Application\Pages\HomePage
+ * @package CubexBase\Application\Pages\HomePage
  */
 class HomePage extends TemplatedHtmlElement implements WithContext, ContextAware, BemComponent
 {

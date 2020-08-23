@@ -1,7 +1,7 @@
 <?php
 
 
-namespace FusionBase\Application\Layout;
+namespace CubexBase\Application\Layout;
 
 
 use Cubex\Controller\Controller;
@@ -18,8 +18,8 @@ use function is_scalar;
 
 /**
  * Class AbstractController
- * @package FusionBase\Application\Controller
- * @method \FusionBase\Application\Context\Context getContext() : Context
+ * @package CubexBase\Application\Controller
+ * @method \CubexBase\Application\Context\Context getContext() : Context
  */
 abstract class LayoutController extends Controller
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace FusionBase\Application;
+namespace CubexBase\Application;
 
 use Cubex\Application\Application;
 use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
+use CubexBase\Application\Routing\Router;
 use Exception;
-use FusionBase\Application\Routing\Router;
 use Generator;
 use Packaged\Context\Context;
 use Packaged\Dispatch\Dispatch;
@@ -26,7 +26,7 @@ use function in_array;
 
 /**
  * Class MainApplication
- * @package FusionBase\Application
+ * @package CubexBase\Application
  */
 class MainApplication extends Application
 {

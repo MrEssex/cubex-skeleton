@@ -1,10 +1,10 @@
 <?php
 
-namespace FusionBase\Application\Context;
+namespace CubexBase\Application\Context;
 
 /**
  * Class Context
- * @package FusionBase\Application
+ * @package CubexBase\Application
  */
 class Context extends \Cubex\Context\Context
 {
