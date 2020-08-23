@@ -1,0 +1,54 @@
+{
+  "name": "fusion-base",
+  "version": "1.0.0",
+  "description": "Base for Fusion Projects",
+  "main": "rollup.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c rollup.config.js",
+    "watch": "rollup -c rollup.config.js --watch",
+    "start": "./cubex serve"
+  },
+  "browserslist": [
+    "> 0.02%",
+    "last 2 versions",
+    "Firefox ESR"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrEssex/fusion-base.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrEssex/fusion-base/issues"
+  },
+  "homepage": "https://github.com/MrEssex/fusion-base#readme",
+  "dependencies": {
+    "@packaged-ui/exit-callback": "^0.0.3",
+    "@packaged-ui/frame-courier": "^3.1",
+    "@packaged-ui/fusion": "https://github.com/packaged-ui/fusion",
+    "@packaged-ui/modal": "^1.1",
+    "validate.js": "^0.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@rollup/plugin-babel": "^5.2.0",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "autoprefixer": "^9.8.6",
+    "core-js": "^3",
+    "dart-sass": "^1.25.0",
+    "foundation-sites": "^6.6.3",
+    "node-sass": "^4.14.1",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "rollup": "^1.32.1",
+    "rollup-plugin-css": "^1.0.10",
+    "rollup-plugin-postcss": "^2.9.0",
+    "rollup-plugin-scss": "^2.5.0",
+    "rollup-plugin-terser": "^5.2.0"
+  }
+}
