@@ -13,10 +13,11 @@ process.chdir(__dirname);
 const defaultBrowsers = ['defaults', 'not ie > 0'];
 
 const defaultCfg = {
-  input: './src/_resources/js/entry.ts',
+  input: './src/_resources/js/entry.js',
   output: {
-    file: './resources/reviewed.min.js',
+    file: './resources/main.min.js',
     format: 'iife',
+    sourcemap: true,
   },
   plugins: [
     //css
@@ -30,6 +31,7 @@ const defaultCfg = {
         plugins: [
           postcssPresetEnv({browsers: defaultBrowsers}),
         ],
+        sourceMap: true,
       }),
 
     //js
@@ -37,7 +39,6 @@ const defaultCfg = {
     commonjs(),
     babel(
       {
-        extensions: ['.js', '.ts'],
         babelHelpers: 'bundled',
         babelrc: false,
         exclude: [/\/core-js\//],
@@ -63,10 +64,11 @@ const defaultCfg = {
 const ieBrowsers = ['ie > 9', '> 0.02%', 'last 2 versions', 'Firefox ESR'];
 
 const ieConfig = {
-  input: './src/_resources/js/entry_ie.ts',
+  input: './src/_resources/js/entry_ie.js',
   output: {
-    file: './resources/reviewed.ie.min.js',
+    file: './resources/main.ie.min.js',
     format: 'iife',
+    sourcemap: true,
   },
   plugins: [
     //css
@@ -81,20 +83,17 @@ const ieConfig = {
           flexbugs(),
           postcssPresetEnv({browsers: ieBrowsers, autoprefixer: {grid: 'no-autoplace'}}),
         ],
+        sourceMap: true,
       }),
     //js
     resolve({browser: true, preferBuiltins: false}),
     commonjs(),
     babel(
       {
-        extensions: ['.js', '.ts'],
         babelHelpers: 'bundled',
         babelrc: false,
         exclude: [/\/core-js\//],
         presets: [
-          [
-            '@babel/preset-typescript'
-          ],
           [
             '@babel/preset-env',
             {

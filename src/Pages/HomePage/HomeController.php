@@ -17,7 +17,7 @@ class HomeController extends LayoutController
   /**
    * @return HomePage
    */
-  public function get()
+  public function get(): HomePage
   {
     return HomePage::withContext($this);
   }

@@ -22,7 +22,7 @@ $store = Dispatch::instance()->store();
 
   <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, null, [ResourceStore::PRIORITY_LOW]) ?>
 </head>
-<body class="">
+<body class="<?= $this->getPageClass() ?>">
 
 <?= $this->getContent(); ?>
 

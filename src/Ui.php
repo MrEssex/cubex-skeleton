@@ -17,14 +17,14 @@ use function strpos;
 class Ui
 {
   /** @var string */
-  const FILE_BASE_CSS = 'reviewed.min.css';
+  public const FILE_BASE_CSS = 'main.min.css';
   /** @var string */
-  const FILE_BASE_JS = 'reviewed.min.js';
+  public const FILE_BASE_JS = 'main.min.js';
 
   /**
    * @throws Exception
    */
-  public static function require()
+  public static function require(): void
   {
     static::requireCss();
     static::requireJs();
@@ -33,12 +33,12 @@ class Ui
   /**
    * @throws Exception
    */
-  public static function requireCss()
+  public static function requireCss(): void
   {
     if (
       strpos(Cubex::instance()->getContext()->request()->userAgent(), 'Trident/') > -1
       || strpos(Cubex::instance()->getContext()->request()->userAgent(), 'Edge/') > -1) {
-      ResourceManager::resources()->requireCss('reviewed.ie.min.css');
+      ResourceManager::resources()->requireCss('main.ie.min.css');
     }
     else {
       ResourceManager::resources()->requireCss(self::FILE_BASE_CSS);
@@ -48,12 +48,12 @@ class Ui
   /**
    * @throws Exception
    */
-  public static function requireJs()
+  public static function requireJs(): void
   {
     if (
       strpos(Cubex::instance()->getContext()->request()->userAgent(), 'Trident/') > -1
       || strpos(Cubex::instance()->getContext()->request()->userAgent(), 'Edge/') > -1) {
-      ResourceManager::resources()->requireJs('reviewed.ie.min.js');
+      ResourceManager::resources()->requireJs('main.ie.min.js');
     }
     else {
       ResourceManager::resources()->requireJs(self::FILE_BASE_JS);

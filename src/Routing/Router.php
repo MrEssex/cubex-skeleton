@@ -24,7 +24,7 @@ class Router extends RouteProcessor
    *
    * @return Route
    */
-  protected static function _routeReq($type, $result)
+  protected static function _routeReq($type, $result): Route
   {
     return Route::with(CachedFileRouter::i()->dir($type))->setHandler($result);
   }

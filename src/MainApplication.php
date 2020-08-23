@@ -32,13 +32,13 @@ class MainApplication extends Application
 {
 
   /** @var string */
-  const DISPATCH_PATH = '/resources';
+  private const DISPATCH_PATH = '/resources';
 
   /**
    * Initialize the Application
    * @throws Exception
    */
-  protected function _initialize()
+  protected function _initialize(): void
   {
     parent::_initialize();
 
@@ -53,6 +53,14 @@ class MainApplication extends Application
         $context->config()->getItem('dispatch', 'opt-webp', true)
       );
 
+    $dispatch
+      ->config()
+      ->addItem('ext.css', 'sourcemap', $context->config()->getItem('dispatch', 'opt_sourcemap', false));
+
+    $dispatch
+      ->config()
+      ->addItem('ext.js', 'sourcemap', $context->config()->getItem('dispatch', 'opt_sourcemap', false));
+
     Dispatch::bind($dispatch);
   }
 
@@ -63,7 +71,7 @@ class MainApplication extends Application
   protected function _generateRoutes()
   {
     yield Route::with(new HealthCheckCondition())->setHandler(
-      function () {
+      static function () {
         return SResponse::create('OK');
       }
     );
@@ -71,7 +79,7 @@ class MainApplication extends Application
     foreach (glob(Path::system($this->getContext()->getProjectRoot(), 'resources/favicon/*')) as $path) {
       yield self::_route(
         '/' . basename($path),
-        function () use ($path) {
+        static function () use ($path) {
           return ResourceFactory::fromFile($path);
         }
       );
@@ -79,7 +87,7 @@ class MainApplication extends Application
 
     yield self::_route(
       "/robots.txt",
-      function (Context $c) {
+      static function (Context $c) {
         return ResourceFactory::fromFile(Path::system($c->getProjectRoot(), 'public/robots.txt'));
       }
     );
@@ -87,7 +95,7 @@ class MainApplication extends Application
     yield self::_route(
       self::DISPATCH_PATH,
       new FuncHandler(
-        function (Context $c): SResponse {
+        static function (Context $c): SResponse {
           return Dispatch::instance()->handleRequest($c->request());
         }
       )
@@ -105,7 +113,7 @@ class MainApplication extends Application
   /**
    * Setup the Application
    */
-  protected function _setupApplication()
+  protected function _setupApplication(): void
   {
     $this->getCubex()->listen(
       ResponsePreSendHeadersEvent::class,
@@ -119,7 +127,7 @@ class MainApplication extends Application
             'https://fonts.googleapis.com',
           ];
 
-          if (in_array($context->request()->headers->get('origin'), $allowed)) {
+          if (in_array($context->request()->headers->get('origin'), $allowed, true)) {
             $response->headers->set('Access-Control-Allow-Origin', $context->request()->headers->get('origin'));
           }
         }

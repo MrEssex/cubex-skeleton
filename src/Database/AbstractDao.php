@@ -38,7 +38,7 @@ class AbstractDao extends QlDao
    * @return object
    * @throws Exception
    */
-  public static function fromJson($path)
+  public static function fromJson($path): object
   {
     return Objects::hydrate(new static(true), json_decode(file_get_contents($path)));
   }

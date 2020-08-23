@@ -28,7 +28,7 @@ class Sync extends ConsoleCommand
    * @param InputInterface $input
    * @param OutputInterface $output
    */
-  public function executeCommand(InputInterface $input, OutputInterface $output)
+  public function executeCommand(InputInterface $input, OutputInterface $output): void
   {
     $output->writeln("Syncing all the things");
 
@@ -41,7 +41,7 @@ class Sync extends ConsoleCommand
       $path = Path::system($articlesDir, strtolower($article->slug) . '.json');
 
       if ($article->active) {
-        file_put_contents($path, json_encode($article->jsonSerialize()));
+        file_put_contents($path, json_encode($article->jsonSerialize(), JSON_THROW_ON_ERROR));
       }
 
       else {

@@ -6,10 +6,14 @@ namespace CubexBase\Application\Layout;
 
 use Cubex\Controller\Controller;
 use Cubex\I18n\GetTranslatorTrait;
+use CubexBase\Application\Pages\PageClass;
+use Generator;
 use Packaged\Context\Context;
 use Packaged\Glimpse\Core\HtmlTag;
 use Packaged\Http\Response;
 use Packaged\I18n\TranslatableTrait;
+use Packaged\Routing\Handler\Handler;
+use Packaged\Routing\Route;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
 
@@ -27,6 +31,9 @@ abstract class LayoutController extends Controller
   use GetTranslatorTrait;
   use TranslatableTrait;
 
+  /**
+   * @return callable|Generator|Handler|Route[]|string
+   */
   protected function _generateRoutes()
   {
     return '';
@@ -45,6 +52,9 @@ abstract class LayoutController extends Controller
         $result
       ) || is_array($result))) {
       $theme = new Layout();
+      if($result instanceof PageClass) {
+        $theme->setPageClass($result->getPageClass());
+      }
       $theme->setContext($this->getContext())->setContent($result);
       return parent::_prepareResponse($c, $theme, $buffer);
     }

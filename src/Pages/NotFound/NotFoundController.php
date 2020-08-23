@@ -14,7 +14,7 @@ class NotFoundController extends LayoutController
   /**
    * @return string
    */
-  public function get()
+  public function get(): string
   {
     return 'oops, not found';
   }

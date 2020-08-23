@@ -4,6 +4,7 @@
 namespace CubexBase\Application\Database;
 
 use Cubex\Cache\Apc;
+use DateTime;
 use Packaged\Context\ContextAware;
 
 use function glob;
@@ -14,29 +15,29 @@ use function glob;
  */
 class Article extends AbstractDao
 {
-  public $id;
-  public $title;
-  public $content;
-  public $slug;
-  public $metaTitle;
-  public $metaDescription;
-  public $active;
-  public $thumbnailPath;
-  public $displayDate;
-  public $created;
-  public $updated;
-  public $deleted;
+  public int $id;
+  public string $title;
+  public string $content;
+  public string $slug;
+  public string $metaTitle;
+  public string $metaDescription;
+  public int $active;
+  public string $thumbnailPath;
+  public DateTime $displayDate;
+  public DateTime $created;
+  public DateTime $updated;
+  public DateTime $deleted;
 
   /**
    * @param ContextAware $ctx
    * @return array
    */
-  public static function allCached(ContextAware $ctx)
+  public static function allCached(ContextAware $ctx): array
   {
     $articles = [];
     $articleFiles = Apc::retrieve(
       'article-files',
-      function () use ($ctx) {
+      static function () use ($ctx) {
         return glob($ctx->getContext()->getProjectRoot() . '/data/articles/*.json');
       },
       60
@@ -45,7 +46,7 @@ class Article extends AbstractDao
     foreach ($articleFiles as $file) {
       $articles[] = Apc::retrieve(
         "article-" . $file,
-        function () use ($file) {
+        static function () use ($file) {
           return static::fromJson($file);
         },
         60

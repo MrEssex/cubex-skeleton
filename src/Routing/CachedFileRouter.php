@@ -20,12 +20,12 @@ use const DIRECTORY_SEPARATOR;
 class CachedFileRouter implements Condition, RouteCompleter
 {
   /** @var string */
-  const RD_FILE = 'cfr.file';
+  public const RD_FILE = 'cfr.file';
 
   /** @var string */
-  protected $_directory;
+  protected string $_directory;
   /** @var string */
-  protected $_locatedFile;
+  protected string $_locatedFile;
 
   /**
    * @return static
@@ -39,7 +39,7 @@ class CachedFileRouter implements Condition, RouteCompleter
    * @param $dir
    * @return $this
    */
-  public function dir($dir)
+  public function dir($dir): self
   {
     $this->_directory = $dir;
     return $this;
@@ -66,7 +66,7 @@ class CachedFileRouter implements Condition, RouteCompleter
   /**
    * @param Context $context
    */
-  public function complete(Context $context)
+  public function complete(Context $context): void
   {
     $context->routeData()->set(self::RD_FILE, $this->_locatedFile);
   }
