@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b3bcbc09960069208d4185d6f4b8848",
+    "content-hash": "35803230c509cdb2f7b6245189e11b4b",
     "packages": [
         {
             "name": "cubex/framework",
@@ -539,16 +539,16 @@
         },
         {
             "name": "packaged/dispatch",
-            "version": "2.12.0",
+            "version": "2.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/packaged/dispatch.git",
-                "reference": "71d332858ef46ff66b5f5c237e5c313a56ea61ab"
+                "reference": "f65454531408f8045a3b8741c0ec681082d7a30c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/packaged/dispatch/zipball/71d332858ef46ff66b5f5c237e5c313a56ea61ab",
-                "reference": "71d332858ef46ff66b5f5c237e5c313a56ea61ab",
+                "url": "https://api.github.com/repos/packaged/dispatch/zipball/f65454531408f8045a3b8741c0ec681082d7a30c",
+                "reference": "f65454531408f8045a3b8741c0ec681082d7a30c",
                 "shasum": ""
             },
             "require": {
@@ -582,7 +582,7 @@
                 }
             ],
             "description": "Asset Management Middleware for Stack PHP",
-            "time": "2020-07-17T16:04:43+00:00"
+            "time": "2020-08-24T15:04:55+00:00"
         },
         {
             "name": "packaged/docblock",
@@ -2475,7 +2475,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.3",
+        "php": ">=7.4",
         "ext-apcu": "*",
         "ext-json": "*"
     },

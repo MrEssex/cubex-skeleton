@@ -15,18 +15,18 @@ use function glob;
  */
 class Article extends AbstractDao
 {
-  public int $id;
-  public string $title;
-  public string $content;
-  public string $slug;
-  public string $metaTitle;
-  public string $metaDescription;
-  public int $active;
-  public string $thumbnailPath;
-  public DateTime $displayDate;
-  public DateTime $created;
-  public DateTime $updated;
-  public DateTime $deleted;
+  public $id;
+  public $title;
+  public $content;
+  public $slug;
+  public $metaTitle;
+  public $metaDescription;
+  public $active;
+  public $thumbnailPath;
+  public $displayDate;
+  public $created;
+  public $updated;
+  public $deleted;
 
   /**
    * @param ContextAware $ctx

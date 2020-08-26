@@ -44,10 +44,8 @@ class Sync extends ConsoleCommand
         file_put_contents($path, json_encode($article->jsonSerialize(), JSON_THROW_ON_ERROR));
       }
 
-      else {
-        if (file_exists($path)) {
-          unlink($path);
-        }
+      elseif (file_exists($path)) {
+        unlink($path);
       }
     }
   }
@@ -58,8 +56,8 @@ class Sync extends ConsoleCommand
    */
   protected function _assertDir($dir)
   {
-    if (!file_exists($dir)) {
-      mkdir($dir);
+    if (!file_exists($dir) && !mkdir($dir) && !is_dir($dir)) {
+      throw new \RuntimeException(sprintf('Directory "%s" was not created', $dir));
     }
     return $dir;
   }
