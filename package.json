@@ -34,7 +34,6 @@
     "core-js": "^3",
     "dart-sass": "^1.25.0",
     "foundation-sites": "^6.6.3",
-    "jquery": "^3.5.1",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-preset-env": "^6.7.0",
     "rollup": "^2.26.5",

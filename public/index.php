@@ -13,7 +13,7 @@ use Whoops\Run;
 /** @var string $projectRoot */
 $projectRoot = dirname(__DIR__);
 /** @var ClassLoader $loader */
-$loader = require_once($projectRoot . '/vendor/autoload.php');
+$loader = require($projectRoot . '/vendor/autoload.php');
 
 try {
   $cubex = Cubex::withCustomContext(FContext::class, $projectRoot, $loader);

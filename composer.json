@@ -25,10 +25,20 @@
     "ext-json": "*",
     "cubex/framework": "~4.0",
     "filp/whoops": "^2.3",
-    "packaged-ui/fontawesome": "^3.5",
+    "mressex/file-cache": "dev-master",
+    "packaged-ui/bem-component": "^1.1",
     "packaged/dal": "^1.9",
     "packaged/dispatch": "^2.11.0",
-    "packaged/http": "^1.16",
-    "packaged-ui/bem-component": "^1.1"
-  }
+    "packaged/glimpse": "^2.7",
+    "packaged/http": "^1.16"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:MrEssex/file-cache.git"
+    }
+  ]
 }

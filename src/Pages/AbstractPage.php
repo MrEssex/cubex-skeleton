@@ -21,4 +21,12 @@ abstract class AbstractPage extends AbstractBase implements PageClass
     return $this->getBlockName();
   }
 
+  /**
+   * @return bool
+   */
+  public function shouldCache(): bool
+  {
+    return false;
+  }
+
 }

@@ -5,11 +5,17 @@ namespace CubexBase\Application\Routing;
 
 
 use Cubex\Routing\RouteProcessor;
+use CubexBase\Application\Context\Context;
+use CubexBase\Application\MainApplication;
 use CubexBase\Application\Pages\HomePage\HomeController;
 use CubexBase\Application\Pages\NotFound\NotFoundController;
 use Generator;
+use Packaged\Context\ContextAware;
+use Packaged\Http\Response;
 use Packaged\Routing\Handler\Handler;
 use Packaged\Routing\Route;
+use Psr\SimpleCache\CacheInterface;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 /**
  * Class Router
@@ -39,4 +45,5 @@ class Router extends RouteProcessor
 
     return NotFoundController::class;
   }
+
 }

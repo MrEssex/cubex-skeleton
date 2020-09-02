@@ -73,8 +73,6 @@ const ieConfig = {
       }),
     //js
     resolve({browser: true, preferBuiltins: false}),
-    //js
-    resolve({browser: true, preferBuiltins: false}),
     commonjs(),
     typescript({
       compilerOptions: {

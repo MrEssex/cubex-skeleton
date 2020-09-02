@@ -34,11 +34,6 @@ class Layout extends Element implements ContextAware
   public function render(): string
   {
     Ui::require();
-    ResourceManager::vendor('packaged-ui', 'fontawesome')->requireCss(
-      FaIcon::CSS_PATH,
-      null,
-      ResourceStore::PRIORITY_LOW
-    );
     return parent::render();
   }
 
