@@ -12,7 +12,7 @@
   "config": {
     "sort-packages": true,
     "optimize-autoloader": true,
-    "preferred-install": "dist"
+    "preferred-install": "auto"
   },
   "autoload": {
     "psr-4": {
@@ -25,7 +25,7 @@
     "ext-json": "*",
     "cubex/framework": "~4.0",
     "filp/whoops": "^2.3",
-    "mressex/file-cache": "dev-master",
+    "mressex/file-cache": "^0.1.0",
     "packaged-ui/bem-component": "^1.1",
     "packaged/dal": "^1.9",
     "packaged/dispatch": "^2.11.0",
@@ -34,11 +34,5 @@
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"
-  },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "git@github.com:MrEssex/file-cache.git"
-    }
-  ]
+  }
 }

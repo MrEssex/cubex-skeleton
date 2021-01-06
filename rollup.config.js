@@ -5,8 +5,6 @@ import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import flexbugs from 'postcss-flexbugs-fixes';
 import postcssPresetEnv from 'postcss-preset-env/index.js';
-import scss from 'rollup-plugin-scss';
-import dartSass from 'dart-sass';
 
 process.chdir(__dirname);
 
@@ -20,10 +18,6 @@ const defaultCfg = {
     sourcemap: true,
   },
   plugins: [
-    //css
-    scss({
-      runtime: dartSass
-    }),
     postcss(
       {
         extract: true,
@@ -33,8 +27,6 @@ const defaultCfg = {
         ],
         sourceMap: true,
       }),
-
-    //js
     resolve({browser: true, preferBuiltins: false}),
     commonjs(),
     typescript(),
@@ -57,10 +49,6 @@ const ieConfig = {
     sourcemap: true,
   },
   plugins: [
-    //css
-    scss({
-      runtime: dartSass
-    }),
     postcss(
       {
         extract: true,
@@ -71,7 +59,6 @@ const ieConfig = {
         ],
         sourceMap: true,
       }),
-    //js
     resolve({browser: true, preferBuiltins: false}),
     commonjs(),
     typescript({
