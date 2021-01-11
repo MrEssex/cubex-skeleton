@@ -3,27 +3,24 @@ import typescript from 'rollup-plugin-typescript2';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
-import flexbugs from 'postcss-flexbugs-fixes';
 import postcssPresetEnv from 'postcss-preset-env/index.js';
 
 process.chdir(__dirname);
 
-const defaultBrowsers = ['defaults', 'not ie > 0'];
-
-const defaultCfg = {
-  input: './src/_resources/entry.ts',
-  output: {
-    file: './resources/main.min.js',
-    format: 'iife',
+module.exports = {
+  input:   './src/_resources/entry.ts',
+  output:  {
+    file:      './resources/main.min.js',
+    format:    'iife',
     sourcemap: true,
   },
   plugins: [
     postcss(
       {
-        extract: true,
-        minimize: true,
-        plugins: [
-          postcssPresetEnv({browsers: defaultBrowsers}),
+        extract:   true,
+        minimize:  true,
+        plugins:   [
+          postcssPresetEnv({browsers: ['defaults', 'not ie > 0']}),
         ],
         sourceMap: true,
       }),
@@ -31,47 +28,9 @@ const defaultCfg = {
     commonjs(),
     typescript(),
     terser({
-      output: {
-        comments: false,
-      },
-    })
+             output: {
+               comments: false,
+             },
+           })
   ],
 };
-
-
-const ieBrowsers = ['ie > 9', '> 0.02%', 'last 2 versions', 'Firefox ESR'];
-
-const ieConfig = {
-  input: './src/_resources/entry_ie.ts',
-  output: {
-    file: './resources/main.ie.min.js',
-    format: 'iife',
-    sourcemap: true,
-  },
-  plugins: [
-    postcss(
-      {
-        extract: true,
-        minimize: true,
-        plugins: [
-          flexbugs(),
-          postcssPresetEnv({browsers: ieBrowsers, autoprefixer: {grid: 'no-autoplace'}}),
-        ],
-        sourceMap: true,
-      }),
-    resolve({browser: true, preferBuiltins: false}),
-    commonjs(),
-    typescript({
-      compilerOptions: {
-        target: 'ES3',
-      }
-    }),
-    terser({
-      output: {
-        comments: false,
-      },
-    })
-  ],
-};
-
-export default [defaultCfg, ieConfig];

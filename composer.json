@@ -27,6 +27,7 @@
     "filp/whoops": "^2.3",
     "mressex/file-cache": "^0.1.0",
     "packaged-ui/bem-component": "^1.1",
+    "packaged-ui/fontawesome": "^3.5.0",
     "packaged/dal": "^1.9",
     "packaged/dispatch": "^2.11.0",
     "packaged/glimpse": "^2.7",

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace CubexBase\Application\Layout;
-
 
 use Cubex\Controller\Controller;
 use Cubex\I18n\GetTranslatorTrait;
@@ -10,14 +8,16 @@ use CubexBase\Application\MainApplication;
 use CubexBase\Application\Pages\PageClass;
 use Generator;
 use Packaged\Context\Context;
+use Packaged\Context\WithContext;
+use Packaged\Context\WithContextTrait;
 use Packaged\Http\Response;
+use Packaged\I18n\Translatable;
 use Packaged\I18n\TranslatableTrait;
+use Packaged\I18n\Translators\Translator;
 use Packaged\Routing\Handler\Handler;
 use Packaged\Routing\Route;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
-use Psr\SimpleCache\CacheInterface;
-
 use function is_array;
 use function is_scalar;
 
@@ -26,11 +26,12 @@ use function is_scalar;
  * @package CubexBase\Application\Controller
  * @method \CubexBase\Application\Context\Context getContext() : Context
  */
-abstract class LayoutController extends Controller
+abstract class LayoutController extends Controller implements WithContext, Translatable, Translator
 {
 
   use GetTranslatorTrait;
   use TranslatableTrait;
+  use WithContextTrait;
 
   /**
    * @return callable|Generator|Handler|Route[]|string
@@ -42,16 +43,19 @@ abstract class LayoutController extends Controller
 
   /**
    * @param Context $c
-   * @param mixed $result
-   * @param null $buffer
+   * @param mixed   $result
+   * @param null    $buffer
+   *
    * @return mixed|Response
    */
   protected function _prepareResponse(Context $c, $result, $buffer = null)
   {
-    if (($result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result))) {
+    if(($result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result)))
+    {
       $theme = new Layout();
 
-      if ($result instanceof PageClass) {
+      if($result instanceof PageClass)
+      {
         $theme->setPageClass($result->getPageClass());
       }
 
@@ -60,7 +64,8 @@ abstract class LayoutController extends Controller
 
       $theme->setContext($this->getContext())->setContent($result);
 
-      if ($result->shouldCache()) {
+      if($result->shouldCache())
+      {
         MainApplication::$_cache->set($path . $language, $theme->produceSafeHTML());
       }
 

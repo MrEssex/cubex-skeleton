@@ -1,14 +1,10 @@
 <?php
 
-
 namespace CubexBase\Application;
 
-
-use Cubex\Cubex;
 use Exception;
 use Packaged\Dispatch\ResourceManager;
-
-use function strpos;
+use PackagedUi\FontAwesome\FaIcon;
 
 /**
  * Class Ui
@@ -35,14 +31,8 @@ class Ui
    */
   public static function requireCss(): void
   {
-    if (
-      strpos(Cubex::instance()->getContext()->request()->userAgent(), 'Trident/') > -1
-      || strpos(Cubex::instance()->getContext()->request()->userAgent(), 'Edge/') > -1) {
-      ResourceManager::resources()->requireCss('main.ie.min.css');
-    }
-    else {
-      ResourceManager::resources()->requireCss(self::FILE_BASE_CSS);
-    }
+    ResourceManager::resources()->requireCss(self::FILE_BASE_CSS);
+    ResourceManager::vendor('packaged-ui', 'fontawesome')->requireCss(FaIcon::CSS_PATH);
   }
 
   /**
@@ -50,13 +40,6 @@ class Ui
    */
   public static function requireJs(): void
   {
-    if (
-      strpos(Cubex::instance()->getContext()->request()->userAgent(), 'Trident/') > -1
-      || strpos(Cubex::instance()->getContext()->request()->userAgent(), 'Edge/') > -1) {
-      ResourceManager::resources()->requireJs('main.ie.min.js');
-    }
-    else {
-      ResourceManager::resources()->requireJs(self::FILE_BASE_JS);
-    }
+    ResourceManager::resources()->requireJs(self::FILE_BASE_JS);
   }
 }

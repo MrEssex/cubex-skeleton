@@ -22,7 +22,6 @@ use Packaged\Routing\Route;
 use Packaged\Routing\Routes\InsecureRequestUpgradeRoute;
 use Symfony\Component\HttpFoundation\Response as SResponse;
 use Throwable;
-
 use function basename;
 use function glob;
 use function in_array;
@@ -30,20 +29,21 @@ use function in_array;
 /**
  * Class MainApplication
  * @package CubexBase\Application
+ * @method \CubexBase\Application\Context\Context getContext(): context
  */
 class MainApplication extends Application
 {
 
   /** @var string */
-  private const DISPATCH_PATH = '/resources';
-
+  private const DISPATCH_PATH = '/_res';
+  private const FILE_CACHE_TTL = '30'; // Seconds
   /** @var FileCache */
   public static FileCache $_cache;
 
   public function __construct(Cubex $cubex)
   {
     parent::__construct($cubex);
-    self::$_cache = new FileCache(null, 30);
+    self::$_cache = new FileCache(null, self::FILE_CACHE_TTL);
   }
 
   /**
@@ -57,7 +57,8 @@ class MainApplication extends Application
     $path = $c->request()->getRequestUri();
     $language = $c->request()->getPreferredLanguage();
 
-    if (self::$_cache->has($path . $language)) {
+    if(self::$_cache->has($path . $language))
+    {
       return $this->_prepareResponse($c, new Response(self::$_cache->get($path . $language)));
     }
 
@@ -85,11 +86,11 @@ class MainApplication extends Application
 
     $dispatch
       ->config()
-      ->addItem('ext.css', 'sourcemap', $context->config()->getItem('dispatch', 'opt_sourcemap', false));
+      ->addItem('ext.css', 'sourcemap', $context->config()->getItem('dispatch', 'opt-sourcemap', false));
 
     $dispatch
       ->config()
-      ->addItem('ext.js', 'sourcemap', $context->config()->getItem('dispatch', 'opt_sourcemap', false));
+      ->addItem('ext.js', 'sourcemap', $context->config()->getItem('dispatch', 'opt-sourcemap', false));
 
     Dispatch::bind($dispatch);
   }
@@ -106,7 +107,8 @@ class MainApplication extends Application
       }
     );
 
-    foreach (glob(Path::system($this->getContext()->getProjectRoot(), 'resources/favicon/*')) as $path) {
+    foreach(glob(Path::system($this->getContext()->getProjectRoot(), 'resources/favicon/*')) as $path)
+    {
       yield self::_route(
         '/' . basename($path),
         static function () use ($path) {
@@ -131,7 +133,8 @@ class MainApplication extends Application
       )
     );
 
-    if (ValueAs::bool($this->getContext()->config()->getItem('serve', 'redirect_https'))) {
+    if(ValueAs::bool($this->getContext()->config()->getItem('serve', 'redirect_https')))
+    {
       yield InsecureRequestUpgradeRoute::i();
     }
 
@@ -145,19 +148,23 @@ class MainApplication extends Application
    */
   protected function _setupApplication(): void
   {
+    $this->getContext()->prepareTranslator('/translations/', $this->getContext()->isEnv(Context::ENV_LOCAL));
+
     $this->getCubex()->listen(
       ResponsePreSendHeadersEvent::class,
       static function (ResponsePreSendHeadersEvent $event) {
         $response = $event->getResponse();
 
-        if ($response instanceof Response) {
+        if($response instanceof Response)
+        {
           $context = $event->getContext();
           $allowed = [
             $context->request()->urlSprintf(),
             'https://fonts.googleapis.com',
           ];
 
-          if (in_array($context->request()->headers->get('origin'), $allowed, true)) {
+          if(in_array($context->request()->headers->get('origin'), $allowed, true))
+          {
             $response->headers->set('Access-Control-Allow-Origin', $context->request()->headers->get('origin'));
           }
         }

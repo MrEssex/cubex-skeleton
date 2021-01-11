@@ -1,8 +1,6 @@
 <?php
 
-
 namespace CubexBase\Application\Pages\HomePage\Ui;
-
 
 use CubexBase\Application\Pages\AbstractPage;
 use Packaged\Glimpse\Core\HtmlTag;
@@ -30,6 +28,11 @@ class HomePage extends AbstractPage
    */
   protected function _getContentForRender()
   {
-    return Div::create('Hello World');
+    return Div::create($this->_('hello_world_b10a', 'Hello World'));
+  }
+
+  public function shouldCache(): bool
+  {
+    return false;
   }
 }
