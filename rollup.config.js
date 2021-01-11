@@ -13,6 +13,7 @@ module.exports = {
     file:      './resources/main.min.js',
     format:    'iife',
     sourcemap: true,
+    name:      'main'
   },
   plugins: [
     postcss(
@@ -29,8 +30,8 @@ module.exports = {
     typescript(),
     terser({
              output: {
-               comments: false,
-             },
+               comments: false
+             }
            })
   ],
 };

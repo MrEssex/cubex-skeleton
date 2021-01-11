@@ -1,10 +1,10 @@
-import './entry.scss';
+import {Handler} from "./ts/Handlers/Handlers";
 
-class Entry {
-    constructor() {
+// Sass Main File
+import './scss/entry.scss';
 
-        console.log('Hello World');
-    }
-}
+// Import Components
+import './ts/Components/ExampleComponent';
 
-new Entry();
+new Handler();
+
