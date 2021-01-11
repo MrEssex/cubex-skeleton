@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62e82886653ce3d29e207bc5c553df93",
+    "content-hash": "eec67a3d3b491edf025c414004d02d95",
     "packages": [
         {
             "name": "cubex/framework",
@@ -536,6 +536,53 @@
                 "source": "https://github.com/packaged-ui/fontawesome/tree/master"
             },
             "time": "2019-05-30T16:09:13+00:00"
+        },
+        {
+            "name": "packaged-ui/pagelets",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/packaged-ui/pagelets.git",
+                "reference": "9b4f58162a4e0fd5949eabdaf5ef270052e59c2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/packaged-ui/pagelets/zipball/9b4f58162a4e0fd5949eabdaf5ef270052e59c2a",
+                "reference": "9b4f58162a4e0fd5949eabdaf5ef270052e59c2a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "cubex/framework": "^4.3",
+                "packaged/dispatch": "^2.10",
+                "packaged/glimpse": "^2.7",
+                "phpunit/phpunit": "^6.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PackagedUI\\Pagelets\\": "php/src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tom Kay",
+                    "email": "oridan82@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/packaged-ui/pagelets/issues",
+                "source": "https://github.com/packaged-ui/pagelets/tree/1.6.0"
+            },
+            "time": "2020-11-11T14:34:30+00:00"
         },
         {
             "name": "packaged/cassandrathrift",
@@ -4781,8 +4828,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "alpha",
     "stability-flags": {
+        "packaged-ui/pagelets": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,

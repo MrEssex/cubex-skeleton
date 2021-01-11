@@ -11,6 +11,7 @@ use Packaged\Context\Context;
 use Packaged\Context\WithContext;
 use Packaged\Context\WithContextTrait;
 use Packaged\Http\Response;
+use Packaged\Http\Responses\JsonResponse;
 use Packaged\I18n\Translatable;
 use Packaged\I18n\TranslatableTrait;
 use Packaged\I18n\Translators\Translator;
@@ -18,6 +19,7 @@ use Packaged\Routing\Handler\Handler;
 use Packaged\Routing\Route;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
+use PackagedUI\Pagelets\PageletResponse;
 use function is_array;
 use function is_scalar;
 
@@ -54,6 +56,11 @@ abstract class LayoutController extends Controller implements WithContext, Trans
     {
       $theme = new Layout();
 
+      if($result instanceof PageletResponse)
+      {
+        $result = JsonResponse::create($result);
+      }
+
       if($result instanceof PageClass)
       {
         $theme->setPageClass($result->getPageClass());
@@ -64,7 +71,7 @@ abstract class LayoutController extends Controller implements WithContext, Trans
 
       $theme->setContext($this->getContext())->setContent($result);
 
-      if($result->shouldCache())
+      if($result instanceof PageClass && $result->shouldCache())
       {
         MainApplication::$_cache->set($path . $language, $theme->produceSafeHTML());
       }

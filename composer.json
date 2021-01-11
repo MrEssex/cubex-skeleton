@@ -3,6 +3,7 @@
   "description": "Base for Cubex Projects",
   "type": "project",
   "license": "MIT",
+  "minimum-stability": "alpha",
   "authors": [
     {
       "name": "Kyle Essex",
@@ -28,6 +29,7 @@
     "mressex/file-cache": "^0.1.0",
     "packaged-ui/bem-component": "^1.1",
     "packaged-ui/fontawesome": "^3.5.0",
+    "packaged-ui/pagelets": "dev-master",
     "packaged/dal": "^1.9",
     "packaged/dispatch": "^2.11.0",
     "packaged/glimpse": "^2.7",
