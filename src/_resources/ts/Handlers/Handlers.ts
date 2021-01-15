@@ -1,4 +1,4 @@
-export class Handler {
+class Handler {
 
     public constructor() {
         for (let handler of this.getHandlers()) {
@@ -10,3 +10,5 @@ export class Handler {
         return [];
     }
 }
+
+new Handler()

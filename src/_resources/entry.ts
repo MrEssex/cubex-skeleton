@@ -1,10 +1,8 @@
-import {Handler} from "./ts/Handlers/Handlers";
-
 // Sass Main File
-import './scss/entry.scss';
+import './scss/application.scss';
+
+// Import Handler
+import './ts/Handlers/Handlers';
 
 // Import Components
 import './ts/Components/ExampleComponent';
-
-new Handler();
-

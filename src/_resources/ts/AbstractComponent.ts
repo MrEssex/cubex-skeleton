@@ -1,6 +1,9 @@
 export abstract class AbstractComponent {
-    public static selector: string;
+    
     protected componentElement: Element;
+
+    // The Selector this Component Refers to using QuerySelector; e.g .block__element
+    public static selector: string;
 
     public constructor(element: Element) {
         this.componentElement = element;
