@@ -19,11 +19,6 @@ class Article extends AbstractDao
   public $title;
   public $content;
   public $slug;
-  public $metaTitle;
-  public $metaDescription;
-  public $active;
-  public $thumbnailPath;
-  public $displayDate;
   public $created;
   public $updated;
   public $deleted;

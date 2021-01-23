@@ -1,8 +1,4 @@
 <?php
-
-
 return [
-  'hello_world_b10a' => [
-    '_' => 'Hello Bitch',
-],
+'hello_world_b10a' => ['_' => 'Hello World'],
 ];

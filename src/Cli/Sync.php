@@ -33,6 +33,7 @@ class Sync extends ConsoleCommand
     $output->writeln("Syncing all the things");
 
     $dataDir = Path::system($this->getContext()->getProjectRoot(), 'data');
+
     // Articles
     $articlesDir = $this->_assertDir(Path::system($dataDir, 'articles'));
 
