@@ -3,6 +3,7 @@ import typescript from 'rollup-plugin-typescript2';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
+import postcssDiscardComments from 'postcss-discard-comments';
 import postcssPresetEnv from 'postcss-preset-env/index.js';
 
 process.chdir(__dirname);
@@ -22,6 +23,7 @@ module.exports = {
         minimize: true,
         plugins: [
           postcssPresetEnv({browsers: ['defaults', 'not ie > 0']}),
+          postcssDiscardComments({removeAll: true})
         ],
         sourceMap: true,
       }),
