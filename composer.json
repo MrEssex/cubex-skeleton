@@ -42,7 +42,6 @@
     "packaged/rwd": "^1.4.2",
     "matomo/device-detector": "^4.1.0",
     "statickidz/php-google-translate-free": "^1.1.1",
-    "ext-dom": "*"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"
