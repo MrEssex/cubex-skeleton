@@ -4,7 +4,6 @@ namespace CubexBase\Application;
 
 use Exception;
 use Packaged\Dispatch\ResourceManager;
-use PackagedUi\FontAwesome\FaIcon;
 
 /**
  * Class Ui
@@ -32,7 +31,6 @@ class Ui
   public static function requireCss(): void
   {
     ResourceManager::resources()->requireCss(self::FILE_BASE_CSS);
-    ResourceManager::vendor('packaged-ui', 'fontawesome')->requireCss(FaIcon::CSS_PATH);
   }
 
   /**
