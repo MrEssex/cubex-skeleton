@@ -17,26 +17,31 @@
   },
   "autoload": {
     "psr-4": {
-      "CubexBase\\Application\\": "src"
+      "CubexBase\\Application\\": "src",
+      "CubexBase\\ApiTransport\\": "transport"
     }
   },
   "require": {
     "php": ">=7.4",
     "ext-apcu": "*",
     "ext-json": "*",
+    "cubex/api-foundation": "^0.3.0",
     "cubex/framework": "~4.0",
-    "statickidz/php-google-translate-free": "^1.1.1",
     "filp/whoops": "^2.3",
-    "maxmind-db/reader": "^v1.9.0",
+    "firebase/php-jwt": "^5.2",
+    "geoip2/geoip2": "^v2.11.0",
     "mressex/file-cache": "^0.1.0",
     "packaged-ui/bem-component": "^1.1",
     "packaged-ui/fontawesome": "^3.5.0",
     "packaged-ui/pagelets": "dev-master",
     "packaged/dal": "^1.9",
     "packaged/dispatch": "^2.11.0",
+    "packaged/form": "^3.3.0",
     "packaged/glimpse": "^2.7",
     "packaged/http": "^1.16",
-    "packaged/rwd": "^1.4.2"
+    "packaged/rwd": "^1.4.2",
+    "matomo/device-detector": "^4.1.0",
+    "statickidz/php-google-translate-free": "^1.1.1"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"

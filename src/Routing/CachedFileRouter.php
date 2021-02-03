@@ -30,7 +30,7 @@ class CachedFileRouter implements Condition, RouteCompleter
   /**
    * @return static
    */
-  public static function i()
+  public static function i(): CachedFileRouter
   {
     return new static();
   }

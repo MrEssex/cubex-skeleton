@@ -10,17 +10,18 @@ use Packaged\Context\Context;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
-/** @var string $projectRoot */
 $projectRoot = dirname(__DIR__);
+
 /** @var ClassLoader $loader */
 $loader = require($projectRoot . '/vendor/autoload.php');
 
+$cubex = Cubex::withCustomContext(FContext::class, $projectRoot, $loader);
+
 try {
-  $cubex = Cubex::withCustomContext(FContext::class, $projectRoot, $loader);
   $cubex->handle(new MainApplication($cubex), true);
 }
 catch (Throwable $e) {
-  if ($cubex && $cubex->getContext()->isEnv(Context::ENV_LOCAL)) {
+  if ($cubex->getContext()->isEnv(Context::ENV_LOCAL)) {
     $handler = new Run();
     $handler->pushHandler(new PrettyPageHandler());
     $handler->handleException($e);
@@ -32,6 +33,12 @@ catch (Throwable $e) {
 }
 finally {
   if ($cubex instanceof Cubex) {
-    $cubex->shutdown();
+    try
+    {
+      $cubex->shutdown();
+    }
+    catch(Exception $e)
+    {
+    }
   }
 }

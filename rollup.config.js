@@ -28,10 +28,6 @@ module.exports = {
     resolve({browser: true, preferBuiltins: false}),
     commonjs(),
     typescript(),
-    terser({
-             output: {
-               comments: false
-             }
-           })
+    terser()
   ],
 };

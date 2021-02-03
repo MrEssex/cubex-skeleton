@@ -5,6 +5,7 @@ use Cubex\Console\ConsoleCommand;
 use Exception;
 use Packaged\Helpers\ValueAs;
 use Packaged\I18n\Tools\Gettext\PoFile;
+use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -75,7 +76,7 @@ abstract class PoToArrayCommand extends ConsoleCommand
   {
     if(!file_exists($source))
     {
-      throw new Exception("Unable to find $source");
+      throw new RuntimeException("Unable to find $source");
     }
 
     $po = PoFile::fromString(file_get_contents($source));
@@ -107,7 +108,7 @@ abstract class PoToArrayCommand extends ConsoleCommand
   {
     return preg_replace_callback(
       "/(&#[\d]+;)/",
-      function ($m) { return mb_convert_encoding($m[1], "UTF-8", "HTML-ENTITIES"); },
+      static function ($m) { return mb_convert_encoding($m[1], "UTF-8", "HTML-ENTITIES"); },
       $str
     );
   }

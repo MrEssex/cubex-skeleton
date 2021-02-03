@@ -7,10 +7,7 @@ namespace CubexBase\Application\Layout;
 use CubexBase\Application\Ui;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
-use Packaged\Dispatch\ResourceManager;
-use Packaged\Dispatch\ResourceStore;
 use Packaged\Ui\Element;
-use PackagedUi\FontAwesome\FaIcon;
 use Throwable;
 
 /**
@@ -40,7 +37,7 @@ class Layout extends Element implements ContextAware
   /**
    * @return object
    */
-  public function getContent()
+  public function getContent(): object
   {
     return $this->_content;
   }

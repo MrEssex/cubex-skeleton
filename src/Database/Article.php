@@ -4,7 +4,7 @@
 namespace CubexBase\Application\Database;
 
 use Cubex\Cache\Apc;
-use DateTime;
+use Exception;
 use Packaged\Context\ContextAware;
 
 use function glob;
@@ -25,7 +25,9 @@ class Article extends AbstractDao
 
   /**
    * @param ContextAware $ctx
+   *
    * @return array
+   * @throws Exception
    */
   public static function allCached(ContextAware $ctx): array
   {

@@ -3,6 +3,7 @@
 namespace CubexBase\Application;
 
 use Cubex\I18n\GetTranslatorTrait;
+use CubexBase\Application\Context\Context;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
 use Packaged\Context\WithContext;
@@ -16,6 +17,8 @@ use PackagedUi\BemComponent\BemComponentTrait;
 /**
  * Class AbstractBase
  * @package CubexBase\Application
+ *
+ * @method Context getContext(): Context
  */
 abstract class AbstractBase extends TemplatedHtmlElement
   implements WithContext, ContextAware, BemComponent, Translatable

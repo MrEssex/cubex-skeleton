@@ -5,7 +5,6 @@ namespace CubexBase\Application\Pages;
 
 
 use CubexBase\Application\AbstractBase;
-use Packaged\Context\Context;
 
 /**
  * Class AbstractPageClass

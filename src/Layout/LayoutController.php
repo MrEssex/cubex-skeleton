@@ -2,9 +2,11 @@
 
 namespace CubexBase\Application\Layout;
 
-use Cubex\Controller\Controller;
+use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
+use CubexBase\Application\Context\Context as CBContext;
 use CubexBase\Application\MainApplication;
+use CubexBase\Application\Pages\AbstractPage;
 use CubexBase\Application\Pages\PageClass;
 use Generator;
 use Packaged\Context\Context;
@@ -16,6 +18,7 @@ use Packaged\I18n\Translatable;
 use Packaged\I18n\TranslatableTrait;
 use Packaged\I18n\Translators\Translator;
 use Packaged\Routing\Handler\Handler;
+use Packaged\Routing\HealthCheckCondition;
 use Packaged\Routing\Route;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
@@ -26,9 +29,9 @@ use function is_scalar;
 /**
  * Class AbstractController
  * @package CubexBase\Application\Controller
- * @method \CubexBase\Application\Context\Context getContext() : Context
+ * @method CBContext getContext() : Context
  */
-abstract class LayoutController extends Controller implements WithContext, Translatable, Translator
+abstract class LayoutController extends AuthedController implements WithContext, Translatable, Translator
 {
 
   use GetTranslatorTrait;
@@ -40,6 +43,7 @@ abstract class LayoutController extends Controller implements WithContext, Trans
    */
   protected function _generateRoutes()
   {
+    yield self::_route('hc', HealthCheckCondition::i());
     return '';
   }
 
@@ -50,7 +54,7 @@ abstract class LayoutController extends Controller implements WithContext, Trans
    *
    * @return mixed|Response
    */
-  protected function _prepareResponse(Context $c, $result, $buffer = null)
+  protected function _prepareResponse(Context $c, $result, $buffer = null): Response
   {
     if(($result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result)))
     {
@@ -71,7 +75,7 @@ abstract class LayoutController extends Controller implements WithContext, Trans
 
       $theme->setContext($this->getContext())->setContent($result);
 
-      if($result instanceof PageClass && $result->shouldCache())
+      if($result instanceof AbstractPage && $result->shouldCache())
       {
         MainApplication::$_cache->set($path . $language, $theme->produceSafeHTML());
       }

@@ -42,7 +42,7 @@ class AutoTranslate
 
     if(static::$_client instanceof GoogleTranslate)
     {
-      $text = static::$_client->translate('en', $languageCode, $text);
+      $text = static::$_client::Translate('en', $languageCode, $text);
     }
 
     return $text;

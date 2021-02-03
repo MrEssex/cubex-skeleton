@@ -24,9 +24,9 @@ $store = Dispatch::instance()->store();
 </head>
 <body class="<?= $this->getPageClass() ?>">
 
-<?= $this->getContent(); ?>
+<?= $this->getContent() ?>
 
 <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, ResourceStore::PRIORITY_LOW) ?>
-<?= $store->generateHtmlIncludes(ResourceStore::TYPE_JS); ?>
+<?= $store->generateHtmlIncludes(ResourceStore::TYPE_JS) ?>
 </body>
 </html>

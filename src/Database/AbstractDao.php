@@ -40,7 +40,7 @@ class AbstractDao extends QlDao
    */
   public static function fromJson($path): object
   {
-    return Objects::hydrate(new static(true), json_decode(file_get_contents($path)));
+    return Objects::hydrate(new static(true), json_decode(file_get_contents($path), true, 512, JSON_THROW_ON_ERROR));
   }
 
   /**
@@ -50,7 +50,7 @@ class AbstractDao extends QlDao
    */
   public static function collectionFromJson($path): array
   {
-    $entries = json_decode(file_get_contents($path));
+    $entries = json_decode(file_get_contents($path), true, 512, JSON_THROW_ON_ERROR);
     $result = [];
     foreach ($entries as $k => $entry) {
       $result[$k] = Objects::hydrate(new static(), $entry);
@@ -59,9 +59,9 @@ class AbstractDao extends QlDao
   }
 
   /**
-   * @return mixed|string
+   * @return string
    */
-  public function getTableName()
+  public function getTableName(): string
   {
     return Strings::stringToUnderScore(Strings::splitOnCamelCase(Objects::classShortname($this)));
   }
