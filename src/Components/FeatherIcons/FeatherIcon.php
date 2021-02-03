@@ -76,13 +76,14 @@ class FeatherIcon extends AbstractComponent
    */
   private function _loadSVGContent(string $filename): string
   {
-    $key = 'icons:' . $filename;
+    $key = 'feather-icons:' . $filename;
 
     if(!apcu_exists($key))
     {
       $fileContents = file_get_contents($this->_resources . $filename . '.svg');
       preg_match('/<svg.*?>(.*?)<\/svg>/m', $fileContents, $matches);
       apcu_add($key, $matches[1], 60 * 60);
+      return $matches[1];
     }
 
     return apcu_fetch($key);
