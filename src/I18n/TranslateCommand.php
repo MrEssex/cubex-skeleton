@@ -1,4 +1,5 @@
 <?php
+
 namespace CubexBase\Application\I18n;
 
 use Cubex\Console\ConsoleCommand;
@@ -32,22 +33,18 @@ abstract class TranslateCommand extends ConsoleCommand
   {
     $transDir = $this->_translationsDir();
 
-    if(!$this->lang && $this->common)
-    {
+    if (!$this->lang && $this->common) {
       $this->lang = AutoTranslate::$common;
     }
 
-    foreach(ValueAs::arr($this->lang) as $lang)
-    {
+    foreach (ValueAs::arr($this->lang) as $lang) {
       $poLoc = $transDir . $lang . '.po';
 
       $poEdit = file_exists($poLoc) ? PoFile::fromString(file_get_contents($poLoc)) : new PoFile($lang);
       $template = DynamicArrayCatalog::fromFile($transDir . '_tpl.php');
 
-      foreach($template->getData() as $mid => $options)
-      {
-        if($poEdit->getTranslation($mid) instanceof PoTranslation)
-        {
+      foreach ($template->getData() as $mid => $options) {
+        if ($poEdit->getTranslation($mid) instanceof PoTranslation) {
           //Trust the existing po translation is correct
           continue;
         }
@@ -59,16 +56,14 @@ abstract class TranslateCommand extends ConsoleCommand
         //New translation, needs work
         $tran->setNeedsWork(true);
 
-        if(isset($options[Message::DEFAULT_OPTION]) && !empty($options[Message::DEFAULT_OPTION]))
-        {
+        if (isset($options[Message::DEFAULT_OPTION]) && !empty($options[Message::DEFAULT_OPTION])) {
           $tran->setComments(explode(PHP_EOL, $options[Message::DEFAULT_OPTION]));
           $tran->setSingularSource($this->_getTranslation($options[Message::DEFAULT_OPTION], LanguageCode::CODE_EN));
           $tran->setSingularTranslation($this->_getTranslation($options[Message::DEFAULT_OPTION], $lang));
           unset($options[Message::DEFAULT_OPTION]);
         }
 
-        if(isset($options['n']))
-        {
+        if (isset($options['n'])) {
           $tran->setPluralSource($mid . '__plural');
           $tran->setPluralTranslation($options['n']);
           unset($options['n']);

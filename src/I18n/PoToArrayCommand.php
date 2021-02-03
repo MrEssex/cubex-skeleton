@@ -1,4 +1,5 @@
 <?php
+
 namespace CubexBase\Application\I18n;
 
 use Cubex\Console\ConsoleCommand;
@@ -39,7 +40,7 @@ abstract class PoToArrayCommand extends ConsoleCommand
   abstract protected function _translationsDir(): string;
 
   /**
-   * @param InputInterface  $input
+   * @param InputInterface $input
    * @param OutputInterface $output
    *
    * @throws Exception
@@ -48,20 +49,16 @@ abstract class PoToArrayCommand extends ConsoleCommand
   {
     $transDir = $this->_translationsDir();
 
-    if(!$this->lang && $this->common)
-    {
+    if (!$this->lang && $this->common) {
       $this->lang = AutoTranslate::$common;
     }
 
-    if($this->lang)
-    {
-      foreach(ValueAs::arr($this->lang) as $lang)
-      {
+    if ($this->lang) {
+      foreach (ValueAs::arr($this->lang) as $lang) {
         $this->_processLanguage($transDir . $lang . '.po', $transDir . $lang . '.php');
       }
     }
-    else
-    {
+    else {
       $this->_processLanguage($this->file, $this->output);
     }
   }
@@ -74,20 +71,16 @@ abstract class PoToArrayCommand extends ConsoleCommand
    */
   protected function _processLanguage($source, $output): void
   {
-    if(!file_exists($source))
-    {
+    if (!file_exists($source)) {
       throw new RuntimeException("Unable to find $source");
     }
 
     $po = PoFile::fromString(file_get_contents($source));
 
     $out = ["<?php", "return ["];
-    foreach($po->getTranslations() as $translation)
-    {
-      foreach($translation->getReferences() as $ref)
-      {
-        if($translation->getSingularTranslation())
-        {
+    foreach ($po->getTranslations() as $translation) {
+      foreach ($translation->getReferences() as $ref) {
+        if ($translation->getSingularTranslation()) {
           $out[] = "'" . $ref . "' => ['_' => '"
             . addcslashes(stripslashes($this->_toTranslation($translation->getSingularTranslation())), "'")
             . "'],";
@@ -108,7 +101,9 @@ abstract class PoToArrayCommand extends ConsoleCommand
   {
     return preg_replace_callback(
       "/(&#[\d]+;)/",
-      static function ($m) { return mb_convert_encoding($m[1], "UTF-8", "HTML-ENTITIES"); },
+      static function ($m) {
+        return mb_convert_encoding($m[1], "UTF-8", "HTML-ENTITIES");
+      },
       $str
     );
   }

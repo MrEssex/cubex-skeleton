@@ -566,11 +566,6 @@ define-properties@^1.1.3:
   dependencies:
     object-keys "^1.0.12"
 
-destyle.css@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/destyle.css/-/destyle.css-2.0.2.tgz#62ab5aff32ce527b7fa624aab36d1c11a86b6011"
-  integrity sha512-w2xDMPePSAdSuz0h7Ad0m4QITlF1iG4U+0C0Y6Z5w05IBUHYOP3p7QyiZcc3OY+NcJiXBPgfARUsc5zfCGoahA==
-
 dom-serializer@0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.2.2.tgz#1afb81f533717175d478655debc5e332d9f9bb51"
@@ -1199,6 +1194,11 @@ normalize-url@^3.0.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
+
+normalize.css@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
+  integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
 
 nth-check@^1.0.2:
   version "1.0.2"

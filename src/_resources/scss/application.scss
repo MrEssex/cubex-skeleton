@@ -1,5 +1,5 @@
-// Reset
-//@use "~destyle.css/destyle.css";
+// Base
+@use "~normalize.css/normalize.css";
 
 // Components
 @use '_components/feather';

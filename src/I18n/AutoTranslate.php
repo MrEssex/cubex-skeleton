@@ -1,4 +1,5 @@
 <?php
+
 namespace CubexBase\Application\I18n;
 
 use Packaged\Context\Context;
@@ -30,18 +31,15 @@ class AutoTranslate
    */
   public static function translate(Context $ctx, $text, $languageCode): string
   {
-    if(empty($text) || $languageCode === LanguageCode::CODE_EN)
-    {
+    if (empty($text) || $languageCode === LanguageCode::CODE_EN) {
       return $text;
     }
 
-    if(static::$_client === null)
-    {
+    if (static::$_client === null) {
       static::$_client = new GoogleTranslate();
     }
 
-    if(static::$_client instanceof GoogleTranslate)
-    {
+    if (static::$_client instanceof GoogleTranslate) {
       $text = static::$_client::Translate('en', $languageCode, $text);
     }
 

@@ -8,19 +8,19 @@ import postcssPresetEnv from 'postcss-preset-env/index.js';
 process.chdir(__dirname);
 
 module.exports = {
-  input:   './src/_resources/entry.ts',
-  output:  {
-    file:      './resources/main.min.js',
-    format:    'iife',
+  input: './src/_resources/entry.ts',
+  output: {
+    file: './resources/main.min.js',
+    format: 'iife',
     sourcemap: true,
-    name:      'main'
+    name: 'main'
   },
   plugins: [
     postcss(
       {
-        extract:   true,
-        minimize:  true,
-        plugins:   [
+        extract: true,
+        minimize: true,
+        plugins: [
           postcssPresetEnv({browsers: ['defaults', 'not ie > 0']}),
         ],
         sourceMap: true,
@@ -28,6 +28,10 @@ module.exports = {
     resolve({browser: true, preferBuiltins: false}),
     commonjs(),
     typescript(),
-    terser()
+    terser({
+      format: {
+        comments: false,
+      }
+    })
   ],
 };

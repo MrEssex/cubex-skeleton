@@ -1,27 +1,14 @@
 {
   "name": "mr-essex/cubex-base",
-  "description": "Base for Cubex Projects",
   "type": "project",
+  "description": "Base for Cubex Projects",
   "license": "MIT",
-  "minimum-stability": "alpha",
   "authors": [
     {
       "name": "Kyle Essex",
       "email": "kylegavinessex@hotmail.com"
     }
   ],
-  "config": {
-    "sort-packages": true,
-    "optimize-autoloader": true,
-    "preferred-install": "auto"
-  },
-  "autoload": {
-    "psr-4": {
-      "CubexBase\\Application\\": "src",
-      "CubexBase\\ApiTransport\\": "transport",
-      "CubexBase\\StyleGuide\\": "styleguide"
-    }
-  },
   "require": {
     "php": ">=7.4",
     "ext-apcu": "*",
@@ -31,6 +18,7 @@
     "filp/whoops": "^2.3",
     "firebase/php-jwt": "^5.2",
     "geoip2/geoip2": "^v2.11.0",
+    "matomo/device-detector": "^4.1.0",
     "mressex/file-cache": "^0.1.0",
     "packaged-ui/bem-component": "^1.1",
     "packaged-ui/pagelets": "dev-master",
@@ -41,10 +29,22 @@
     "packaged/glimpse": "^2.7",
     "packaged/http": "^1.16",
     "packaged/rwd": "^1.4.2",
-    "matomo/device-detector": "^4.1.0",
     "statickidz/php-google-translate-free": "^1.1.1"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"
-  }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "auto",
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "CubexBase\\Application\\": "src",
+      "CubexBase\\ApiTransport\\": "transport",
+      "CubexBase\\StyleGuide\\": "styleguide"
+    }
+  },
+  "minimum-stability": "alpha"
 }
