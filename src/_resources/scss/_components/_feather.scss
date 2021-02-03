@@ -1,0 +1,11 @@
+$this: '.feather';
+
+#{$this} {
+  margin: 0 5px;
+  position: relative;
+
+  p & {
+    top: 2px;
+  }
+
+}

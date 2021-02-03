@@ -27,7 +27,7 @@
     "ext-apcu": "*",
     "ext-json": "*",
     "cubex/api-foundation": "^0.3.0",
-    "cubex/framework": "~4.0",
+    "cubex/framework": "^4.15.0",
     "filp/whoops": "^2.3",
     "firebase/php-jwt": "^5.2",
     "geoip2/geoip2": "^v2.11.0",
@@ -41,7 +41,8 @@
     "packaged/http": "^1.16",
     "packaged/rwd": "^1.4.2",
     "matomo/device-detector": "^4.1.0",
-    "statickidz/php-google-translate-free": "^1.1.1"
+    "statickidz/php-google-translate-free": "^1.1.1",
+    "ext-dom": "*"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"
