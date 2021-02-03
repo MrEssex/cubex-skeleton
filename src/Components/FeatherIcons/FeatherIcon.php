@@ -38,9 +38,9 @@ class FeatherIcon extends AbstractComponent
   /**
    * FeatherIcon constructor.
    *
-   * @param string $filename
+   * @param FeatherIcons $filename
    */
-  public function __construct(string $filename)
+  public function __construct(FeatherIcons $filename)
   {
     $this->_filename = $filename;
     $this->setAttributes(

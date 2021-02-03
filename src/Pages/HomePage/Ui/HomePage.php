@@ -3,6 +3,7 @@
 namespace CubexBase\Application\Pages\HomePage\Ui;
 
 use CubexBase\Application\Components\FeatherIcons\FeatherIcon;
+use CubexBase\Application\Components\FeatherIcons\FeatherIcons;
 use CubexBase\Application\Pages\AbstractPage;
 use Packaged\Glimpse\Core\HtmlTag;
 use Packaged\Glimpse\Tags\Div;
@@ -36,7 +37,7 @@ class HomePage extends AbstractPage
       Div::create($this->_('hello_world_b10a', 'Hello World')),
       LineBreak::create(),
       Paragraph::create(
-        FeatherIcon::withContext($this, 'activity'),
+        FeatherIcon::withContext($this, FeatherIcons::ACTIVITY()),
         'This is something'
       ),
       HeadingTwo::create('User Ip Information'),

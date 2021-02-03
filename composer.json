@@ -36,12 +36,13 @@
     "packaged-ui/pagelets": "dev-master",
     "packaged/dal": "^1.9",
     "packaged/dispatch": "^2.11.0",
+    "packaged/enum": "^1.4.0",
     "packaged/form": "^3.3.0",
     "packaged/glimpse": "^2.7",
     "packaged/http": "^1.16",
     "packaged/rwd": "^1.4.2",
     "matomo/device-detector": "^4.1.0",
-    "statickidz/php-google-translate-free": "^1.1.1",
+    "statickidz/php-google-translate-free": "^1.1.1"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"

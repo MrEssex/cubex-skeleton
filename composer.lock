@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f51271821d1cd235a904e56135551fce",
+    "content-hash": "e555681c1651f1e9cca7cd3d4ecb634d",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1019,50 +1019,6 @@
                 "source": "https://github.com/packaged-ui/bem-component/tree/1.2.1"
             },
             "time": "2020-12-02T12:46:21+00:00"
-        },
-        {
-            "name": "packaged-ui/fontawesome",
-            "version": "3.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/packaged-ui/fontawesome.git",
-                "reference": "567642ce4fca5417086db3a085360f849795d945"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/packaged-ui/fontawesome/zipball/567642ce4fca5417086db3a085360f849795d945",
-                "reference": "567642ce4fca5417086db3a085360f849795d945",
-                "shasum": ""
-            },
-            "require": {
-                "packaged/enum": "~1.0",
-                "packaged/glimpse": "^0.8||^1.0||^2.0",
-                "packaged/helpers": "^1.0||^2.0",
-                "packaged/safehtml": "^1.0||^2.0",
-                "php": ">=7.1"
-            },
-            "require-dev": {
-                "fortawesome/font-awesome": "^5.7",
-                "phpunit/phpunit": "^5.7.0",
-                "symfony/yaml": "4.1.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "PackagedUi\\FontAwesome\\": "src/",
-                    "PackagedUi\\Tests\\FontAwesome\\": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Fontawesome icon creation helper",
-            "support": {
-                "issues": "https://github.com/packaged-ui/fontawesome/issues",
-                "source": "https://github.com/packaged-ui/fontawesome/tree/master"
-            },
-            "time": "2019-05-30T16:09:13+00:00"
         },
         {
             "name": "packaged-ui/pagelets",
