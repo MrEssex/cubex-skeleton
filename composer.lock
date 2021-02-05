@@ -782,16 +782,16 @@
         },
         {
             "name": "mressex/file-cache",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MrEssex/cache.git",
-                "reference": "5bc1fb10fc330104efedf6b6fb92ceaa1a1adb96"
+                "reference": "d7ff5b1dede3b6b00cf8c3a0a7a5f61bfed70f7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MrEssex/cache/zipball/5bc1fb10fc330104efedf6b6fb92ceaa1a1adb96",
-                "reference": "5bc1fb10fc330104efedf6b6fb92ceaa1a1adb96",
+                "url": "https://api.github.com/repos/MrEssex/cache/zipball/d7ff5b1dede3b6b00cf8c3a0a7a5f61bfed70f7b",
+                "reference": "d7ff5b1dede3b6b00cf8c3a0a7a5f61bfed70f7b",
                 "shasum": ""
             },
             "require": {
@@ -829,9 +829,9 @@
             ],
             "support": {
                 "issues": "https://github.com/MrEssex/cache/issues",
-                "source": "https://github.com/MrEssex/cache/tree/0.2.0"
+                "source": "https://github.com/MrEssex/cache/tree/0.2.1"
             },
-            "time": "2021-02-05T15:39:26+00:00"
+            "time": "2021-02-05T15:52:03+00:00"
         },
         {
             "name": "mustangostang/spyc",
