@@ -8,7 +8,8 @@ use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
 use CubexBase\Application\Routing\Router;
 use Exception;
 use Generator;
-use MrEssex\FileCache\FileCache;
+use MrEssex\FileCache\AbstractCache;
+use MrEssex\FileCache\ApcuCache;
 use Packaged\Context\Context;
 use Packaged\Dispatch\Dispatch;
 use Packaged\Dispatch\Resources\ResourceFactory;
@@ -20,8 +21,10 @@ use Packaged\Routing\Handler\Handler;
 use Packaged\Routing\HealthCheckCondition;
 use Packaged\Routing\Route;
 use Packaged\Routing\Routes\InsecureRequestUpgradeRoute;
+use Psr\SimpleCache\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Response as SResponse;
 use Throwable;
+
 use function basename;
 use function glob;
 use function in_array;
@@ -36,29 +39,30 @@ class MainApplication extends Application
 
   /** @var string */
   private const DISPATCH_PATH = '/_res';
-  private const FILE_CACHE_TTL = '30'; // Seconds
-  /** @var FileCache */
-  public static FileCache $_cache;
+  /** @var string */
+  public const FILE_CACHE_TTL = '30'; // Seconds
+  /** @var AbstractCache */
+  public static AbstractCache $_cache;
 
   public function __construct(Cubex $cubex)
   {
     parent::__construct($cubex);
-    self::$_cache = new FileCache(null, self::FILE_CACHE_TTL);
+//    self::$_cache = new FileCache(null, self::FILE_CACHE_TTL);
+    self::$_cache = new ApcuCache();
   }
 
   /**
    * @param Context $c
    *
    * @return SResponse
-   * @throws Throwable
+   * @throws Throwable|InvalidArgumentException
    */
   public function handle(Context $c): SResponse
   {
     $path = $c->request()->getRequestUri();
     $language = $c->request()->getPreferredLanguage();
 
-    if(self::$_cache->has($path . $language))
-    {
+    if (self::$_cache->has($path . $language)) {
       return $this->_prepareResponse($c, new Response(self::$_cache->get($path . $language)));
     }
 
@@ -107,8 +111,7 @@ class MainApplication extends Application
       }
     );
 
-    foreach(glob(Path::system($this->getContext()->getProjectRoot(), 'resources/favicon/*')) as $path)
-    {
+    foreach (glob(Path::system($this->getContext()->getProjectRoot(), 'resources/favicon/*')) as $path) {
       yield self::_route(
         '/' . basename($path),
         static function () use ($path) {
@@ -133,8 +136,7 @@ class MainApplication extends Application
       )
     );
 
-    if(ValueAs::bool($this->getContext()->config()->getItem('serve', 'redirect_https')))
-    {
+    if (ValueAs::bool($this->getContext()->config()->getItem('serve', 'redirect_https'))) {
       yield InsecureRequestUpgradeRoute::i();
     }
 
@@ -155,16 +157,14 @@ class MainApplication extends Application
       static function (ResponsePreSendHeadersEvent $event) {
         $response = $event->getResponse();
 
-        if($response instanceof Response)
-        {
+        if ($response instanceof Response) {
           $context = $event->getContext();
           $allowed = [
             $context->request()->urlSprintf(),
             'https://fonts.googleapis.com',
           ];
 
-          if(in_array($context->request()->headers->get('origin'), $allowed, true))
-          {
+          if (in_array($context->request()->headers->get('origin'), $allowed, true)) {
             $response->headers->set('Access-Control-Allow-Origin', $context->request()->headers->get('origin'));
           }
         }

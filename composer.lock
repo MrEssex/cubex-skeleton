@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd4721a51b5a6b8526379790145b89e4",
+    "content-hash": "3b922342d59b511f6146c0c0f9b09046",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -782,21 +782,26 @@
         },
         {
             "name": "mressex/file-cache",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/MrEssex/file-cache.git",
-                "reference": "4beef2850456081a426d9afcc426ea7125401f8a"
+                "url": "https://github.com/MrEssex/cache.git",
+                "reference": "5bc1fb10fc330104efedf6b6fb92ceaa1a1adb96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MrEssex/file-cache/zipball/4beef2850456081a426d9afcc426ea7125401f8a",
-                "reference": "4beef2850456081a426d9afcc426ea7125401f8a",
+                "url": "https://api.github.com/repos/MrEssex/cache/zipball/5bc1fb10fc330104efedf6b6fb92ceaa1a1adb96",
+                "reference": "5bc1fb10fc330104efedf6b6fb92ceaa1a1adb96",
                 "shasum": ""
             },
             "require": {
-                "phpunit/phpunit": "^9.2",
+                "ext-apcu": "*",
+                "php": "^7.4",
+                "phpunit/phpunit": "^9.5.2",
                 "psr/simple-cache": "^1.0"
+            },
+            "provide": {
+                "psr/simple-cache-implementation": "^1.0"
             },
             "require-dev": {
                 "roave/security-advisories": "dev-master"
@@ -809,16 +814,24 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
                     "name": "Kyle Essex"
                 }
             ],
+            "description": "Different PSR-16 cache implementations ",
+            "keywords": [
+                "cache",
+                "caching"
+            ],
             "support": {
-                "issues": "https://github.com/MrEssex/file-cache/issues",
-                "source": "https://github.com/MrEssex/file-cache/tree/0.1.0"
+                "issues": "https://github.com/MrEssex/cache/issues",
+                "source": "https://github.com/MrEssex/cache/tree/0.2.0"
             },
-            "time": "2021-01-06T21:58:44+00:00"
+            "time": "2021-02-05T15:39:26+00:00"
         },
         {
             "name": "mustangostang/spyc",
@@ -1244,16 +1257,16 @@
         },
         {
             "name": "packaged/dal",
-            "version": "1.9.10",
+            "version": "1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/packaged/dal.git",
-                "reference": "b0afc0deb14485c960f1d62939196b606d49ff02"
+                "reference": "99682fceeeeb5515e8b59b47601ddb24fad69131"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/packaged/dal/zipball/b0afc0deb14485c960f1d62939196b606d49ff02",
-                "reference": "b0afc0deb14485c960f1d62939196b606d49ff02",
+                "url": "https://api.github.com/repos/packaged/dal/zipball/99682fceeeeb5515e8b59b47601ddb24fad69131",
+                "reference": "99682fceeeeb5515e8b59b47601ddb24fad69131",
                 "shasum": ""
             },
             "require": {
@@ -1268,7 +1281,10 @@
                 "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "~5"
+                "phpunit/phpunit": "~7"
+            },
+            "suggest": {
+                "ext-apcu": "*"
             },
             "type": "library",
             "autoload": {
@@ -1289,9 +1305,9 @@
             "description": "Data Access Layer",
             "support": {
                 "issues": "https://github.com/packaged/dal/issues",
-                "source": "https://github.com/packaged/dal/tree/1.9.10"
+                "source": "https://github.com/packaged/dal/tree/1.11.1"
             },
-            "time": "2020-07-27T11:21:04+00:00"
+            "time": "2021-02-04T22:01:00+00:00"
         },
         {
             "name": "packaged/di-container",

@@ -23,6 +23,8 @@ use Packaged\Routing\Route;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
 use PackagedUI\Pagelets\PageletResponse;
+use Psr\SimpleCache\InvalidArgumentException;
+
 use function is_array;
 use function is_scalar;
 
@@ -49,24 +51,22 @@ abstract class LayoutController extends AuthedController implements WithContext,
 
   /**
    * @param Context $c
-   * @param mixed   $result
-   * @param null    $buffer
+   * @param mixed $result
+   * @param null $buffer
    *
    * @return mixed|Response
+   * @throws InvalidArgumentException
    */
   protected function _prepareResponse(Context $c, $result, $buffer = null): Response
   {
-    if(($result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result)))
-    {
+    if (($result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result))) {
       $theme = new Layout();
 
-      if($result instanceof PageletResponse)
-      {
+      if ($result instanceof PageletResponse) {
         $result = JsonResponse::create($result);
       }
 
-      if($result instanceof PageClass)
-      {
+      if ($result instanceof PageClass) {
         $theme->setPageClass($result->getPageClass());
       }
 
@@ -75,9 +75,8 @@ abstract class LayoutController extends AuthedController implements WithContext,
 
       $theme->setContext($this->getContext())->setContent($result);
 
-      if($result instanceof AbstractPage && $result->shouldCache())
-      {
-        MainApplication::$_cache->set($path . $language, $theme->produceSafeHTML());
+      if ($result instanceof AbstractPage && $result->shouldCache()) {
+        MainApplication::$_cache->set($path . $language, $theme->produceSafeHTML(), MainApplication::FILE_CACHE_TTL);
       }
 
       return parent::_prepareResponse($c, $theme, $buffer);
