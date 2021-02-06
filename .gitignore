@@ -1,5 +1,7 @@
 .idea/
 /vendor/
+/.tmp
 /node_modules/
 /data/**/*
 !/data/.gitkeep
+/resources/GeoIP2-City.mmdb
