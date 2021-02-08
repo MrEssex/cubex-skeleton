@@ -1,3 +1,3 @@
 # cubex-base
 
-Base for Cubex Projects
+Playground for learning Cubex
