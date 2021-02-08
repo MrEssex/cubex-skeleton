@@ -20,8 +20,7 @@ class UserExistsValidator extends AbstractSerializableValidator
    */
   protected function _doValidate($value): Generator
   {
-    if($value !== '1')
-    {
+    if ($value !== '1') {
       yield $this->_makeError('Account doesnt exist');
     }
   }

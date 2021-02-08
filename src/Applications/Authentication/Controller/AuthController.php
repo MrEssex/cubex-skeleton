@@ -46,8 +46,7 @@ class AuthController extends LayoutController
 
     $form->validate();
 
-    if(!$form->isValid())
-    {
+    if (!$form->isValid()) {
       return LoginPage::withContext($this)->setLoginForm($form);
     }
 

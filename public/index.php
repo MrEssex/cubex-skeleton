@@ -33,12 +33,10 @@ catch (Throwable $e) {
 }
 finally {
   if ($cubex instanceof Cubex) {
-    try
-    {
+    try {
       $cubex->shutdown();
     }
-    catch(Exception $e)
-    {
+    catch (Exception $e) {
     }
   }
 }

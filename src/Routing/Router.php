@@ -32,7 +32,7 @@ class Router extends RouteProcessor
   }
 
   /**
-   * @param string                  $type
+   * @param string $type
    * @param string|callable|Handler $result
    *
    * @return Route

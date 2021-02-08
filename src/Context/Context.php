@@ -39,7 +39,7 @@ class Context extends \Cubex\Context\Context
 
   /**
    * @param string $path
-   * @param array  $query
+   * @param array $query
    *
    * @return LinkBuilder
    */
@@ -53,8 +53,7 @@ class Context extends \Cubex\Context\Context
    */
   public function ip(): IpInformation
   {
-    if($this->_ipInfo === null)
-    {
+    if ($this->_ipInfo === null) {
       $this->_ipInfo = new IpInformation($this, $this->request()->getClientIp());
     }
     return $this->_ipInfo;
@@ -65,8 +64,7 @@ class Context extends \Cubex\Context\Context
    */
   public function country(): CountryInterface
   {
-    if($this->_country === null)
-    {
+    if ($this->_country === null) {
       $this->_country = CountryHelper::getCountry($this->ip()->getCountry(), CountryCode::CODE_US);
     }
     return $this->_country;
@@ -74,8 +72,7 @@ class Context extends \Cubex\Context\Context
 
   public function deviceInformation(): DeviceInformation
   {
-    if($this->deviceInformation === null)
-    {
+    if ($this->deviceInformation === null) {
       $this->deviceInformation = new DeviceInformation($this, $this->getContext()->request()->userAgent());
     }
 

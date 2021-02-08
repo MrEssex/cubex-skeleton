@@ -45,15 +45,15 @@ class FeatherIcon extends AbstractComponent
     $this->_filename = $filename;
     $this->setAttributes(
       [
-        'xmlns'           => $this->_xmlns,
-        'height'          => $this->_height . 'px',
-        'width'           => $this->_width . 'px',
-        "fill"            => "none",
-        "stroke"          => "currentColor",
-        "stroke-linecap"  => "round",
+        'xmlns' => $this->_xmlns,
+        'height' => $this->_height . 'px',
+        'width' => $this->_width . 'px',
+        "fill" => "none",
+        "stroke" => "currentColor",
+        "stroke-linecap" => "round",
         "stroke-linejoin" => "round",
-        "stroke-width"    => "2",
-        "viewbox"         => "0 0 24 24",
+        "stroke-width" => "2",
+        "viewbox" => "0 0 24 24",
       ]
     );
     $this->addClass('feather-' . $filename);
@@ -78,8 +78,7 @@ class FeatherIcon extends AbstractComponent
   {
     $key = 'feather-icons:' . $filename;
 
-    if(!apcu_exists($key))
-    {
+    if (!apcu_exists($key)) {
       $fileContents = file_get_contents($this->_resources . $filename . '.svg');
       preg_match('/<svg.*?>(.*?)<\/svg>/m', $fileContents, $matches);
       apcu_add($key, $matches[1], 60 * 60);

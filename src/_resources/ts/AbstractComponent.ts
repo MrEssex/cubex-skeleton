@@ -1,5 +1,5 @@
 export abstract class AbstractComponent {
-    
+
     protected componentElement: Element;
 
     // The Selector this Component Refers to using QuerySelector; e.g .block__element

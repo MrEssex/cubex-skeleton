@@ -26,8 +26,7 @@ class DeviceInformation implements ContextAware
   public function __construct(Context $context, $userAgent)
   {
     $this->setContext($context);
-    if($this->_deviceDetector === null)
-    {
+    if ($this->_deviceDetector === null) {
       $this->_deviceDetector = new DeviceDetector($userAgent);
     }
   }

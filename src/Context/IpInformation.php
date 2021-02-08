@@ -30,21 +30,18 @@ class IpInformation implements ContextAware
   /**
    * IPInformation constructor.
    *
-   * @param Context     $context
+   * @param Context $context
    * @param string|null $ip
    */
   public function __construct(Context $context, string $ip = null)
   {
     $this->setContext($context);
 
-    if($ip !== null)
-    {
-      if(Request::isPrivateIP($ip))
-      {
+    if ($ip !== null) {
+      if (Request::isPrivateIP($ip)) {
         $this->_ip = '185.35.50.4';
       }
-      else
-      {
+      else {
         $this->_ip = $ip;
       }
     }
@@ -55,25 +52,20 @@ class IpInformation implements ContextAware
    */
   protected function _getMaxmind(): ?Reader
   {
-    if($this->_maxmind === null)
-    {
-      try
-      {
+    if ($this->_maxmind === null) {
+      try {
         $root = $this->getContext()->getProjectRoot();
         $paths = [
           Path::system($root, 'resources', 'GeoIP2-City.mmdb'),
         ];
-        foreach($paths as $path)
-        {
-          if(file_exists($path))
-          {
+        foreach ($paths as $path) {
+          if (file_exists($path)) {
             $this->_maxmind = new Reader($path);
             break;
           }
         }
       }
-      catch(Exception $e)
-      {
+      catch (Exception $e) {
         $this->_maxmind = null;
       }
     }
@@ -85,17 +77,16 @@ class IpInformation implements ContextAware
    */
   protected function _getIpData()
   {
-    if($this->_ipData === null)
-    {
-      try
-      {
+    if ($this->_ipData === null) {
+      try {
         $this->_ipData = Apc::retrieve(
           "ipcity-" . $this->_ip,
-          function () { return $this->_getMaxmind()->city($this->_ip); }
+          function () {
+            return $this->_getMaxmind()->city($this->_ip);
+          }
         );
       }
-      catch(Exception $e)
-      {
+      catch (Exception $e) {
         //Unsupported country
       }
     }
