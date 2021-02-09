@@ -1,7 +1,7 @@
 {
   "name": "cubex-base",
   "version": "1.0.0",
-  "description": "Base for Cubex Projects",
+  "description": "Playground for Learning Cubex",
   "main": "rollup.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

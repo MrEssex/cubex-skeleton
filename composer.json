@@ -1,8 +1,9 @@
 {
   "name": "mr-essex/cubex-base",
   "type": "project",
-  "description": "Base for Cubex Projects",
+  "description": "Playground for Learning Cubex",
   "license": "MIT",
+  "version": "1.0.0",
   "authors": [
     {
       "name": "Kyle Essex",

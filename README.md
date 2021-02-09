@@ -1,3 +1,3 @@
 # cubex-base
 
-Playground for learning Cubex
+Playground for Learning Cubex
