@@ -20,7 +20,7 @@ class AutoTranslate
   ];
 
   /** @var GoogleTranslate */
-  protected static $_client;
+  protected static GoogleTranslate $_client;
 
   /**
    * @param Context $ctx

@@ -40,15 +40,15 @@ class MainApplication extends Application
   /** @var string */
   private const DISPATCH_PATH = '/_res';
   /** @var string */
-  public const FILE_CACHE_TTL = '30'; // Seconds
   /** @var AbstractCache */
   public static AbstractCache $_cache;
 
   public function __construct(Cubex $cubex)
   {
     parent::__construct($cubex);
-//    self::$_cache = new FileCache(null, self::FILE_CACHE_TTL);
-    self::$_cache = new ApcuCache();
+    $cache = new ApcuCache();
+    $cache->setTtl(30);
+    self::$_cache = $cache;
   }
 
   /**

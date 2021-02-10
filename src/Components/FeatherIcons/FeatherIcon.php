@@ -3,7 +3,9 @@
 namespace CubexBase\Application\Components\FeatherIcons;
 
 use CubexBase\Application\Components\AbstractComponent;
+use CubexBase\Application\MainApplication;
 use Packaged\SafeHtml\SafeHtml;
+use Psr\SimpleCache\InvalidArgumentException;
 use Throwable;
 
 /**
@@ -63,6 +65,7 @@ class FeatherIcon extends AbstractComponent
   /**
    * @return SafeHtml|null
    * @throws Throwable
+   * @throws InvalidArgumentException
    */
   protected function _getContentForRender(): ?SafeHtml
   {
@@ -73,18 +76,22 @@ class FeatherIcon extends AbstractComponent
    * @param string $filename
    *
    * @return string
+   * @throws InvalidArgumentException
    */
   private function _loadSVGContent(string $filename): string
   {
-    $key = 'feather-icons:' . $filename;
+    $key = 'feather-icons-' . $filename;
 
-    if (!apcu_exists($key)) {
+    $cache = MainApplication::$_cache;
+
+    if (!$cache->has($key)) {
       $fileContents = file_get_contents($this->_resources . $filename . '.svg');
       preg_match('/<svg.*?>(.*?)<\/svg>/m', $fileContents, $matches);
       apcu_add($key, $matches[1], 60 * 60);
-      return $matches[1];
+      FeatherIcons::$_usedIcons[$filename] = $fileContents;
+      $cache->set($key, $matches[1]);
     }
 
-    return apcu_fetch($key);
+    return $cache->get($key);
   }
 }

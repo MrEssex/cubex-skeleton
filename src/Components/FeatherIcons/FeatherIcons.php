@@ -8,7 +8,7 @@ use Packaged\Enum\AbstractEnum;
  * Class FeatherIcons
  * @package CubexBase\Application\Components\FeatherIcons
  *
- * @method FeatherIcons ACTIVITY()
+ * @method static FeatherIcons ACTIVITY()
  */
 class FeatherIcons extends AbstractEnum
 {

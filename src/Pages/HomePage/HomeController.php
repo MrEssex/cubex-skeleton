@@ -3,7 +3,6 @@
 namespace CubexBase\Application\Pages\HomePage;
 
 use CubexBase\Application\Layout\LayoutController;
-use CubexBase\Application\Pages\HomePage\Ui\HomePage;
 
 /**
  * Class HomeController

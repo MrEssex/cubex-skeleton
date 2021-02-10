@@ -78,12 +78,14 @@ abstract class PoToArrayCommand extends ConsoleCommand
     $po = PoFile::fromString(file_get_contents($source));
 
     $out = ["<?php", "return ["];
-    foreach ($po->getTranslations() as $translation) {
-      foreach ($translation->getReferences() as $ref) {
-        if ($translation->getSingularTranslation()) {
-          $out[] = "'" . $ref . "' => ['_' => '"
-            . addcslashes(stripslashes($this->_toTranslation($translation->getSingularTranslation())), "'")
-            . "'],";
+    if ($po) {
+      foreach ($po->getTranslations() as $translation) {
+        foreach ($translation->getReferences() as $ref) {
+          if ($translation->getSingularTranslation()) {
+            $out[] = "'" . $ref . "' => ['_' => '"
+              . addcslashes(stripslashes($this->_toTranslation($translation->getSingularTranslation())), "'")
+              . "'],";
+          }
         }
       }
     }

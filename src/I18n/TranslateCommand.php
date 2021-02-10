@@ -44,7 +44,7 @@ abstract class TranslateCommand extends ConsoleCommand
       $template = DynamicArrayCatalog::fromFile($transDir . '_tpl.php');
 
       foreach ($template->getData() as $mid => $options) {
-        if ($poEdit->getTranslation($mid) instanceof PoTranslation) {
+        if ($poEdit && $poEdit->getTranslation($mid) instanceof PoTranslation) {
           //Trust the existing po translation is correct
           continue;
         }
