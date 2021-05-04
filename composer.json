@@ -34,7 +34,11 @@
   },
   "autoload": {
     "psr-4": {
-      "CubexBase\\Application\\": "src",
+      "CubexBase\\Application\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
       "CubexBase\\StyleGuide\\": "styleguide",
       "CubexBase\\Tests\\": "tests"
     }
