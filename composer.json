@@ -15,21 +15,19 @@
     "ext-json": "*",
     "cubex/api-foundation": "^0.3.0",
     "cubex/framework": "^4.15.0",
-    "filp/whoops": "^2.9.2",
-    "firebase/php-jwt": "^5.2",
-    "geoip2/geoip2": "^v2.11.0",
-    "matomo/device-detector": "^4.1.0",
+    "filp/whoops": "^2.12.0",
     "mressex/file-cache": "^0.2",
     "packaged-ui/bem-component": "^1.1",
     "packaged-ui/pagelets": "dev-master",
     "packaged/dal": "^1.9",
-    "packaged/dispatch": "^2.11.0",
+    "packaged/dal-schema": "dev-master",
+    "packaged/dispatch": "^2.16.0",
     "packaged/enum": "^1.4.0",
     "packaged/form": "^3.3.0",
     "packaged/glimpse": "^2.7",
     "packaged/http": "^1.16",
     "packaged/rwd": "^1.4.2",
-    "statickidz/php-google-translate-free": "^1.1.1"
+    "statickidz/php-google-translate-free": "^1.2.1"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"
@@ -42,9 +40,20 @@
   "autoload": {
     "psr-4": {
       "CubexBase\\Application\\": "src",
-      "CubexBase\\ApiTransport\\": "transport",
-      "CubexBase\\StyleGuide\\": "styleguide"
+      "CubexBase\\ApiTransport\\": "transport"
     }
   },
-  "minimum-stability": "alpha"
+  "autoload-dev": {
+    "psr-4": {
+      "CubexBase\\StyleGuide\\": "styleguide",
+      "CubexBase\\Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "alpha",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:packaged/dal-schema.git"
+    }
+  ]
 }

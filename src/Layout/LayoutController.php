@@ -24,7 +24,6 @@ use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
 use PackagedUI\Pagelets\PageletResponse;
 use Psr\SimpleCache\InvalidArgumentException;
-
 use function is_array;
 use function is_scalar;
 

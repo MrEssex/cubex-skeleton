@@ -1,10 +1,7 @@
 <?php
 
-
 namespace CubexBase\Application\Layout;
 
-
-use CubexBase\Application\Ui;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
 use Packaged\Ui\Element;
@@ -12,6 +9,7 @@ use Throwable;
 
 /**
  * Class Layout
+ *
  * @package CubexBase\Application\Layout
  */
 class Layout extends Element implements ContextAware
@@ -44,6 +42,7 @@ class Layout extends Element implements ContextAware
 
   /**
    * @param object $content
+   *
    * @return $this
    */
   public function setContent(object $content): self
@@ -57,7 +56,8 @@ class Layout extends Element implements ContextAware
    */
   public function getPageClass(): string
   {
-    if ($this->_pageClass) {
+    if($this->_pageClass)
+    {
       return $this->_pageClass;
     }
 
@@ -66,6 +66,7 @@ class Layout extends Element implements ContextAware
 
   /**
    * @param string $pageClass
+   *
    * @return $this
    */
   public function setPageClass(string $pageClass): self

@@ -16,6 +16,7 @@ use PackagedUi\BemComponent\BemComponentTrait;
 
 /**
  * Class AbstractBase
+ *
  * @package CubexBase\Application
  *
  * @method Context getContext(): Context

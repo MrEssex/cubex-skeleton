@@ -1,12 +1,13 @@
 <?php
 
-namespace CubexBase\Application;
+namespace CubexBase\Application\Layout;
 
 use Exception;
 use Packaged\Dispatch\ResourceManager;
 
 /**
  * Class Ui
+ *
  * @package CubexBase\Application
  */
 class Ui
