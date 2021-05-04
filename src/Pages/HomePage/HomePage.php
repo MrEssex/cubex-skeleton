@@ -2,17 +2,14 @@
 
 namespace CubexBase\Application\Pages\HomePage;
 
-use CubexBase\Application\Components\FeatherIcons\FeatherIcon;
-use CubexBase\Application\Components\FeatherIcons\FeatherIcons;
 use CubexBase\Application\Pages\AbstractPage;
-use Packaged\Glimpse\Core\HtmlTag;
 use Packaged\Glimpse\Tags\Div;
-use Packaged\Glimpse\Tags\LineBreak;
 use Packaged\Glimpse\Tags\Text\Paragraph;
 use Throwable;
 
 /**
  * Class HomePage
+ *
  * @package CubexBase\Application\Pages\HomePage
  */
 class HomePage extends AbstractPage
@@ -27,18 +24,14 @@ class HomePage extends AbstractPage
   }
 
   /**
-   * @return HtmlTag|Div|array
+   * @return array
    * @throws Throwable
    */
-  protected function _getContentForRender()
+  protected function _getContentForRender(): array
   {
     return [
       Div::create($this->_('hello_world_b10a', 'Hello World')),
-      LineBreak::create(),
-      Paragraph::create(
-        FeatherIcon::withContext($this, FeatherIcons::ACTIVITY()),
-        'This is something'
-      ),
+      Paragraph::create('This is something'),
     ];
   }
 }
