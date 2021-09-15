@@ -2,7 +2,7 @@
 
 namespace CubexBase\Frontend\Components;
 
-use CubexBase\Frontend\AbstractBase;
+use CubexBase\Shared\AbstractBase;
 
 abstract class AbstractComponent extends AbstractBase
 {

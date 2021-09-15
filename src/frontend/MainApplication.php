@@ -94,7 +94,7 @@ class MainApplication extends Application
       }
     );
 
-    foreach(glob(Path::system($this->getContext()->getProjectRoot(), 'resources/favicon/*')) as $path)
+    foreach(glob(Path::system($this->getContext()->getProjectRoot(), 'public/resources/favicon/*')) as $path)
     {
       yield self::_route(
         '/' . basename($path),

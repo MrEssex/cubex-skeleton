@@ -1,6 +1,6 @@
 <?php
 
-namespace CubexBase\Frontend;
+namespace CubexBase\Shared;
 
 use Cubex\I18n\GetTranslatorTrait;
 use CubexBase\Shared\Context\Context;

@@ -2,7 +2,7 @@
 
 namespace CubexBase\Frontend\Layout;
 
-use CubexBase\Frontend\Ui;
+use CubexBase\Shared\Ui;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
 use Packaged\Ui\Element;

@@ -2,7 +2,7 @@
 
 namespace CubexBase\Frontend\Pages;
 
-use CubexBase\Frontend\AbstractBase;
+use CubexBase\Shared\AbstractBase;
 
 abstract class AbstractPage extends AbstractBase implements PageClass
 {

@@ -4,8 +4,8 @@ define('PHP_START', microtime(true));
 
 use Composer\Autoload\ClassLoader;
 use Cubex\Cubex;
-use CubexBase\Frontend\Context\Context as CustomContext;
 use CubexBase\Frontend\MainApplication;
+use CubexBase\Shared\Context\Context as CustomContext;
 use Packaged\Context\Context;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
@@ -17,26 +17,34 @@ $loader = require($projectRoot . '/vendor/autoload.php');
 
 $cubex = Cubex::withCustomContext(CustomContext::class, $projectRoot, $loader);
 
-try {
+try
+{
   $cubex->handle(new MainApplication($cubex), true);
 }
-catch (Throwable $e) {
-  if ($cubex->getContext()->isEnv(Context::ENV_LOCAL)) {
+catch(Throwable $e)
+{
+  if($cubex->getContext()->isEnv(Context::ENV_LOCAL))
+  {
     $handler = new Run();
     $handler->pushHandler(new PrettyPageHandler());
     $handler->handleException($e);
   }
-  else {
+  else
+  {
     error_log($e->getMessage());
     die('Unable to handle your request');
   }
 }
-finally {
-  if ($cubex instanceof Cubex) {
-    try {
+finally
+{
+  if($cubex instanceof Cubex)
+  {
+    try
+    {
       $cubex->shutdown();
     }
-    catch (Exception $e) {
+    catch(Exception $e)
+    {
     }
   }
 }
