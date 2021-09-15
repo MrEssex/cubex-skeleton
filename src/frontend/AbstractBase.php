@@ -3,7 +3,7 @@
 namespace CubexBase\Frontend;
 
 use Cubex\I18n\GetTranslatorTrait;
-use CubexBase\Frontend\Context\Context;
+use CubexBase\Shared\Context\Context;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
 use Packaged\Context\WithContext;

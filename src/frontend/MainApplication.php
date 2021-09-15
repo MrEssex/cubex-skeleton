@@ -26,7 +26,7 @@ use function glob;
 use function in_array;
 
 /**
- * @method \CubexBase\Frontend\Context\Context getContext(): context
+ * @method \CubexBase\Shared\Context\Context getContext(): context
  */
 class MainApplication extends Application
 {

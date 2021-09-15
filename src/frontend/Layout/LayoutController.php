@@ -4,10 +4,10 @@ namespace CubexBase\Frontend\Layout;
 
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
-use CubexBase\Frontend\Context\Context as CBContext;
 use CubexBase\Frontend\MainApplication;
 use CubexBase\Frontend\Pages\AbstractPage;
 use CubexBase\Frontend\Pages\PageClass;
+use CubexBase\Shared\Context\Context as CBContext;
 use Packaged\Context\Context;
 use Packaged\Context\WithContext;
 use Packaged\Context\WithContextTrait;
