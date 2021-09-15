@@ -31,6 +31,11 @@ abstract class LayoutController extends AuthedController implements WithContext,
   use GetTranslatorTrait;
   use TranslatableTrait;
   use WithContextTrait;
+  
+  protected function _generateRoutes()
+  {
+    return '';
+  }
 
   /**
    * @throws InvalidArgumentException
