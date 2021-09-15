@@ -16,7 +16,6 @@ use Packaged\Http\Responses\JsonResponse;
 use Packaged\I18n\Translatable;
 use Packaged\I18n\TranslatableTrait;
 use Packaged\I18n\Translators\Translator;
-use Packaged\Routing\HealthCheckCondition;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
 use PackagedUI\Pagelets\PageletResponse;
@@ -33,44 +32,38 @@ abstract class LayoutController extends AuthedController implements WithContext,
   use TranslatableTrait;
   use WithContextTrait;
 
-  protected function _generateRoutes()
-  {
-    yield self::_route('hc', HealthCheckCondition::i());
-    return '';
-  }
-
   /**
    * @throws InvalidArgumentException
    */
   protected function _prepareResponse(Context $c, $result, $buffer = null): Response
   {
-    if(($result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result)))
+    if(!($result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result)))
     {
-      $theme = new Layout();
-
-      if($result instanceof PageletResponse)
-      {
-        $result = JsonResponse::create($result);
-      }
-
-      if($result instanceof PageClass)
-      {
-        $theme->setPageClass($result->getPageClass());
-      }
-
-      $path = $c->request()->getRequestUri();
-      $language = $c->request()->getPreferredLanguage();
-
-      $theme->setContext($this->getContext())->setContent($result);
-
-      if($result instanceof AbstractPage && $result->shouldCache())
-      {
-        MainApplication::$_cache->set($path . $language, $theme->produceSafeHTML());
-      }
-
-      return parent::_prepareResponse($c, $theme, $buffer);
+      return parent::_prepareResponse($c, $result, $buffer);
     }
 
-    return parent::_prepareResponse($c, $result, $buffer);
+    $theme = new Layout();
+
+    if($result instanceof PageletResponse)
+    {
+      $result = JsonResponse::create($result);
+    }
+
+    if($result instanceof PageClass)
+    {
+      $theme->setPageClass($result->getPageClass());
+    }
+
+    $path = $c->request()->getRequestUri();
+    $language = $c->request()->getPreferredLanguage();
+
+    $theme->setContext($this->getContext())->setContent($result);
+
+    if($result instanceof AbstractPage && $result->shouldCache())
+    {
+      MainApplication::$_cache->set($path . $language, $theme->produceSafeHTML());
+    }
+
+    return parent::_prepareResponse($c, $theme, $buffer);
   }
 }
