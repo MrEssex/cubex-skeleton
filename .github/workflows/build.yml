@@ -7,46 +7,46 @@ on:
     branches: [ master ]
 
 jobs:
-  #  provide_php_versions_json:
-  #    name: Provide PHP Version for Matrix
-  #
-  #    runs-on: ubuntu-latest
-  #
-  #    steps:
-  #      - uses: actions/checkout@v2
-  #        with:
-  #          persist-credentials: false
-  #
-  #      - name: Cache Composer dependencies
-  #        uses: actions/cache@v2
-  #        with:
-  #          path: /tmp/composer-cache
-  #          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
-  #
-  #      - uses: shivammathur/setup-php@v2
-  #        with:
-  #          php-version: 7.4
-  #          extensions: apcu
-  #          coverage: none
-  #
-  #      - run: composer validate --strict
-  #
-  #      - run: composer install
-  #        env:
-  #          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH_JSON }}
-  #
-  #      - run: composer require symplify/easy-ci "9.3.27" --dev
-  #
-  #      - run: vendor/bin/easy-ci php-versions-json
-  #
-  #      - id: output_data
-  #        run: echo "::set-output name=matrix::$(vendor/bin/easy-ci php-versions-json)"
-  #
-  #    outputs:
-  #      matrix: ${{ steps.output_data.outputs.matrix }}
+  provide_php_versions_json:
+    name: Provide PHP Version for Matrix
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: apcu
+          coverage: none
+
+      - run: composer validate --strict
+
+      - run: composer install
+        env:
+          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH_JSON }}
+
+      - run: composer require symplify/easy-ci --dev
+
+      - run: vendor/bin/easy-ci php-versions-json
+
+      - id: output_data
+        run: echo "::set-output name=matrix::$(vendor/bin/easy-ci php-versions-json)"
+
+    outputs:
+      matrix: ${{ steps.output_data.outputs.matrix }}
 
   build-test:
-#    needs: provide_php_versions_json
+    needs: provide_php_versions_json
 
     runs-on: ubuntu-latest
 
@@ -55,8 +55,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        #        php: ${{ fromJson(needs.provide_php_versions_json.outputs.matrix) }}
-        php: [ '7.4', '8.0' ]
+        php: ${{ fromJson(needs.provide_php_versions_json.outputs.matrix) }}
+        #php: [ '7.4', '8.0' ]
 
     steps:
       - uses: actions/checkout@v2
