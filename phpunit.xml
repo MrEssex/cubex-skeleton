@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit backupGlobals="false" backupStaticAttributes="false" colors="true" convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false"
+         stopOnFailure="false">
+  <php>
+    <ini name="date.timezone" value="UTC"/>
+    <env name="CONTEXT_ENV" value="phpunit" force="true"/>
+  </php>
+  <coverage>
+    <include>
+      <directory suffix=".php">src</directory>
+    </include>
+    <report>
+      <clover outputFile="coverage/backend/clover.xml"/>
+    </report>
+  </coverage>
+  <testsuites>
+    <testsuite name="Cubex Base Test Suite">
+      <directory>./tests</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>

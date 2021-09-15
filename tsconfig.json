@@ -2,10 +2,14 @@
   "compilerOptions": {
     "module": "ESNext",
     "target": "ES5",
-    "sourceMap": true,
-    "allowSyntheticDefaultImports": true
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "DOM"
+    ]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/*.test.ts"
   ]
 }

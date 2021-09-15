@@ -4,8 +4,8 @@ define('PHP_START', microtime(true));
 
 use Composer\Autoload\ClassLoader;
 use Cubex\Cubex;
-use CubexBase\Application\Context\Context as CustomContext;
-use CubexBase\Application\MainApplication;
+use CubexBase\Frontend\Context\Context as CustomContext;
+use CubexBase\Frontend\MainApplication;
 use Packaged\Context\Context;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;

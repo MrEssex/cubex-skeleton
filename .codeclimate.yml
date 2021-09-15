@@ -1,0 +1,20 @@
+plugins:
+  eslint:
+    enabled: true
+    channel: "eslint-7"
+  stylelint:
+    enabled: true
+
+exclude_patterns:
+  - "config/"
+  - "resources/"
+  - "node_modules"
+  - "script/"
+  - "translations/"
+  - "**/spec/"
+  - "tests/"
+  - "public/"
+  - "src/shared/Cli/"
+  - "vendor"
+  - "**/*.spec.ts"
+  - "**/*.spec.scss"

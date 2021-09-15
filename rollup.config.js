@@ -1,39 +1,38 @@
-import {terser} from 'rollup-plugin-terser';
-import typescript from 'rollup-plugin-typescript2';
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
-import postcssDiscardComments from 'postcss-discard-comments';
-import postcssPresetEnv from 'postcss-preset-env/index.js';
+import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
+import {terser} from 'rollup-plugin-terser';
 
-process.chdir(__dirname);
+// `yarn watch` -> `production` is false
+// `yarn build` -> `production` is true
+// eslint-disable-next-line no-undef
+const production = !process.env.ROLLUP_WATCH;
 
-module.exports = {
-  input: './src/_resources/entry.ts',
-  output: {
-    file: './resources/main.min.js',
-    format: 'iife',
-    sourcemap: true,
-    name: 'main'
+const commonPlugins = [
+  resolve(), // tells Rollup how to find node_modules packages
+  typescript({
+    'sourceMap': !production
+  }), // run typescript compiler
+  production && terser() // minify, but only in production
+];
+
+const main = {
+  input:   'assets/entry.ts',
+  output:  {
+    file:      'public/resources/main.min.js',
+    name:      'main.js',
+    format:    'iife', // immediately-invoked function expression — suitable for <script> tags
+    sourcemap: !production
   },
   plugins: [
     postcss(
       {
-        extract: true,
-        minimize: true,
-        plugins: [
-          postcssPresetEnv({browsers: ['defaults', 'not ie > 0']}),
-          postcssDiscardComments({removeAll: true})
-        ],
-        sourceMap: true,
-      }),
-    resolve({browser: true, preferBuiltins: false}),
-    commonjs(),
-    typescript(),
-    terser({
-      format: {
-        comments: false,
-      }
-    })
-  ],
+        extract:   true,
+        minimize:  production,
+        sourceMap: !production
+      }), // Extract css from js
+    ...commonPlugins
+  ]
 };
+
+export default [main];

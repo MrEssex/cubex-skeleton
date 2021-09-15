@@ -14,7 +14,7 @@
     "ext-apcu": "*",
     "cubex/framework": "^4.15.0",
     "filp/whoops": "^2.9.2",
-    "mressex/file-cache": "^0.3",
+    "mressex/cache": "^0.4",
     "packaged-ui/bem-component": "^1.1",
     "packaged-ui/pagelets": "dev-master",
     "packaged/dispatch": "^2.11.0",
@@ -25,7 +25,8 @@
     "statickidz/php-google-translate-free": "^1.1.1"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-master"
+    "phpunit/phpunit": "^9.5.4",
+    "roave/security-advisories": "dev-latest"
   },
   "config": {
     "optimize-autoloader": true,
@@ -34,14 +35,18 @@
   },
   "autoload": {
     "psr-4": {
-      "CubexBase\\Application\\": "src"
+      "CubexBase\\Frontend\\": "src/frontend",
+      "CubexBase\\Shared\\": "src/shared"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "CubexBase\\StyleGuide\\": "styleguide",
+      "CubexBase\\StyleGuide\\": "src/styleguide",
       "CubexBase\\Tests\\": "tests"
     }
   },
-  "minimum-stability": "alpha"
+  "minimum-stability": "alpha",
+  "scripts": {
+    "test": "XDEBUG_MODE=coverage vendor/bin/phpunit"
+  }
 }

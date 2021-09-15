@@ -1,7 +1,9 @@
 .idea/
-/vendor/
-/.tmp
-/node_modules/
-/data/**/*
-!/data/.gitkeep
-/resources/GeoIP2-City.mmdb
+vendor/
+.tmp
+coverage
+node_modules/
+.nyc_output
+public/resources/*.css
+public/resources/*.js
+public/resources/*.map
