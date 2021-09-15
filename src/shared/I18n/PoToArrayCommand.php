@@ -20,8 +20,6 @@ abstract class PoToArrayCommand extends ConsoleCommand
   /** @flag */
   public $common;
 
-  abstract protected function _translationsDir(): string;
-
   protected function executeCommand(InputInterface $input, OutputInterface $output): void
   {
     $transDir = $this->_translationsDir();
@@ -31,6 +29,16 @@ abstract class PoToArrayCommand extends ConsoleCommand
       $this->lang = AutoTranslate::$common;
     }
 
+    $this->_iterateLanguages($transDir);
+  }
+
+  abstract protected function _translationsDir(): string;
+
+  /**
+   * @param string $transDir
+   */
+  protected function _iterateLanguages(string $transDir): void
+  {
     if($this->lang)
     {
       foreach(ValueAs::arr($this->lang) as $lang)
