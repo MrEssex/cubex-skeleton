@@ -6,6 +6,7 @@ use Cubex\Application\Application;
 use Cubex\Cubex;
 use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
 use CubexBase\Frontend\Routing\Router;
+use Exception;
 use MrEssex\FileCache\AbstractCache;
 use MrEssex\FileCache\ApcuCache;
 use Packaged\Context\Context;
@@ -53,6 +54,9 @@ class MainApplication extends Application
     return parent::handle($c);
   }
 
+  /**
+   * @throws Exception
+   */
   protected function _initialize(): void
   {
     parent::_initialize();
@@ -79,6 +83,9 @@ class MainApplication extends Application
     Dispatch::bind($dispatch);
   }
 
+  /**
+   * @throws Exception
+   */
   protected function _generateRoutes()
   {
     yield Route::with(new HealthCheckCondition())->setHandler(
@@ -126,7 +133,10 @@ class MainApplication extends Application
   protected function _setupApplication(): void
   {
     $this->getContext()->prepareTranslator('/translations/', $this->getContext()->isEnv(Context::ENV_LOCAL));
-
+    if(!$this->getCubex() instanceof Cubex)
+    {
+      return;
+    }
     $this->getCubex()->listen(
       ResponsePreSendHeadersEvent::class,
       static function (ResponsePreSendHeadersEvent $event) {

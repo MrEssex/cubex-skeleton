@@ -20,6 +20,7 @@ use Packaged\Routing\HealthCheckCondition;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
 use PackagedUI\Pagelets\PageletResponse;
+use Psr\SimpleCache\InvalidArgumentException;
 use function is_array;
 use function is_scalar;
 
@@ -38,6 +39,9 @@ abstract class LayoutController extends AuthedController implements WithContext,
     return '';
   }
 
+  /**
+   * @throws InvalidArgumentException
+   */
   protected function _prepareResponse(Context $c, $result, $buffer = null): Response
   {
     if(($result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result)))
