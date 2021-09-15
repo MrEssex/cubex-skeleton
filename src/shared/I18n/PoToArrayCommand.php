@@ -3,7 +3,6 @@
 namespace CubexBase\Shared\I18n;
 
 use Cubex\Console\ConsoleCommand;
-use Exception;
 use Packaged\Helpers\ValueAs;
 use Packaged\I18n\Tools\Gettext\PoFile;
 use RuntimeException;
@@ -21,17 +20,8 @@ abstract class PoToArrayCommand extends ConsoleCommand
   /** @flag */
   public $common;
 
-  /**
-   * @return string
-   */
   abstract protected function _translationsDir(): string;
 
-  /**
-   * @param InputInterface  $input
-   * @param OutputInterface $output
-   *
-   * @throws Exception
-   */
   protected function executeCommand(InputInterface $input, OutputInterface $output): void
   {
     $transDir = $this->_translationsDir();
@@ -54,12 +44,6 @@ abstract class PoToArrayCommand extends ConsoleCommand
     }
   }
 
-  /**
-   * @param $source
-   * @param $output
-   *
-   * @throws Exception
-   */
   protected function _processLanguage($source, $output): void
   {
     if(!file_exists($source))
@@ -90,11 +74,6 @@ abstract class PoToArrayCommand extends ConsoleCommand
     file_put_contents($output, implode(PHP_EOL, $out));
   }
 
-  /**
-   * @param $str
-   *
-   * @return string|string[]|null
-   */
   protected function _toTranslation($str)
   {
     return preg_replace_callback(

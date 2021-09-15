@@ -6,8 +6,6 @@ use Cubex\Application\Application;
 use Cubex\Cubex;
 use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
 use CubexBase\Frontend\Routing\Router;
-use Exception;
-use Generator;
 use MrEssex\FileCache\AbstractCache;
 use MrEssex\FileCache\ApcuCache;
 use Packaged\Context\Context;
@@ -21,26 +19,17 @@ use Packaged\Routing\Handler\Handler;
 use Packaged\Routing\HealthCheckCondition;
 use Packaged\Routing\Route;
 use Packaged\Routing\Routes\InsecureRequestUpgradeRoute;
-use Psr\SimpleCache\InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Response as SResponse;
-use Throwable;
 use function basename;
 use function glob;
 use function in_array;
 
 /**
- * Class MainApplication
- *
- * @package CubexBase\Frontend
  * @method \CubexBase\Frontend\Context\Context getContext(): context
  */
 class MainApplication extends Application
 {
-
-  /** @var string */
   private const DISPATCH_PATH = '/_res';
-  /** @var string */
-  /** @var AbstractCache */
   public static AbstractCache $_cache;
 
   public function __construct(Cubex $cubex)
@@ -51,12 +40,6 @@ class MainApplication extends Application
     self::$_cache = $cache;
   }
 
-  /**
-   * @param Context $c
-   *
-   * @return SResponse
-   * @throws Throwable|InvalidArgumentException
-   */
   public function handle(Context $c): SResponse
   {
     $path = $c->request()->getRequestUri();
@@ -70,11 +53,6 @@ class MainApplication extends Application
     return parent::handle($c);
   }
 
-  /**
-   * Initialize the Application
-   *
-   * @throws Exception
-   */
   protected function _initialize(): void
   {
     parent::_initialize();
@@ -101,10 +79,6 @@ class MainApplication extends Application
     Dispatch::bind($dispatch);
   }
 
-  /**
-   * @return callable|Generator|Handler|Route[]|string
-   * @throws Exception
-   */
   protected function _generateRoutes()
   {
     yield Route::with(new HealthCheckCondition())->setHandler(
@@ -149,9 +123,6 @@ class MainApplication extends Application
     return parent::_generateRoutes();
   }
 
-  /**
-   * Setup the Application
-   */
   protected function _setupApplication(): void
   {
     $this->getContext()->prepareTranslator('/translations/', $this->getContext()->isEnv(Context::ENV_LOCAL));
@@ -178,12 +149,8 @@ class MainApplication extends Application
     );
   }
 
-  /**
-   * @return Handler
-   */
   protected function _defaultHandler(): Handler
   {
     return new Router();
   }
-
 }

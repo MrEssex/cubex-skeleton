@@ -17,13 +17,6 @@ class AutoTranslate
     LanguageCode::CODE_FR,
   ];
 
-  /**
-   * @param Context $ctx
-   * @param         $text
-   * @param         $languageCode
-   *
-   * @return string
-   */
   public static function translate(Context $ctx, $text, $languageCode): string
   {
     if(empty($text) || $languageCode === LanguageCode::CODE_EN)

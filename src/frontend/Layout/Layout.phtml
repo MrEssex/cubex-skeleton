@@ -9,23 +9,18 @@ use Packaged\Dispatch\ResourceStore;
  */
 
 $store = Dispatch::instance()->store();
-
 ?>
 <!doctype html>
 <html lang="en">
 <head>
   <title>Cubex Base</title>
-
   <meta charset="UTF-8">
   <meta name="description" content="Some description">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, null, [ResourceStore::PRIORITY_LOW]) ?>
 </head>
 <body class="<?= $this->getPageClass() ?>">
-
 <?= $this->getContent() ?>
-
 <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, ResourceStore::PRIORITY_LOW) ?>
 <?= $store->generateHtmlIncludes(ResourceStore::TYPE_JS) ?>
 </body>

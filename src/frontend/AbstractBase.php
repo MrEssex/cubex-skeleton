@@ -15,9 +15,6 @@ use PackagedUi\BemComponent\BemComponent;
 use PackagedUi\BemComponent\BemComponentTrait;
 
 /**
- * Class AbstractBase
- * @package CubexBase\Frontend
- *
  * @method Context getContext(): Context
  */
 abstract class AbstractBase extends TemplatedHtmlElement
@@ -29,9 +26,6 @@ abstract class AbstractBase extends TemplatedHtmlElement
   use TranslatableTrait;
   use GetTranslatorTrait;
 
-  /**
-   * AbstractBase constructor.
-   */
   public function __construct()
   {
     $this->addClass($this->getBlockName());

@@ -67,3 +67,10 @@ in https://github.com/{org}/{repo}/settings/secrets/actions
 1. From your Code Climate Dashboard, choose the repository and choose the Settings tab from the repo's main navigation
    list.
 2. Select the Test Coverage tab. Your test coverage ID will be displayed on the page.
+
+## What's with the folder structure?
+
+I'm glad you've asked.
+
+By doing this the src now becomes home to multiple applications rather than one monolith. You can now extend it add API
+services, Shared services, Backend Specific and Frontend if you wanted to without polluting the root directory.  

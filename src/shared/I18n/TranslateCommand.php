@@ -75,12 +75,6 @@ abstract class TranslateCommand extends ConsoleCommand
     }
   }
 
-  /**
-   * @param $text
-   * @param $lang
-   *
-   * @return string
-   */
   protected function _getTranslation($text, $lang): string
   {
     return AutoTranslate::translate($this->getContext(), $text, $lang);
