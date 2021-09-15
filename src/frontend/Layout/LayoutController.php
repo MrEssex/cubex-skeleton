@@ -31,8 +31,8 @@ abstract class LayoutController extends AuthedController implements WithContext,
   use GetTranslatorTrait;
   use TranslatableTrait;
   use WithContextTrait;
-  
-  protected function _generateRoutes()
+
+  protected function _generateRoutes(): string
   {
     return '';
   }
@@ -59,11 +59,12 @@ abstract class LayoutController extends AuthedController implements WithContext,
       $theme->setPageClass($result->getPageClass());
     }
 
+    $theme->setContext($this->getContext())->setContent($result);
+
     if($result instanceof AbstractPage && $result->shouldCache())
     {
       $path = $c->request()->getRequestUri();
       $language = $c->request()->getPreferredLanguage();
-      $theme->setContext($this->getContext())->setContent($result);
 
       MainApplication::$_cache->set($path . $language, $theme->produceSafeHTML());
     }
