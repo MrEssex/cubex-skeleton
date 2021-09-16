@@ -1,8 +1,8 @@
 <?php
 
-namespace CubexBase\Frontend\Pages\HomePage;
+namespace CubexBase\Application\Pages\HomePage;
 
-use CubexBase\Frontend\Layout\LayoutController;
+use CubexBase\Application\Layout\LayoutController;
 
 class HomeController extends LayoutController
 {

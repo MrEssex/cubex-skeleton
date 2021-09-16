@@ -1,11 +1,11 @@
 <?php
 
-namespace CubexBase\Frontend;
+namespace CubexBase\Application;
 
 use Cubex\Application\Application;
 use Cubex\Cubex;
 use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
-use CubexBase\Frontend\Routing\Router;
+use CubexBase\Application\Routing\Router;
 use Exception;
 use MrEssex\FileCache\AbstractCache;
 use MrEssex\FileCache\ApcuCache;
@@ -26,7 +26,7 @@ use function glob;
 use function in_array;
 
 /**
- * @method \CubexBase\Shared\Context\Context getContext(): context
+ * @method \CubexBase\Application\Context\Context getContext(): context
  */
 class MainApplication extends Application
 {

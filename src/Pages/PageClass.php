@@ -1,6 +1,6 @@
 <?php
 
-namespace CubexBase\Frontend\Pages;
+namespace CubexBase\Application\Pages;
 
 interface PageClass
 {

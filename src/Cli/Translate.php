@@ -1,8 +1,8 @@
 <?php
 
-namespace CubexBase\Shared\Cli;
+namespace CubexBase\Application\Cli;
 
-use CubexBase\Shared\I18n\TranslateCommand;
+use CubexBase\Application\I18n\TranslateCommand;
 
 class Translate extends TranslateCommand
 {

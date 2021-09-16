@@ -1,8 +1,8 @@
 <?php
 
-namespace CubexBase\Frontend\Pages\HomePage;
+namespace CubexBase\Application\Pages\HomePage;
 
-use CubexBase\Frontend\Pages\AbstractPage;
+use CubexBase\Application\Pages\AbstractPage;
 use Packaged\Glimpse\Tags\Div;
 use Packaged\Glimpse\Tags\Text\Paragraph;
 

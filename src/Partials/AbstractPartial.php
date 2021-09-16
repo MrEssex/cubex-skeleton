@@ -1,8 +1,8 @@
 <?php
 
-namespace CubexBase\Frontend\Partials;
+namespace CubexBase\Application\Partials;
 
-use CubexBase\Shared\AbstractBase;
+use CubexBase\Application\AbstractBase;
 
 abstract class AbstractPartial extends AbstractBase
 {

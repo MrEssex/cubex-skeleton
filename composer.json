@@ -35,13 +35,12 @@
   },
   "autoload": {
     "psr-4": {
-      "CubexBase\\Frontend\\": "src/frontend",
-      "CubexBase\\Shared\\": "src/shared"
+      "CubexBase\\Application\\": "src",
+      "CubexBase\\StyleGuide\\": "styleguide"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "CubexBase\\StyleGuide\\": "src/styleguide",
       "CubexBase\\Tests\\": "tests"
     }
   },

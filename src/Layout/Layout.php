@@ -1,8 +1,8 @@
 <?php
 
-namespace CubexBase\Frontend\Layout;
+namespace CubexBase\Application\Layout;
 
-use CubexBase\Shared\Ui;
+use CubexBase\Application\Ui;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
 use Packaged\Ui\Element;

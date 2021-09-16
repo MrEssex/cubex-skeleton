@@ -1,8 +1,8 @@
 <?php
 
-namespace CubexBase\Frontend\Pages;
+namespace CubexBase\Application\Pages;
 
-use CubexBase\Shared\AbstractBase;
+use CubexBase\Application\AbstractBase;
 
 abstract class AbstractPage extends AbstractBase implements PageClass
 {

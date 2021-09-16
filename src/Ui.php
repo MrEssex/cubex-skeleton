@@ -1,6 +1,6 @@
 <?php
 
-namespace CubexBase\Shared;
+namespace CubexBase\Application;
 
 use Exception;
 use Packaged\Dispatch\ResourceManager;

@@ -1,6 +1,6 @@
 <?php
 
-namespace CubexBase\Shared\Context;
+namespace CubexBase\Application\Context;
 
 use Packaged\Http\LinkBuilder\LinkBuilder;
 

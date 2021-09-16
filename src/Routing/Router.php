@@ -1,10 +1,10 @@
 <?php
 
-namespace CubexBase\Frontend\Routing;
+namespace CubexBase\Application\Routing;
 
 use Cubex\Routing\RouteProcessor;
-use CubexBase\Frontend\Pages\HomePage\HomeController;
-use CubexBase\Frontend\Pages\NotFound\NotFoundController;
+use CubexBase\Application\Pages\HomePage\HomeController;
+use CubexBase\Application\Pages\NotFound\NotFoundController;
 
 class Router extends RouteProcessor
 {

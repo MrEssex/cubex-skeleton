@@ -1,8 +1,8 @@
 <?php
 
-namespace CubexBase\Shared\Cli;
+namespace CubexBase\Application\Cli;
 
-use CubexBase\Shared\I18n\PoToArrayCommand;
+use CubexBase\Application\I18n\PoToArrayCommand;
 
 class Potoar extends PoToArrayCommand
 {

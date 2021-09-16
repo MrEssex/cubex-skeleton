@@ -1,8 +1,8 @@
 <?php
 
-namespace CubexBase\Frontend\Pages\NotFound;
+namespace CubexBase\Application\Pages\NotFound;
 
-use CubexBase\Frontend\Layout\LayoutController;
+use CubexBase\Application\Layout\LayoutController;
 
 class NotFoundController extends LayoutController
 {
