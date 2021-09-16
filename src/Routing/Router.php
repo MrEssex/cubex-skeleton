@@ -8,9 +8,16 @@ use CubexBase\Application\Pages\NotFound\NotFoundController;
 
 class Router extends RouteProcessor
 {
+  protected array $_routes = [
+    '/$' => HomeController::class,
+  ];
+
   protected function _generateRoutes()
   {
-    yield self::_route('/$', HomeController::class);
+    foreach($this->_routes as $url => $endpoint)
+    {
+      yield self::_route($url, $endpoint);
+    }
 
     return NotFoundController::class;
   }

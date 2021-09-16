@@ -60,7 +60,14 @@ class MainApplication extends Application
   protected function _initialize(): void
   {
     parent::_initialize();
+    $this->_initDispatch();
+  }
 
+  /**
+   * @throws Exception
+   */
+  protected function _initDispatch(): void
+  {
     $context = $this->getContext();
     $dispatch = new Dispatch($context->getProjectRoot() . DIRECTORY_SEPARATOR . 'public', self::DISPATCH_PATH);
 
@@ -139,24 +146,29 @@ class MainApplication extends Application
     }
     $this->getCubex()->listen(
       ResponsePreSendHeadersEvent::class,
-      static function (ResponsePreSendHeadersEvent $event) {
-        $response = $event->getResponse();
-
-        if($response instanceof Response)
-        {
-          $context = $event->getContext();
-          $allowed = [
-            $context->request()->urlSprintf(),
-            'https://fonts.googleapis.com',
-          ];
-
-          if(in_array($context->request()->headers->get('origin'), $allowed, true))
-          {
-            $response->headers->set('Access-Control-Allow-Origin', $context->request()->headers->get('origin'));
-          }
-        }
-      }
+      function (ResponsePreSendHeadersEvent $event) { $this->_setupHeaders($event); }
     );
+  }
+
+  protected function _setupHeaders(ResponsePreSendHeadersEvent $event)
+  {
+    $response = $event->getResponse();
+
+    if($response instanceof Response)
+    {
+      $context = $event->getContext();
+      $allowed = [
+        $context->request()->urlSprintf(),
+        'https://fonts.googleapis.com',
+      ];
+
+      if(in_array($context->request()->headers->get('origin'), $allowed, true))
+      {
+        $response->headers->set('Access-Control-Allow-Origin', $context->request()->headers->get('origin'));
+      }
+    }
+
+    return $response;
   }
 
   protected function _defaultHandler(): Handler

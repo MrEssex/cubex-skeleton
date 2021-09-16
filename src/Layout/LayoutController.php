@@ -42,7 +42,7 @@ abstract class LayoutController extends AuthedController implements WithContext,
    */
   protected function _prepareResponse(Context $c, $result, $buffer = null): Response
   {
-    if(!($result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result)))
+    if(!$this->_isAppropriateResponse($result))
     {
       return parent::_prepareResponse($c, $result, $buffer);
     }
@@ -54,12 +54,12 @@ abstract class LayoutController extends AuthedController implements WithContext,
       $result = JsonResponse::create($result);
     }
 
+    $theme->setContext($this->getContext())->setContent($result);
+
     if($result instanceof PageClass)
     {
       $theme->setPageClass($result->getPageClass());
     }
-
-    $theme->setContext($this->getContext())->setContent($result);
 
     if($result instanceof AbstractPage && $result->shouldCache())
     {
@@ -70,5 +70,10 @@ abstract class LayoutController extends AuthedController implements WithContext,
     }
 
     return parent::_prepareResponse($c, $theme, $buffer);
+  }
+
+  protected function _isAppropriateResponse($result): bool
+  {
+    return $result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result);
   }
 }

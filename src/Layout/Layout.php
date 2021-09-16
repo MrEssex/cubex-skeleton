@@ -11,8 +11,9 @@ class Layout extends Element implements ContextAware
 {
   use ContextAwareTrait;
 
-  protected object $_content;
-  private string $_pageClass;
+  /** @var mixed */
+  protected $_content;
+  private string $_pageClass = "";
 
   public function render(): string
   {
@@ -20,12 +21,12 @@ class Layout extends Element implements ContextAware
     return parent::render();
   }
 
-  public function getContent(): object
+  public function getContent()
   {
     return $this->_content;
   }
 
-  public function setContent(object $content): self
+  public function setContent($content): self
   {
     $this->_content = $content;
     return $this;
