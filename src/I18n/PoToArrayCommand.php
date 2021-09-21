@@ -11,9 +11,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class PoToArrayCommand extends ConsoleCommand
 {
-  /**@short f */
+  /** @short f */
   public $file;
-  /**@short o */
+  /** @short o */
   public $output;
   /** @short l */
   public $lang;
