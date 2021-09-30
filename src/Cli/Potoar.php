@@ -2,7 +2,7 @@
 
 namespace CubexBase\Application\Cli;
 
-use CubexBase\Application\I18n\PoToArrayCommand;
+use CubexBase\Application\L18n\PoToArrayCommand;
 
 class Potoar extends PoToArrayCommand
 {

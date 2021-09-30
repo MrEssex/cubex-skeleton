@@ -131,7 +131,7 @@ jobs:
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH_JSON }}
 
-      - run: composer run-script test
+      - run: composer run-script check
 
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -156,6 +156,7 @@ jobs:
           coverageLocations: |
             ${{github.workspace}}/coverage/backend/clover.xml:clover
             ${{github.workspace}}/coverage/frontend/lcov.info:lcov
+
   lint:
     runs-on: ubuntu-latest
 

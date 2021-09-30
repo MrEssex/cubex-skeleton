@@ -13,6 +13,6 @@ abstract class AbstractPage extends AbstractBase implements PageClass
 
   public function shouldCache(): bool
   {
-    return false;
+    return !$this->getContext()->isLocal();
   }
 }

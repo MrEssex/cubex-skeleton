@@ -1,6 +1,6 @@
 <?php
 
-namespace CubexBase\Application\I18n;
+namespace CubexBase\Application\L18n;
 
 use Cubex\Console\ConsoleCommand;
 use Packaged\Helpers\ValueAs;

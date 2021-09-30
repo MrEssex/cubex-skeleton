@@ -146,7 +146,9 @@ class MainApplication extends Application
     }
     $this->getCubex()->listen(
       ResponsePreSendHeadersEvent::class,
-      function (ResponsePreSendHeadersEvent $event) { $this->_setupHeaders($event); }
+      function (ResponsePreSendHeadersEvent $event) {
+        $this->_setupHeaders($event);
+      }
     );
   }
 

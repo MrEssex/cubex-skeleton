@@ -51,7 +51,7 @@ jobs:
       - run:
           name: Run backend tests
           command: |
-            composer run-script test
+            composer run-script check
             ./tmp/cc-test-reporter format-coverage -t clover -o tmp/codeclimate.backend.json coverage/backend/clover.xml
       - persist_to_workspace:
           root: tmp

@@ -2,7 +2,7 @@
 
 namespace CubexBase\Application\Cli;
 
-use CubexBase\Application\I18n\TranslateCommand;
+use CubexBase\Application\L18n\TranslateCommand;
 
 class Translate extends TranslateCommand
 {

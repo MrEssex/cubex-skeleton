@@ -1,10 +1,11 @@
 <?php
 
-namespace CubexBase\Application\Layout;
+namespace CubexBase\Application\Controllers;
 
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
 use CubexBase\Application\Context\Context as CBContext;
+use CubexBase\Application\Layout\Layout;
 use CubexBase\Application\MainApplication;
 use CubexBase\Application\Pages\AbstractPage;
 use CubexBase\Application\Pages\PageClass;
@@ -26,13 +27,13 @@ use function is_scalar;
 /**
  * @method CBContext getContext() : Context
  */
-abstract class LayoutController extends AuthedController implements WithContext, Translatable, Translator
+abstract class AbstractController extends AuthedController implements WithContext, Translatable, Translator
 {
   use GetTranslatorTrait;
   use TranslatableTrait;
   use WithContextTrait;
 
-  protected function _generateRoutes(): string
+  protected function _generateRoutes()
   {
     return '';
   }
