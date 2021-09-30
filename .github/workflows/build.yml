@@ -63,7 +63,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - run: git config --global credential.helper store
+      - run: git conf --global credential.helper store
 
       - name: Add HTTP basic auth credentials
         run: echo '${{ secrets.COMPOSER_AUTH_JSON }}' > $GITHUB_WORKSPACE/auth.json
@@ -110,7 +110,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - run: git config --global credential.helper store
+      - run: git conf --global credential.helper store
 
       - name: Add HTTP basic auth credentials
         run: echo '${{ secrets.COMPOSER_AUTH_JSON }}' > $GITHUB_WORKSPACE/auth.json
@@ -167,7 +167,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - run: git config --global credential.helper store
+      - run: git conf --global credential.helper store
 
       - name: Add HTTP basic auth credentials
         run: echo '${{ secrets.COMPOSER_AUTH_JSON }}' > $GITHUB_WORKSPACE/auth.json

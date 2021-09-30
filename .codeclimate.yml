@@ -6,7 +6,7 @@ plugins:
     enabled: true
 
 exclude_patterns:
-  - "config/"
+  - "conf/"
   - "node_modules"
   - "translations/"
   - "**/spec/"
