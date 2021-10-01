@@ -5,7 +5,7 @@ namespace CubexBase\Application;
 use Cubex\Application\Application;
 use Cubex\Cubex;
 use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
-use CubexBase\Application\Routing\Router;
+use Cubex\Sitemap\SitemapListener;
 use Exception;
 use MrEssex\FileCache\AbstractCache;
 use MrEssex\FileCache\ApcuCache;
@@ -150,6 +150,11 @@ class MainApplication extends Application
         $this->_setupHeaders($event);
       }
     );
+
+    if($this->getContext()->isLocal())
+    {
+      SitemapListener::with($this->getCubex(), $this->getContext());
+    }
   }
 
   protected function _setupHeaders(ResponsePreSendHeadersEvent $event)

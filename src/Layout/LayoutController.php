@@ -1,11 +1,10 @@
 <?php
 
-namespace CubexBase\Application\Controllers;
+namespace CubexBase\Application\Layout;
 
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
 use CubexBase\Application\Context\Context as CBContext;
-use CubexBase\Application\Layout\Layout;
 use CubexBase\Application\MainApplication;
 use CubexBase\Application\Pages\AbstractPage;
 use CubexBase\Application\Pages\PageClass;
@@ -27,7 +26,7 @@ use function is_scalar;
 /**
  * @method CBContext getContext() : Context
  */
-abstract class AbstractController extends AuthedController implements WithContext, Translatable, Translator
+abstract class LayoutController extends AuthedController implements WithContext, Translatable, Translator
 {
   use GetTranslatorTrait;
   use TranslatableTrait;

@@ -1,5 +1,4 @@
 <?php
-
 namespace CubexBase\Application\Layout;
 
 use CubexBase\Application\Ui;

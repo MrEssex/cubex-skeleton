@@ -1,6 +1,6 @@
 <?php
 
-namespace CubexBase\Application\L18n;
+namespace CubexBase\Application\Cli\Helpers;
 
 use Packaged\Context\Context;
 use Packaged\Rwd\Language\LanguageCode;

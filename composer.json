@@ -13,6 +13,7 @@
     "php": ">=7.4",
     "ext-apcu": "*",
     "cubex/framework": "^4.15.0",
+    "cubex/sitemap": "^0.1.0",
     "filp/whoops": "^2.9.2",
     "mressex/cache": "^0.4",
     "packaged-ui/bem-component": "^1.1",

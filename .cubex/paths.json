@@ -1,0 +1,18 @@
+{
+  "hostname": "http://cubexbase.local-host.xyz:7070",
+  "paths": {
+    "/": {
+      "title": null,
+      "lastModified": 1633087179,
+      "priority": 1,
+      "excludeFromSitemap": false,
+      "changeFrequency": "monthly",
+      "history": {
+        "1633087179": {
+          "hash": "bcebd304225ab2cf4066eb651fc782ec",
+          "hostName": "cubexbase.local-host.xyz"
+        }
+      }
+    }
+  }
+}

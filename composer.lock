@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "753b153389d95e5fa69fba1979f0969b",
+    "content-hash": "5703f0f05c32bff4f8723f0ed5afef2b",
     "packages": [
         {
             "name": "cubex/framework",
@@ -72,6 +72,49 @@
                 "source": "https://github.com/cubex/framework/tree/4.17.0"
             },
             "time": "2021-09-28T12:25:03+00:00"
+        },
+        {
+            "name": "cubex/sitemap",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cubex/sitemap.git",
+                "reference": "cad746d432ff9677a24a784d48a4f3bc3c710356"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cubex/sitemap/zipball/cad746d432ff9677a24a784d48a4f3bc3c710356",
+                "reference": "cad746d432ff9677a24a784d48a4f3bc3c710356",
+                "shasum": ""
+            },
+            "require": {
+                "cubex/framework": "^4.17",
+                "ext-json": "*",
+                "packaged/glimpse": "^2.8",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5.9",
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cubex\\Sitemap\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Kyle Essex",
+                    "email": "kylegavinessex@hotmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/cubex/sitemap/issues",
+                "source": "https://github.com/cubex/sitemap/tree/0.1.1"
+            },
+            "time": "2021-10-01T11:09:46+00:00"
         },
         {
             "name": "doctrine/instantiator",
