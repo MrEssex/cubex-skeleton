@@ -7,7 +7,7 @@ use Packaged\Http\Response;
 
 class NotFoundController extends LayoutController
 {
-  public function get()
+  public function get(): Response
   {
     return Response::create('oops, not found', 404);
   }

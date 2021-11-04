@@ -2,6 +2,17 @@
   "name": "cubex-base",
   "version": "1.0.0",
   "description": "Playground for Learning Cubex",
+  "keywords": [],
+  "homepage": "https://github.com/MrEssex/cubex-base#readme",
+  "bugs": {
+    "url": "https://github.com/MrEssex/cubex-base/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrEssex/cubex-base.git"
+  },
+  "license": "ISC",
+  "author": "",
   "main": "rollup.config.js",
   "scripts": {
     "test": "cross-env TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' mocha -r ts-node/register assets/**/*.spec.ts",
@@ -17,17 +28,9 @@
     "last 2 versions",
     "Firefox ESR"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MrEssex/cubex-base.git"
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MrEssex/cubex-base/issues"
-  },
-  "homepage": "https://github.com/MrEssex/cubex-base#readme",
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@rollup/plugin-commonjs": "^19.0.0",
@@ -61,8 +64,5 @@
     "ts-node": "^9.1.1",
     "tslib": "^2.2.0",
     "typescript": "^4.0.2"
-  },
-  "dependencies": {
-    "normalize.css": "^8.0.1"
   }
 }

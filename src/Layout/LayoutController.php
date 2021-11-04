@@ -8,6 +8,7 @@ use CubexBase\Application\Context\Context as CBContext;
 use CubexBase\Application\MainApplication;
 use CubexBase\Application\Pages\AbstractPage;
 use CubexBase\Application\Pages\PageClass;
+use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
 use Packaged\Context\WithContext;
 use Packaged\Context\WithContextTrait;
@@ -19,7 +20,6 @@ use Packaged\I18n\Translators\Translator;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
 use PackagedUI\Pagelets\PageletResponse;
-use Psr\SimpleCache\InvalidArgumentException;
 use function is_array;
 use function is_scalar;
 
