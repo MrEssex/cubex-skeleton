@@ -9,7 +9,9 @@ use Cubex\Sitemap\SitemapListener;
 use Exception;
 use MrEssex\FileCache\AbstractCache;
 use MrEssex\FileCache\ApcuCache;
+use Packaged\Config\Provider\Ini\IniConfigProvider;
 use Packaged\Context\Context;
+use Packaged\Dal\DalResolver;
 use Packaged\Dispatch\Dispatch;
 use Packaged\Dispatch\Resources\ResourceFactory;
 use Packaged\Helpers\Path;
@@ -158,6 +160,14 @@ class MainApplication extends Application
     {
       return;
     }
+
+    $confDirectory = $ctx->getProjectRoot() . DIRECTORY_SEPARATOR . 'conf' .
+      DIRECTORY_SEPARATOR . $ctx->getEnvironment() . DIRECTORY_SEPARATOR;
+
+    (new DalResolver(
+      new IniConfigProvider($confDirectory . 'connections.ini', true),
+      new IniConfigProvider($confDirectory . 'datastores.ini', true)
+    ))->boot();
 
     $this->getCubex()->listen(
       ResponsePreSendHeadersEvent::class,
