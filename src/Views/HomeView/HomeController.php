@@ -1,6 +1,6 @@
 <?php
 
-namespace CubexBase\Application\Views\HomePage;
+namespace CubexBase\Application\Views\HomeView;
 
 use CubexBase\Application\Layout\LayoutController;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace CubexBase\Application\Views\NotFoundPage;
+namespace CubexBase\Application\Views\NotFoundView;
 
 use CubexBase\Application\Layout\LayoutController;
 use Packaged\Http\Response;

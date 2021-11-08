@@ -3,8 +3,8 @@
 namespace CubexBase\Application;
 
 use Cubex\Routing\RouteProcessor;
-use CubexBase\Application\Views\HomePage\HomeController;
-use CubexBase\Application\Views\NotFoundPage\NotFoundController;
+use CubexBase\Application\Views\HomeView\HomeController;
+use CubexBase\Application\Views\NotFoundView\NotFoundController;
 
 class Router extends RouteProcessor
 {

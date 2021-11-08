@@ -7,8 +7,8 @@ use Cubex\I18n\GetTranslatorTrait;
 use Cubex\Mv\ViewModel;
 use CubexBase\Application\Context\Context as CBContext;
 use CubexBase\Application\MainApplication;
-use CubexBase\Application\Views\AbstractPage;
-use CubexBase\Application\Views\PageClass;
+use CubexBase\Application\Views\AbstractView;
+use CubexBase\Application\Views\ViewClass;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
@@ -64,12 +64,12 @@ abstract class LayoutController extends AuthedController implements WithContext,
 
     $theme->setContext($this->getContext())->setContent($result);
 
-    if($result instanceof PageClass)
+    if($result instanceof ViewClass)
     {
       $theme->setPageClass($result->getPageClass());
     }
 
-    if($result instanceof AbstractPage && $result->shouldCache())
+    if($result instanceof AbstractView && $result->shouldCache())
     {
       $path = $c->request()->getRequestUri();
       $language = $c->request()->getPreferredLanguage();

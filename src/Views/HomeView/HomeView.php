@@ -1,16 +1,16 @@
 <?php
 
-namespace CubexBase\Application\Views\HomePage;
+namespace CubexBase\Application\Views\HomeView;
 
 use Cubex\Mv\Model;
 use Cubex\Mv\View;
-use CubexBase\Application\Views\AbstractPage;
+use CubexBase\Application\Views\AbstractView;
 use Packaged\Context\Context;
 use Packaged\Glimpse\Tags\Text\HeadingOne;
 use Packaged\Glimpse\Tags\Text\Paragraph;
 use Packaged\SafeHtml\SafeHtml;
 
-class HomeView extends AbstractPage implements View
+class HomeView extends AbstractView implements View
 {
   /** @var Model|null|HomeViewModel */
   protected ?Model $_model;

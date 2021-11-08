@@ -4,7 +4,7 @@ namespace CubexBase\Application\Views;
 
 use CubexBase\Application\AbstractBase;
 
-abstract class AbstractPage extends AbstractBase implements PageClass
+abstract class AbstractView extends AbstractBase implements ViewClass
 {
   public function getPageClass(): string
   {
