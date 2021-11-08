@@ -15,6 +15,7 @@ use Packaged\Dispatch\Resources\ResourceFactory;
 use Packaged\Helpers\Path;
 use Packaged\Helpers\ValueAs;
 use Packaged\Http\Response;
+use Packaged\Http\Responses\TextResponse;
 use Packaged\Routing\Handler\FuncHandler;
 use Packaged\Routing\Handler\Handler;
 use Packaged\Routing\HealthCheckCondition;
@@ -112,9 +113,20 @@ class MainApplication extends Application
     }
 
     yield self::_route(
+      "/sitemap.xml",
+      static function (Context $c) {
+        return Response::create(
+          file_get_contents(Path::system($c->getProjectRoot(), 'public/sitemap.xml')),
+          200,
+          ['content-type' => 'text/xml']
+        );
+      }
+    );
+
+    yield self::_route(
       "/robots.txt",
       static function (Context $c) {
-        return ResourceFactory::fromFile(Path::system($c->getProjectRoot(), 'public/robots.txt'));
+        return TextResponse::create(file_get_contents(Path::system($c->getProjectRoot(), 'public/robots.txt')));
       }
     );
 
