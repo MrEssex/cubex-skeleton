@@ -1,9 +1,9 @@
 <?php
 namespace CubexBase\Application\Layout;
 
-use CubexBase\Application\Ui;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
+use Packaged\Dispatch\ResourceManager;
 use Packaged\Ui\Element;
 
 class Layout extends Element implements ContextAware
@@ -16,7 +16,8 @@ class Layout extends Element implements ContextAware
 
   public function render(): string
   {
-    Ui::require();
+    ResourceManager::resources()->requireCss('main.min.css');
+    ResourceManager::resources()->requireJs('main.min.js');
     return parent::render();
   }
 
