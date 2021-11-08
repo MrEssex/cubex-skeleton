@@ -14,8 +14,9 @@
     "ext-apcu": "*",
     "cubex/framework": "^4.15.0",
     "cubex/mv": "^0.2.0",
-    "cubex/sitemap": "^0.1.0",
+    "cubex/sitemap": "^0.2.0",
     "mressex/cache": "^0.4",
+    "mressex/cubex-framework": "^0.1.0",
     "packaged-ui/bem-component": "^1.1",
     "packaged-ui/pagelets": "dev-master",
     "packaged/dal": "^1.16.0",
@@ -23,9 +24,7 @@
     "packaged/enum": "^1.4.0",
     "packaged/form": "^4.0.1",
     "packaged/glimpse": "^2.7",
-    "packaged/http": "^1.16",
-    "packaged/rwd": "^1.4.2",
-    "statickidz/php-google-translate-free": "^1.1.1"
+    "packaged/http": "^1.16"
   },
   "require-dev": {
     "filp/whoops": "^2.9.2",

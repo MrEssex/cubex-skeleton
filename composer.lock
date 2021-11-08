@@ -4,7 +4,7 @@
     "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
     "This file is @generated automatically"
   ],
-  "content-hash": "d0d23db1b746bbba6375f0723e03a884",
+  "content-hash": "383f7fbcac8f81ba053dd0a716924948",
   "packages": [
     {
       "name": "cubex/framework",
@@ -15,16 +15,16 @@
         "reference": "e9f4e7214137ef7af297f84f5770081ca73ed37f"
       },
       "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cubex/framework/zipball/e9f4e7214137ef7af297f84f5770081ca73ed37f",
-                "reference": "e9f4e7214137ef7af297f84f5770081ca73ed37f",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "packaged/config": "~1.5",
-                "packaged/context": "~1.4",
-                "packaged/context-i18n": "~1.0",
+        "type": "zip",
+        "url": "https://api.github.com/repos/cubex/framework/zipball/e9f4e7214137ef7af297f84f5770081ca73ed37f",
+        "reference": "e9f4e7214137ef7af297f84f5770081ca73ed37f",
+        "shasum": ""
+      },
+      "require": {
+        "ext-json": "*",
+        "packaged/config": "~1.5",
+        "packaged/context": "~1.4",
+        "packaged/context-i18n": "~1.0",
                 "packaged/di-container": "~1.0",
                 "packaged/docblock": "~1.1",
                 "packaged/event": "~1.2",
@@ -57,16 +57,16 @@
             "authors": [
                 {
                     "name": "Brooke Bryan",
-                    "email": "brooke@bajb.net",
-                    "homepage": "http://www.bajb.net"
+                  "email": "brooke@bajb.net",
+                  "homepage": "http://www.bajb.net"
                 }
             ],
-            "description": "Cubex Framework",
-            "homepage": "http://cubex.io",
-            "keywords": [
-              "cubex",
-              "framework"
-            ],
+      "description": "Cubex Framework",
+      "homepage": "http://cubex.io",
+      "keywords": [
+        "cubex",
+        "framework"
+      ],
       "support": {
         "issues": "https://github.com/cubex/framework/issues",
         "source": "https://github.com/cubex/framework/tree/4.17.0"
@@ -123,26 +123,26 @@
     },
     {
       "name": "cubex/sitemap",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "source": {
         "type": "git",
         "url": "https://github.com/cubex/sitemap.git",
-        "reference": "cad746d432ff9677a24a784d48a4f3bc3c710356"
+        "reference": "c78228719ab2bdea2bed2c3d91bc2750bbddd738"
       },
       "dist": {
         "type": "zip",
-        "url": "https://api.github.com/repos/cubex/sitemap/zipball/cad746d432ff9677a24a784d48a4f3bc3c710356",
-                "reference": "cad746d432ff9677a24a784d48a4f3bc3c710356",
-                "shasum": ""
-            },
-            "require": {
-                "cubex/framework": "^4.17",
-                "ext-json": "*",
-                "packaged/glimpse": "^2.8",
-                "php": ">=7.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.5.9",
+        "url": "https://api.github.com/repos/cubex/sitemap/zipball/c78228719ab2bdea2bed2c3d91bc2750bbddd738",
+        "reference": "c78228719ab2bdea2bed2c3d91bc2750bbddd738",
+        "shasum": ""
+      },
+      "require": {
+        "cubex/framework": "^4.17",
+        "ext-json": "*",
+        "packaged/glimpse": "^2.8",
+        "php": ">=7.4"
+      },
+      "require-dev": {
+        "phpunit/phpunit": "^9.5.9",
                 "roave/security-advisories": "dev-latest"
             },
             "type": "library",
@@ -160,9 +160,9 @@
             ],
             "support": {
                 "issues": "https://github.com/cubex/sitemap/issues",
-                "source": "https://github.com/cubex/sitemap/tree/0.1.1"
+              "source": "https://github.com/cubex/sitemap/tree/0.2.0"
             },
-            "time": "2021-10-01T11:09:46+00:00"
+      "time": "2021-10-14T15:19:38+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -373,26 +373,73 @@
             ],
             "description": "Different PSR-16 cache implementations ",
             "keywords": [
-                "cache",
-                "caching"
+              "cache",
+              "caching"
             ],
-            "support": {
-                "issues": "https://github.com/MrEssex/cache/issues",
-                "source": "https://github.com/MrEssex/cache/tree/0.4.1"
-            },
-            "time": "2021-11-04T10:52:53+00:00"
+          "support": {
+            "issues": "https://github.com/MrEssex/cache/issues",
+            "source": "https://github.com/MrEssex/cache/tree/0.4.1"
+          },
+          "time": "2021-11-04T10:52:53+00:00"
         },
+    {
+      "name": "mressex/cubex-framework",
+      "version": "0.1.2",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/MrEssex/cubex-framework.git",
+        "reference": "e8191886af9e9257ac796fec992c3749d2cb2e01"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/MrEssex/cubex-framework/zipball/e8191886af9e9257ac796fec992c3749d2cb2e01",
+        "reference": "e8191886af9e9257ac796fec992c3749d2cb2e01",
+        "shasum": ""
+      },
+      "require": {
+        "cubex/framework": "^4.15.0",
+        "packaged-ui/bem-component": "^1.2",
+        "packaged/rwd": "^1.4",
+        "php": ">=7.4",
+        "statickidz/php-google-translate-free": "^1.2"
+      },
+      "require-dev": {
+        "roave/security-advisories": "dev-latest"
+      },
+      "type": "framework",
+      "autoload": {
+        "psr-4": {
+          "MrEssex\\CubexFramework\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "MIT"
+      ],
+      "authors": [
         {
-            "name": "myclabs/deep-copy",
-            "version": "1.10.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "776f831124e9c62e1a2c601ecc52e776d8bb7220"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/776f831124e9c62e1a2c601ecc52e776d8bb7220",
+          "name": "Kyle Essex",
+          "email": "kylegavinessex@hotmail.com"
+        }
+      ],
+      "description": "Cubex Defaults",
+      "support": {
+        "issues": "https://github.com/MrEssex/cubex-framework/issues",
+        "source": "https://github.com/MrEssex/cubex-framework/tree/0.1.2"
+      },
+      "time": "2021-11-08T14:15:24+00:00"
+    },
+    {
+      "name": "myclabs/deep-copy",
+      "version": "1.10.2",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/myclabs/DeepCopy.git",
+        "reference": "776f831124e9c62e1a2c601ecc52e776d8bb7220"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/776f831124e9c62e1a2c601ecc52e776d8bb7220",
                 "reference": "776f831124e9c62e1a2c601ecc52e776d8bb7220",
                 "shasum": ""
             },
@@ -2413,15 +2460,15 @@
             },
             "funding": [
                 {
-                    "url": "https://phpunit.de/donate.html",
-                    "type": "custom"
+                  "url": "https://phpunit.de/donate.html",
+                  "type": "custom"
                 },
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                }
+              {
+                "url": "https://github.com/sebastianbergmann",
+                "type": "github"
+              }
             ],
-            "time": "2021-09-25T07:38:51+00:00"
+          "time": "2021-09-25T07:38:51+00:00"
         },
     {
       "name": "psr/container",
@@ -2437,16 +2484,16 @@
         "reference": "513e0666f7216c7459170d56df27dfcefe1689ea",
         "shasum": ""
       },
-            "require": {
-              "php": ">=7.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Container\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
+      "require": {
+        "php": ">=7.4.0"
+      },
+      "type": "library",
+      "autoload": {
+        "psr-4": {
+          "Psr\\Container\\": "src/"
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3595,15 +3642,15 @@
             ],
             "support": {
                 "issues": "https://github.com/statickidz/php-google-translate-free/issues",
-                "source": "https://github.com/statickidz/php-google-translate-free/releases"
+              "source": "https://github.com/statickidz/php-google-translate-free/releases"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/statickidz",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-04-12T14:59:49+00:00"
+          "funding": [
+            {
+              "url": "https://github.com/statickidz",
+              "type": "github"
+            }
+          ],
+          "time": "2021-04-12T14:59:49+00:00"
         },
     {
       "name": "symfony/console",
@@ -3619,16 +3666,16 @@
         "reference": "bea7632e3b1d12decedba0a7fe7a7e0ebf7ee2f4",
         "shasum": ""
       },
-            "require": {
-                "php": ">=7.2.5",
-                "symfony/deprecation-contracts": "^2.1",
-                "symfony/polyfill-mbstring": "~1.0",
-                "symfony/polyfill-php73": "^1.8",
-                "symfony/polyfill-php80": "^1.16",
-                "symfony/service-contracts": "^1.1|^2",
-              "symfony/string": "^5.1|^6.0"
-            },
-            "conflict": {
+      "require": {
+        "php": ">=7.2.5",
+        "symfony/deprecation-contracts": "^2.1",
+        "symfony/polyfill-mbstring": "~1.0",
+        "symfony/polyfill-php73": "^1.8",
+        "symfony/polyfill-php80": "^1.16",
+        "symfony/service-contracts": "^1.1|^2",
+        "symfony/string": "^5.1|^6.0"
+      },
+      "conflict": {
                 "psr/log": ">=3",
                 "symfony/dependency-injection": "<4.4",
                 "symfony/dotenv": "<5.1",
@@ -3829,15 +3876,15 @@
                     "type": "custom"
                 },
                 {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
+                  "url": "https://github.com/fabpot",
+                  "type": "github"
                 },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
+              {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+              }
             ],
-            "time": "2021-10-07T15:31:35+00:00"
+          "time": "2021-10-07T15:31:35+00:00"
         },
     {
       "name": "symfony/mime",
@@ -3853,16 +3900,16 @@
         "reference": "d75d8cd9aa5ad257ed1b958f042c7a2d7cf505d5",
         "shasum": ""
       },
-            "require": {
-                "php": ">=7.2.5",
-                "symfony/deprecation-contracts": "^2.1",
-                "symfony/polyfill-intl-idn": "^1.10",
-                "symfony/polyfill-mbstring": "^1.0",
-                "symfony/polyfill-php80": "^1.16"
-            },
-            "conflict": {
-                "egulias/email-validator": "~3.0.0",
-                "phpdocumentor/reflection-docblock": "<3.2.2",
+      "require": {
+        "php": ">=7.2.5",
+        "symfony/deprecation-contracts": "^2.1",
+        "symfony/polyfill-intl-idn": "^1.10",
+        "symfony/polyfill-mbstring": "^1.0",
+        "symfony/polyfill-php80": "^1.16"
+      },
+      "conflict": {
+        "egulias/email-validator": "~3.0.0",
+        "phpdocumentor/reflection-docblock": "<3.2.2",
                 "phpdocumentor/type-resolver": "<1.4.0",
                 "symfony/mailer": "<4.4"
             },
@@ -4640,15 +4687,15 @@
                     "type": "custom"
                 },
                 {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
+                  "url": "https://github.com/fabpot",
+                  "type": "github"
                 },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
+              {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+              }
             ],
-            "time": "2021-04-01T10:43:52+00:00"
+          "time": "2021-04-01T10:43:52+00:00"
         },
     {
       "name": "symfony/string",
@@ -4664,20 +4711,20 @@
         "reference": "dad92b16d84cb661f39c85a5dbb6e4792b92e90f",
         "shasum": ""
       },
-            "require": {
-                "php": ">=7.2.5",
-                "symfony/polyfill-ctype": "~1.8",
-                "symfony/polyfill-intl-grapheme": "~1.0",
-                "symfony/polyfill-intl-normalizer": "~1.0",
-                "symfony/polyfill-mbstring": "~1.0",
-                "symfony/polyfill-php80": "~1.15"
-            },
-            "require-dev": {
-              "symfony/error-handler": "^4.4|^5.0|^6.0",
-              "symfony/http-client": "^4.4|^5.0|^6.0",
-              "symfony/translation-contracts": "^1.1|^2",
-              "symfony/var-exporter": "^4.4|^5.0|^6.0"
-            },
+      "require": {
+        "php": ">=7.2.5",
+        "symfony/polyfill-ctype": "~1.8",
+        "symfony/polyfill-intl-grapheme": "~1.0",
+        "symfony/polyfill-intl-normalizer": "~1.0",
+        "symfony/polyfill-mbstring": "~1.0",
+        "symfony/polyfill-php80": "~1.15"
+      },
+      "require-dev": {
+        "symfony/error-handler": "^4.4|^5.0|^6.0",
+        "symfony/http-client": "^4.4|^5.0|^6.0",
+        "symfony/translation-contracts": "^1.1|^2",
+        "symfony/var-exporter": "^4.4|^5.0|^6.0"
+      },
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4995,15 +5042,15 @@
             "homepage": "https://github.com/packaged/codestandards",
             "keywords": [
                 "Coding Standard",
-                "cubex",
-                "packaged",
-                "phpcs"
+              "cubex",
+              "packaged",
+              "phpcs"
             ],
-            "support": {
-                "issues": "https://github.com/packaged/codestandards/issues",
-                "source": "https://github.com/packaged/codestandards/tree/1.0.2"
-            },
-            "time": "2021-02-26T15:08:09+00:00"
+          "support": {
+            "issues": "https://github.com/packaged/codestandards/issues",
+            "source": "https://github.com/packaged/codestandards/tree/1.0.2"
+          },
+          "time": "2021-02-26T15:08:09+00:00"
         },
       {
         "name": "phpstan/phpstan",
@@ -5019,16 +5066,16 @@
           "reference": "cb317029197236c571c1b9305b8dd12850d8d85c",
           "shasum": ""
         },
-            "require": {
-                "php": "^7.1|^8.0"
-            },
-            "conflict": {
-                "phpstan/phpstan-shim": "*"
-            },
-            "bin": [
-                "phpstan",
-                "phpstan.phar"
-            ],
+        "require": {
+          "php": "^7.1|^8.0"
+        },
+        "conflict": {
+          "phpstan/phpstan-shim": "*"
+        },
+        "bin": [
+          "phpstan",
+          "phpstan.phar"
+        ],
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -5084,16 +5131,16 @@
               "shasum": ""
             },
             "conflict": {
-                "3f/pygmentize": "<1.2",
-                "adodb/adodb-php": "<5.20.12",
-                "akaunting/akaunting": "<2.1.13",
-                "alterphp/easyadmin-extension-bundle": ">=1.2,<1.2.11|>=1.3,<1.3.1",
-                "amazing/media2click": ">=1,<1.3.3",
-                "amphp/artax": "<1.0.6|>=2,<2.0.6",
-                "amphp/http": "<1.0.1",
-                "amphp/http-client": ">=4,<4.4",
-                "api-platform/core": ">=2.2,<2.2.10|>=2.3,<2.3.6",
-                "asymmetricrypt/asymmetricrypt": ">=0,<9.9.99",
+              "3f/pygmentize": "<1.2",
+              "adodb/adodb-php": "<5.20.12",
+              "akaunting/akaunting": "<2.1.13",
+              "alterphp/easyadmin-extension-bundle": ">=1.2,<1.2.11|>=1.3,<1.3.1",
+              "amazing/media2click": ">=1,<1.3.3",
+              "amphp/artax": "<1.0.6|>=2,<2.0.6",
+              "amphp/http": "<1.0.1",
+              "amphp/http-client": ">=4,<4.4",
+              "api-platform/core": ">=2.2,<2.2.10|>=2.3,<2.3.6",
+              "asymmetricrypt/asymmetricrypt": ">=0,<9.9.99",
               "aws/aws-sdk-php": ">=3,<3.2.1",
               "bagisto/bagisto": "<0.1.5",
               "barrelstrength/sprout-base-email": "<1.2.7",
@@ -5134,25 +5181,25 @@
               "doctrine/common": ">=2,<2.4.3|>=2.5,<2.5.1",
               "doctrine/dbal": ">=2,<2.0.8|>=2.1,<2.1.2",
               "doctrine/doctrine-bundle": "<1.5.2",
-                "doctrine/doctrine-module": "<=0.7.1",
-                "doctrine/mongodb-odm": ">=1,<1.0.2",
-                "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
-                "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1|>=2.8.3,<2.8.4",
-                "dolibarr/dolibarr": "<14|>= 3.3.beta1, < 13.0.2",
-                "dompdf/dompdf": ">=0.6,<0.6.2",
-                "drupal/core": ">=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
-                "drupal/drupal": ">=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
-                "dweeves/magmi": "<=0.7.24",
-                "ecodev/newsletter": "<=4",
-                "endroid/qr-code-bundle": "<3.4.2",
-                "enshrined/svg-sanitize": "<0.13.1",
-                "erusev/parsedown": "<1.7.2",
-                "ether/logs": "<3.0.4",
-                "ezsystems/demobundle": ">=5.4,<5.4.6.1",
-                "ezsystems/ez-support-tools": ">=2.2,<2.2.3",
-                "ezsystems/ezdemo-ls-extension": ">=5.4,<5.4.2.1",
-                "ezsystems/ezfind-ls": ">=5.3,<5.3.6.1|>=5.4,<5.4.11.1|>=2017.12,<2017.12.0.1",
-                "ezsystems/ezplatform": "<=1.13.6|>=2,<=2.5.24",
+              "doctrine/doctrine-module": "<=0.7.1",
+              "doctrine/mongodb-odm": ">=1,<1.0.2",
+              "doctrine/mongodb-odm-bundle": ">=2,<3.0.1",
+              "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1|>=2.8.3,<2.8.4",
+              "dolibarr/dolibarr": "<14|>= 3.3.beta1, < 13.0.2",
+              "dompdf/dompdf": ">=0.6,<0.6.2",
+              "drupal/core": ">=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
+              "drupal/drupal": ">=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
+              "dweeves/magmi": "<=0.7.24",
+              "ecodev/newsletter": "<=4",
+              "endroid/qr-code-bundle": "<3.4.2",
+              "enshrined/svg-sanitize": "<0.13.1",
+              "erusev/parsedown": "<1.7.2",
+              "ether/logs": "<3.0.4",
+              "ezsystems/demobundle": ">=5.4,<5.4.6.1",
+              "ezsystems/ez-support-tools": ">=2.2,<2.2.3",
+              "ezsystems/ezdemo-ls-extension": ">=5.4,<5.4.2.1",
+              "ezsystems/ezfind-ls": ">=5.3,<5.3.6.1|>=5.4,<5.4.11.1|>=2017.12,<2017.12.0.1",
+              "ezsystems/ezplatform": "<=1.13.6|>=2,<=2.5.24",
               "ezsystems/ezplatform-admin-ui": ">=1.3,<1.3.5|>=1.4,<1.4.6",
               "ezsystems/ezplatform-admin-ui-assets": ">=4,<4.2.1|>=5,<5.0.1|>=5.1,<5.1.1",
               "ezsystems/ezplatform-kernel": "<=1.2.5|>=1.3,<=1.3.1",
@@ -5265,22 +5312,22 @@
               "oro/platform": ">=1.7,<1.7.4",
               "padraic/humbug_get_contents": "<1.1.2",
               "pagarme/pagarme-php": ">=0,<3",
-                "pagekit/pagekit": "<=1.0.18",
-                "paragonie/random_compat": "<2",
-                "passbolt/passbolt_api": "<2.11",
-                "paypal/merchant-sdk-php": "<3.12",
-                "pear/archive_tar": "<1.4.14",
-                "personnummer/personnummer": "<3.0.2",
-                "phanan/koel": "<5.1.4",
-                "phpfastcache/phpfastcache": "<6.1.5|>=7,<7.1.2|>=8,<8.0.7",
-                "phpmailer/phpmailer": "<6.5",
-                "phpmussel/phpmussel": ">=1,<1.6",
-                "phpmyadmin/phpmyadmin": "<4.9.6|>=5,<5.0.3",
-                "phpoffice/phpexcel": "<1.8.2",
-                "phpoffice/phpspreadsheet": "<1.16",
-                "phpseclib/phpseclib": "<2.0.31|>=3,<3.0.7",
-                "phpunit/phpunit": ">=4.8.19,<4.8.28|>=5.0.10,<5.6.3",
-                "phpwhois/phpwhois": "<=4.2.5",
+              "pagekit/pagekit": "<=1.0.18",
+              "paragonie/random_compat": "<2",
+              "passbolt/passbolt_api": "<2.11",
+              "paypal/merchant-sdk-php": "<3.12",
+              "pear/archive_tar": "<1.4.14",
+              "personnummer/personnummer": "<3.0.2",
+              "phanan/koel": "<5.1.4",
+              "phpfastcache/phpfastcache": "<6.1.5|>=7,<7.1.2|>=8,<8.0.7",
+              "phpmailer/phpmailer": "<6.5",
+              "phpmussel/phpmussel": ">=1,<1.6",
+              "phpmyadmin/phpmyadmin": "<4.9.6|>=5,<5.0.3",
+              "phpoffice/phpexcel": "<1.8.2",
+              "phpoffice/phpspreadsheet": "<1.16",
+              "phpseclib/phpseclib": "<2.0.31|>=3,<3.0.7",
+              "phpunit/phpunit": ">=4.8.19,<4.8.28|>=5.0.10,<5.6.3",
+              "phpwhois/phpwhois": "<=4.2.5",
               "phpxmlrpc/extras": "<0.6.1",
               "pimcore/pimcore": "<10.1.3",
               "pocketmine/pocketmine-mp": "<3.15.4",
@@ -5355,26 +5402,26 @@
               "symfony/dependency-injection": ">=2,<2.0.17|>=2.7,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7",
               "symfony/error-handler": ">=4.4,<4.4.4|>=5,<5.0.4",
               "symfony/form": ">=2.3,<2.3.35|>=2.4,<2.6.12|>=2.7,<2.7.50|>=2.8,<2.8.49|>=3,<3.4.20|>=4,<4.0.15|>=4.1,<4.1.9|>=4.2,<4.2.1",
-                "symfony/framework-bundle": ">=2,<2.3.18|>=2.4,<2.4.8|>=2.5,<2.5.2|>=2.7,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7",
-                "symfony/http-foundation": ">=2,<2.8.52|>=3,<3.4.35|>=4,<4.2.12|>=4.3,<4.3.8|>=4.4,<4.4.7|>=5,<5.0.7",
-                "symfony/http-kernel": ">=2,<2.8.52|>=3,<3.4.35|>=4,<4.2.12|>=4.3,<4.4.13|>=5,<5.1.5",
-                "symfony/intl": ">=2.7,<2.7.38|>=2.8,<2.8.31|>=3,<3.2.14|>=3.3,<3.3.13",
-                "symfony/maker-bundle": ">=1.27,<1.29.2|>=1.30,<1.31.1",
-                "symfony/mime": ">=4.3,<4.3.8",
-                "symfony/phpunit-bridge": ">=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7",
-                "symfony/polyfill": ">=1,<1.10",
-                "symfony/polyfill-php55": ">=1,<1.10",
-                "symfony/proxy-manager-bridge": ">=2.7,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7",
-                "symfony/routing": ">=2,<2.0.19",
-                "symfony/security": ">=2,<2.7.51|>=2.8,<3.4.49|>=4,<4.4.24|>=5,<5.2.8",
-                "symfony/security-bundle": ">=2,<2.7.48|>=2.8,<2.8.41|>=3,<3.3.17|>=3.4,<3.4.11|>=4,<4.0.11",
-                "symfony/security-core": ">=2.4,<2.6.13|>=2.7,<2.7.9|>=2.7.30,<2.7.32|>=2.8,<3.4.49|>=4,<4.4.24|>=5,<5.2.9",
-                "symfony/security-csrf": ">=2.4,<2.7.48|>=2.8,<2.8.41|>=3,<3.3.17|>=3.4,<3.4.11|>=4,<4.0.11",
-                "symfony/security-guard": ">=2.8,<3.4.48|>=4,<4.4.23|>=5,<5.2.8",
-                "symfony/security-http": ">=2.3,<2.3.41|>=2.4,<2.7.51|>=2.8,<3.4.48|>=4,<4.4.23|>=5,<5.2.8|>=5.3,<5.3.2",
-                "symfony/serializer": ">=2,<2.0.11",
-                "symfony/symfony": ">=2,<3.4.49|>=4,<4.4.24|>=5,<5.2.9|>=5.3,<5.3.2",
-                "symfony/translation": ">=2,<2.0.17",
+              "symfony/framework-bundle": ">=2,<2.3.18|>=2.4,<2.4.8|>=2.5,<2.5.2|>=2.7,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7",
+              "symfony/http-foundation": ">=2,<2.8.52|>=3,<3.4.35|>=4,<4.2.12|>=4.3,<4.3.8|>=4.4,<4.4.7|>=5,<5.0.7",
+              "symfony/http-kernel": ">=2,<2.8.52|>=3,<3.4.35|>=4,<4.2.12|>=4.3,<4.4.13|>=5,<5.1.5",
+              "symfony/intl": ">=2.7,<2.7.38|>=2.8,<2.8.31|>=3,<3.2.14|>=3.3,<3.3.13",
+              "symfony/maker-bundle": ">=1.27,<1.29.2|>=1.30,<1.31.1",
+              "symfony/mime": ">=4.3,<4.3.8",
+              "symfony/phpunit-bridge": ">=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7",
+              "symfony/polyfill": ">=1,<1.10",
+              "symfony/polyfill-php55": ">=1,<1.10",
+              "symfony/proxy-manager-bridge": ">=2.7,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7",
+              "symfony/routing": ">=2,<2.0.19",
+              "symfony/security": ">=2,<2.7.51|>=2.8,<3.4.49|>=4,<4.4.24|>=5,<5.2.8",
+              "symfony/security-bundle": ">=2,<2.7.48|>=2.8,<2.8.41|>=3,<3.3.17|>=3.4,<3.4.11|>=4,<4.0.11",
+              "symfony/security-core": ">=2.4,<2.6.13|>=2.7,<2.7.9|>=2.7.30,<2.7.32|>=2.8,<3.4.49|>=4,<4.4.24|>=5,<5.2.9",
+              "symfony/security-csrf": ">=2.4,<2.7.48|>=2.8,<2.8.41|>=3,<3.3.17|>=3.4,<3.4.11|>=4,<4.0.11",
+              "symfony/security-guard": ">=2.8,<3.4.48|>=4,<4.4.23|>=5,<5.2.8",
+              "symfony/security-http": ">=2.3,<2.3.41|>=2.4,<2.7.51|>=2.8,<3.4.48|>=4,<4.4.23|>=5,<5.2.8|>=5.3,<5.3.2",
+              "symfony/serializer": ">=2,<2.0.11",
+              "symfony/symfony": ">=2,<3.4.49|>=4,<4.4.24|>=5,<5.2.9|>=5.3,<5.3.2",
+              "symfony/translation": ">=2,<2.0.17",
               "symfony/validator": ">=2,<2.0.24|>=2.1,<2.1.12|>=2.2,<2.2.5|>=2.3,<2.3.3",
               "symfony/var-exporter": ">=4.2,<4.2.12|>=4.3,<4.3.8",
               "symfony/web-profiler-bundle": ">=2,<2.3.19|>=2.4,<2.4.9|>=2.5,<2.5.4",
@@ -5418,16 +5465,16 @@
               "yiisoft/yii": ">=1.1.14,<1.1.15",
               "yiisoft/yii2": "<2.0.38",
               "yiisoft/yii2-bootstrap": "<2.0.4",
-                "yiisoft/yii2-dev": "<2.0.43",
-                "yiisoft/yii2-elasticsearch": "<2.0.5",
-                "yiisoft/yii2-gii": "<2.0.4",
-                "yiisoft/yii2-jui": "<2.0.4",
-                "yiisoft/yii2-redis": "<2.0.8",
-                "yoast-seo-for-typo3/yoast_seo": "<7.2.3",
-                "yourls/yourls": "<=1.8.2",
-                "zendesk/zendesk_api_client_php": "<2.2.11",
-                "zendframework/zend-cache": ">=2.4,<2.4.8|>=2.5,<2.5.3",
-                "zendframework/zend-captcha": ">=2,<2.4.9|>=2.5,<2.5.2",
+              "yiisoft/yii2-dev": "<2.0.43",
+              "yiisoft/yii2-elasticsearch": "<2.0.5",
+              "yiisoft/yii2-gii": "<2.0.4",
+              "yiisoft/yii2-jui": "<2.0.4",
+              "yiisoft/yii2-redis": "<2.0.8",
+              "yoast-seo-for-typo3/yoast_seo": "<7.2.3",
+              "yourls/yourls": "<=1.8.2",
+              "zendesk/zendesk_api_client_php": "<2.2.11",
+              "zendframework/zend-cache": ">=2.4,<2.4.8|>=2.5,<2.5.3",
+              "zendframework/zend-captcha": ">=2,<2.4.9|>=2.5,<2.5.2",
                 "zendframework/zend-crypt": ">=2,<2.4.9|>=2.5,<2.5.2",
                 "zendframework/zend-db": ">=2,<2.0.99|>=2.1,<2.1.99|>=2.2,<2.2.10|>=2.3,<2.3.5",
                 "zendframework/zend-developer-tools": ">=1.2.2,<1.2.3",
