@@ -1,10 +1,10 @@
 <?php
 
-namespace CubexBase\Application\Pages\HomePage;
+namespace CubexBase\Application\Views\HomePage;
 
 use Cubex\Mv\Model;
 use Cubex\Mv\View;
-use CubexBase\Application\Pages\AbstractPage;
+use CubexBase\Application\Views\AbstractPage;
 use Packaged\Context\Context;
 use Packaged\Glimpse\Tags\Text\HeadingOne;
 use Packaged\Glimpse\Tags\Text\Paragraph;
