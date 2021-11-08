@@ -12,6 +12,7 @@ use CubexBase\Application\Views\ViewClass;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
+use Packaged\Context\Context as PackagedContext;
 use Packaged\Context\WithContext;
 use Packaged\Context\WithContextTrait;
 use Packaged\Http\Response;
@@ -25,9 +26,6 @@ use PackagedUI\Pagelets\PageletResponse;
 use function is_array;
 use function is_scalar;
 
-/**
- * @method CBContext getContext() : Context
- */
 abstract class LayoutController extends AuthedController implements WithContext, Translatable, Translator
 {
   use GetTranslatorTrait;
@@ -37,6 +35,19 @@ abstract class LayoutController extends AuthedController implements WithContext,
   protected function _generateRoutes()
   {
     return '';
+  }
+
+  /**
+   * @throws Exception
+   */
+  public function getContext(): PackagedContext
+  {
+    if(parent::getContext() instanceof CBContext)
+    {
+      return parent::getContext();
+    }
+
+    throw new Exception('Invalid Context Passed through');
   }
 
   /**

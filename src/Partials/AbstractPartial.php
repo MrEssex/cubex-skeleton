@@ -2,7 +2,7 @@
 
 namespace CubexBase\Application\Partials;
 
-use CubexBase\Application\AbstractBase;
+use MrEssex\CubexFramework\AbstractBase;
 
 abstract class AbstractPartial extends AbstractBase
 {
