@@ -6,8 +6,9 @@ use CubexBase\Application\Layout\LayoutController;
 
 class HomeController extends LayoutController
 {
-  public function get(): HomePage
+  public function get()
   {
-    return HomePage::withContext($this);
+    $data = HomeViewModel::withContext($this);
+    return $data->setDefaultView(HomeView::class);
   }
 }

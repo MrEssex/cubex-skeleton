@@ -1,6 +1,3 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/1bc8095f00307c1b6d76/maintainability)](https://codeclimate.com/github/MrEssex/cubex-base/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/1bc8095f00307c1b6d76/test_coverage)](https://codeclimate.com/github/MrEssex/cubex-base/test_coverage)
-
 # Cubex Base
 
 Playground for Learning Cubex. I recommended this as a template to build off.
@@ -12,11 +9,8 @@ Playground for Learning Cubex. I recommended this as a template to build off.
     * [Requirements](#requirements)
     * [Action Secrets](#action-secrets)
         + [Workflows in GitHub](#workflows-in-github)
-            - [CC_TEST_REPORTER_ID](#cc-test-reporter-id)
             - [COMPOSER_AUTH_JSON](#composer-auth-json)
             - [PAT (Personal Access Token)](#pat--personal-access-token-)
-        + [Workflows in CircleCI](#workflows-in-circleci)
-            - [CC_TEST_REPORTER_ID](#cc-test-reporter-id-1)
 
 ## Requirements
 
@@ -31,12 +25,6 @@ Playground for Learning Cubex. I recommended this as a template to build off.
 
 All the secrets for the CircleCi and Github Workflows to work. These all go
 in https://github.com/{org}/{repo}/settings/secrets/actions
-
-#### CC_TEST_REPORTER_ID
-
-1. From your Code Climate Dashboard, choose the repository and choose the Settings tab from the repo's main navigation
-   list.
-2. Select the Test Coverage tab. Your test coverage ID will be displayed on the page.
 
 #### COMPOSER_AUTH_JSON
 
@@ -59,11 +47,3 @@ in https://github.com/{org}/{repo}/settings/secrets/actions
 1. Create a Personal Token from GitHub global settings (https://github.com/settings/tokens)
 2. Make sure this token has user, read and write permission for user and packages.
 3. Then added a new Environment variable ‘PAT’ pasted the generated token as its value.
-
-### Workflows in CircleCI
-
-#### CC_TEST_REPORTER_ID
-
-1. From your Code Climate Dashboard, choose the repository and choose the Settings tab from the repo's main navigation
-   list.
-2. Select the Test Coverage tab. Your test coverage ID will be displayed on the page.

@@ -9,10 +9,8 @@
     "assets/**/*.ts"
   ],
   "reporter": [
-    "text",
-    "lcov"
+    "text"
   ],
-  "report-dir": "./coverage/frontend",
   "branches": 80,
   "lines": 80,
   "functions": 80,

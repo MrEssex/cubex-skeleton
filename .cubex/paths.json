@@ -3,13 +3,17 @@
   "paths": {
     "/": {
       "title": null,
-      "lastModified": 1633087179,
+      "lastModified": 1636376510,
       "priority": 1,
       "excludeFromSitemap": false,
       "changeFrequency": "monthly",
       "history": {
         "1633087179": {
           "hash": "bcebd304225ab2cf4066eb651fc782ec",
+          "hostName": "cubexbase.local-host.xyz"
+        },
+        "1636376510": {
+          "hash": "e803c7c3e704e415e278cb6027706e25",
           "hostName": "cubexbase.local-host.xyz"
         }
       }

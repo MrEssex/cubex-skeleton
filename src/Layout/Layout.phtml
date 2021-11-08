@@ -13,9 +13,9 @@ $store = Dispatch::instance()->store();
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Cubex Base</title>
+  <title>Cubex Base - <?= $this->getContext()->meta()->get('pageTitle', 'Learning Cubex') ?></title>
   <meta charset="UTF-8">
-  <meta name="description" content="Some description">
+  <meta name="description" content="<?= $this->getContext()->meta()->get('pageDescription', 'Learning Cubex') ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, null, [ResourceStore::PRIORITY_LOW]) ?>
 </head>

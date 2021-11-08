@@ -4,10 +4,12 @@ namespace CubexBase\Application\Layout;
 
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
+use Cubex\Mv\ViewModel;
 use CubexBase\Application\Context\Context as CBContext;
 use CubexBase\Application\MainApplication;
 use CubexBase\Application\Pages\AbstractPage;
 use CubexBase\Application\Pages\PageClass;
+use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
 use Packaged\Context\WithContext;
@@ -39,9 +41,15 @@ abstract class LayoutController extends AuthedController implements WithContext,
 
   /**
    * @throws InvalidArgumentException
+   * @throws Exception
    */
   protected function _prepareResponse(Context $c, $result, $buffer = null): Response
   {
+    if($result instanceof ViewModel)
+    {
+      $result = $result->createView();
+    }
+
     if(!$this->_isAppropriateResponse($result))
     {
       return parent::_prepareResponse($c, $result, $buffer);

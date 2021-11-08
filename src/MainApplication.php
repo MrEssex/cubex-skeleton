@@ -139,11 +139,14 @@ class MainApplication extends Application
 
   protected function _setupApplication(): void
   {
-    $this->getContext()->prepareTranslator('/translations/', $this->getContext()->isEnv(Context::ENV_LOCAL));
+    $ctx = $this->getContext();
+    $ctx->prepareTranslator('/translations/', $ctx->isEnv(Context::ENV_LOCAL));
+
     if(!$this->getCubex() instanceof Cubex)
     {
       return;
     }
+
     $this->getCubex()->listen(
       ResponsePreSendHeadersEvent::class,
       function (ResponsePreSendHeadersEvent $event) {
@@ -151,9 +154,9 @@ class MainApplication extends Application
       }
     );
 
-    if($this->getContext()->isLocal())
+    if($ctx->isLocal())
     {
-      SitemapListener::with($this->getCubex(), $this->getContext());
+      SitemapListener::with($this->getCubex(), $ctx);
     }
   }
 
