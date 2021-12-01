@@ -2,7 +2,7 @@
 
 namespace CubexBase\Application\Views;
 
-use MrEssex\CubexFramework\AbstractBase;
+use CubexBase\Application\AbstractBase;
 
 abstract class AbstractView extends AbstractBase implements ViewClass
 {
