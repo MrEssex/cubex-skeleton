@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8bc19cbd2557c47b74a11a84d1aeba2",
+    "content-hash": "4fbaae39f248cb1b8a6f4778939fc16e",
     "packages": [
         {
             "name": "cubex/framework",
@@ -1442,6 +1442,50 @@
                 "source": "https://github.com/packaged/routing/tree/2.5.0"
             },
             "time": "2020-10-29T14:28:44+00:00"
+        },
+        {
+            "name": "packaged/rwd",
+            "version": "1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/packaged/rwd.git",
+                "reference": "e809dc772781c59c02d6c50ce823a14a50c9e041"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/packaged/rwd/zipball/e809dc772781c59c02d6c50ce823a14a50c9e041",
+                "reference": "e809dc772781c59c02d6c50ce823a14a50c9e041",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Packaged\\Rwd\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brooke Bryan",
+                    "email": "brooke@bajb.net"
+                }
+            ],
+            "description": "Real World Data",
+            "homepage": "http://packaged.in",
+            "support": {
+                "issues": "https://github.com/packaged/rwd/issues",
+                "source": "https://github.com/packaged/rwd/tree/1.4.3"
+            },
+            "time": "2021-05-12T15:50:42+00:00"
         },
         {
             "name": "packaged/safehtml",

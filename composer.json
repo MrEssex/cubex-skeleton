@@ -23,7 +23,8 @@
     "packaged/enum": "^1.4.0",
     "packaged/form": "^4.0.1",
     "packaged/glimpse": "^2.7",
-    "packaged/http": "^1.16"
+    "packaged/http": "^1.16",
+    "packaged/rwd": "^1.4.3"
   },
   "require-dev": {
     "filp/whoops": "^2.9.2",
