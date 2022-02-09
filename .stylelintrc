@@ -8,23 +8,23 @@
   ],
   "customSyntax": "postcss-scss",
   "rules": {
-    "selector-pseudo-element-colon-notation": "single",
-    "selector-list-comma-newline-after": "never-multi-line",
-    "number-leading-zero": "never",
-    "declaration-block-trailing-semicolon": null,
-    "no-descending-specificity": null,
-    "at-rule-no-unknown": [
+    "scss/at-rule-no-unknown": [
       true,
       {
         "ignoreAtRules": [
           "tailwind",
           "apply",
-          "screen",
+          "variants",
           "responsive",
-          "variants"
+          "screen"
         ]
       }
-    ]
+    ],
+    "declaration-block-trailing-semicolon": null,
+    "no-descending-specificity": null,
+    "selector-pseudo-element-colon-notation": "single",
+    "selector-list-comma-newline-after": "never-multi-line",
+    "number-leading-zero": "never"
   },
   "ignoreFiles": [
     "./public/**/*.css"
