@@ -37,6 +37,11 @@ class HomeView extends AbstractView implements View
   {
     $content = [];
 
+    foreach($this->_model->games as $game)
+    {
+      $content[] = new HeadingOne($game->title);
+    }
+
     $content[] = HeadingOne::create($this->_('hello_world_b10a', 'Hello World'));
     $content[] = Paragraph::create('This is something');
 
