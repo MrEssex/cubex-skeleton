@@ -2,16 +2,31 @@
 
 namespace CubexBase\Application;
 
-use Cubex\Routing\RouteProcessor;
-use CubexBase\Application\Http\Home\HomeController;
-use CubexBase\Application\Http\NotFoundPage\NotFoundController;
+use CubexBase\Application\Inertia\InertiaController;
+use CubexBase\Application\Layout\LayoutController;
+use Exception;
 
-class Router extends RouteProcessor
+class Router extends LayoutController
 {
   protected function _generateRoutes()
   {
-    yield self::_route('/$', HomeController::class);
+    yield self::_route('/about', 'about');
+    return ''; // Defaults to just 'get', 'put', 'post', 'delete'
+  }
 
-    return NotFoundController::class;
+  /**
+   * @throws Exception
+   */
+  public function get(): array
+  {
+    return InertiaController::withContext($this->getContext())->inertia('Home', ['name' => 'World']);
+  }
+
+  /**
+   * @throws Exception
+   */
+  public function getAbout(): array
+  {
+    return InertiaController::withContext($this->getContext())->inertia('About', ['name' => 'About me help']);
   }
 }

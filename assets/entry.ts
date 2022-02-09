@@ -1,3 +1,3 @@
 import './scss/application.scss';
 
-import './ts/calculation';
+import './ts/main';

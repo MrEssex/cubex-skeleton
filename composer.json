@@ -12,9 +12,9 @@
   "require": {
     "php": "^8.0",
     "ext-apcu": "*",
+    "ext-json": "*",
     "cubex/framework": "^4.15.0",
     "cubex/sitemap": "^0.2.0",
-    "mressex/cache": "^0.4",
     "mressex/cubex-translate": "^0.1.0",
     "mressex/cubex-cli": "^0.1.0",
     "packaged-ui/bem-component": "^1.1",
@@ -26,7 +26,6 @@
     "packaged/http": "^1.16"
   },
   "require-dev": {
-    "ext-json": "*",
     "filp/whoops": "^2.9.2",
     "packaged/codestandards": "^1.0.2",
     "phpstan/phpstan": "^1.0",

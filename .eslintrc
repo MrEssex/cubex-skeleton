@@ -1,31 +1,29 @@
 {
+  "root": true,
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 12,
-    "sourceType": "module"
+  "env": {
+    "browser": true,
+    "es6": true
   },
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "svelte3"
   ],
   "extends": [
     "eslint:recommended",
-    "eslint-config-prettier",
-    "prettier"
+    "plugin:@typescript-eslint/recommended"
   ],
-  "rules": {
-    "@typescript-eslint/no-unused-vars": "error",
-    // to enforce using type for object type definitions, can be type or interface
-    "@typescript-eslint/consistent-type-definitions": [
-      "error",
-      "type"
-    ]
-  },
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "mocha": true
-  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.svelte"
+      ],
+      "processor": "svelte3/svelte3"
+    }
+  ],
   "ignorePatterns": [
-    "**/*.js"
+    "*.spec.ts",
+    "public/**/*.js",
+    "node_modules"
   ]
 }

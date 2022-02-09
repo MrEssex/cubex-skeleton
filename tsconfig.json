@@ -1,20 +1,13 @@
 {
+  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
-    "allowJs": false,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
-    "noEmit": true,
-    "strict": true,
-    "target": "ES5"
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "DOM"
+    ]
   },
-  "include": [
-    "assets/**/*"
-  ],
   "exclude": [
-    "**/node_modules",
-    "**/resources",
-    "**/rollup.config.js"
+    "node_modules"
   ]
 }

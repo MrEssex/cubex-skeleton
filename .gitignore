@@ -3,6 +3,8 @@ vendor/
 .tmp
 coverage
 node_modules/
+resources/*.css
+resources/*.js
+resources/*.map
 .nyc_output
-/resources/
 *.cache

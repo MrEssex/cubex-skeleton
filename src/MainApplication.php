@@ -8,8 +8,6 @@ use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
 use Cubex\Sitemap\SitemapListener;
 use CubexBase\Application\Context\AppContext;
 use Exception;
-use MrEssex\FileCache\AbstractCache;
-use MrEssex\FileCache\ApcuCache;
 use Packaged\Context\Conditions\ExpectEnvironment;
 use Packaged\Context\Context;
 use Packaged\Dispatch\Dispatch;
@@ -33,28 +31,6 @@ use function in_array;
 class MainApplication extends Application
 {
   private const DISPATCH_PATH = '/_res';
-  public static AbstractCache $_cache;
-
-  public function __construct(Cubex $cubex)
-  {
-    parent::__construct($cubex);
-    $cache = new ApcuCache(); //new FileCache();
-    $cache->setTtl(30);
-    self::$_cache = $cache;
-  }
-
-  public function handle(Context $c): SResponse
-  {
-    $path = $c->request()->getRequestUri();
-    $language = $c->request()->getPreferredLanguage();
-
-    if(self::$_cache->has($path . $language))
-    {
-      return $this->_prepareResponse($c, new Response(self::$_cache->get($path . $language)));
-    }
-
-    return parent::handle($c);
-  }
 
   /**
    * @throws Exception

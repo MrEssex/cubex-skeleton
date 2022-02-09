@@ -35,12 +35,9 @@ $seo = $ctx->seo();
 
   <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, null, [ResourceStore::PRIORITY_LOW]) ?>
 </head>
+<body>
 
-<body class="<?= $this->getPageClass() ?>">
-
-<?= $this->getHeader() ?>
-<?= $this->getContent() ?>
-<?= $this->getFooter() ?>
+<div id="app" data-page="<?= $this->getPageData() ?>"></div>
 
 <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, ResourceStore::PRIORITY_LOW) ?>
 <?= $store->generateHtmlIncludes(ResourceStore::TYPE_JS) ?>

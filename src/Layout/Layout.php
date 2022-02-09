@@ -18,10 +18,7 @@ class Layout extends Element implements ContextAware, WithContext
   use WithContextTrait;
 
   /** @var mixed */
-  protected $_content;
-  protected string $_pageClass = "";
-  protected $_header;
-  protected $_footer;
+  public $pageData;
 
   public function getContext(): AppContext
   {
@@ -40,58 +37,11 @@ class Layout extends Element implements ContextAware, WithContext
     return parent::render();
   }
 
-  public function getContent()
+  /**
+   * @throws \JsonException
+   */
+  public function getPageData()
   {
-    return $this->_content;
-  }
-
-  public function setContent($content): self
-  {
-    $this->_content = $content;
-    return $this;
-  }
-
-  public function getPageClass(): string
-  {
-    if($this->_pageClass !== '' && $this->_pageClass !== '0')
-    {
-      return $this->_pageClass;
-    }
-
-    return '';
-  }
-
-  public function setPageClass(string $pageClass): self
-  {
-    $this->_pageClass = $pageClass;
-    return $this;
-  }
-
-  public function getHeader()
-  {
-    return $this->_header ?? HeaderPartial::withContext($this);
-  }
-
-  public function getFooter()
-  {
-    return $this->_footer ?? FooterPartial::withContext($this);
-  }
-
-  public function setHeader($header)
-  {
-    if($header !== null)
-    {
-      $this->_header = $header;
-    }
-    return $this;
-  }
-
-  public function setFooter($footer)
-  {
-    if($footer !== null)
-    {
-      $this->_footer = $footer;
-    }
-    return $this;
+    return htmlspecialchars(json_encode($this->pageData, JSON_THROW_ON_ERROR), ENT_QUOTES);
   }
 }
