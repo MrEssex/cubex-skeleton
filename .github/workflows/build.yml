@@ -22,11 +22,6 @@ jobs:
         with:
           persist-credentials: false
 
-      - run: git config --global credential.helper store
-
-      - name: Add HTTP basic auth credentials
-        run: echo '${{ secrets.COMPOSER_AUTH_JSON }}' > $GITHUB_WORKSPACE/auth.json
-
       - name: Cache Composer dependencies
         uses: actions/cache@v2
         with:
@@ -40,8 +35,6 @@ jobs:
           coverage: none
 
       - run: composer install
-        env:
-          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH_JSON }}
 
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -54,8 +47,6 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - run: yarn install
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.PAT}}
 
       - run: yarn build
 
@@ -71,9 +62,6 @@ jobs:
 
       - run: git config --global credential.helper store
 
-      - name: Add HTTP basic auth credentials
-        run: echo '${{ secrets.COMPOSER_AUTH_JSON }}' > $GITHUB_WORKSPACE/auth.json
-
       - name: Cache Composer dependencies
         uses: actions/cache@v2
         with:
@@ -87,8 +75,6 @@ jobs:
           coverage: xdebug
 
       - run: composer install
-        env:
-          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH_JSON }}
 
       - run: composer run-script check
 
@@ -103,8 +89,6 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - run: yarn install
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.PAT}}
 
       - run: yarn coverage
 
@@ -117,11 +101,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
-
-      - run: git config --global credential.helper store
-
-      - name: Add HTTP basic auth credentials
-        run: echo '${{ secrets.COMPOSER_AUTH_JSON }}' > $GITHUB_WORKSPACE/auth.json
 
       - name: Cache Composer dependencies
         uses: actions/cache@v2
@@ -136,8 +115,6 @@ jobs:
           coverage: none
 
       - run: composer install
-        env:
-          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH_JSON }}
 
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -150,7 +127,5 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - run: yarn install
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.PAT}}
 
       - run: yarn lint
