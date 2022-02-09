@@ -31,7 +31,6 @@
   "dependencies": {
     "@inertiajs/inertia": "^0.11.0",
     "@inertiajs/inertia-svelte": "^0.8.0",
-    "normalize.css": "^8.0.1",
     "svelte": "^3.46.4",
     "tailwindcss": "^3.0.19"
     "@at-rules/breakpoints": "^1.0.0",
