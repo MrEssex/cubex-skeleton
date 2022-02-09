@@ -4,6 +4,6 @@ vendor/
 coverage
 node_modules/
 .nyc_output
-public/resources/*.css
-public/resources/*.js
-public/resources/*.map
+resources/*.css
+resources/*.js
+resources/*.map
