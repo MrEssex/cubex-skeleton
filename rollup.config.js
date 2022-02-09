@@ -16,10 +16,10 @@ const commonPlugins = [
   production && terser() // minify, but only in production
 ];
 
-const main = {
+export default {
   input:   'assets/entry.ts',
   output:  {
-    file:      'public/resources/main.min.js',
+    file:      'resources/main.min.js',
     name:      'main.js',
     format:    'iife', // immediately-invoked function expression — suitable for <script> tags
     sourcemap: !production
@@ -34,5 +34,3 @@ const main = {
     ...commonPlugins
   ]
 };
-
-export default [main];

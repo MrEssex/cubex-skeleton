@@ -15,10 +15,10 @@
   "author": "",
   "main": "rollup.config.js",
   "scripts": {
-    "test": "cross-env TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' mocha -r ts-node/register assets/**/*.spec.ts",
+    "test": "cross-env TS_NODE_COMPILER_OPTIONS='{\\\"module\\\":\\\"commonjs\\\"}' mocha -r ts-node/register resources/**/*.spec.ts",
     "lint": "run-s lint:*",
-    "lint:scss": "stylelint ./assets/scss/**/*.scss",
-    "lint:ts": "eslint ./assets/ts",
+    "lint:scss": "stylelint resources/scss/**/*.scss",
+    "lint:ts": "eslint resources/ts",
     "coverage": "nyc yarn test",
     "build": "rollup -c",
     "watch": "rollup -c -w"
