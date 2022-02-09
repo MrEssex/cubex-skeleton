@@ -19,7 +19,6 @@
     "lint": "run-s lint:*",
     "lint:scss": "stylelint assets/scss/**/*.scss",
     "lint:ts": "eslint assets/ts",
-    "coverage": "nyc yarn test",
     "build": "rollup -c",
     "watch": "rollup -c -w"
   },
