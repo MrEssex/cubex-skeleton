@@ -70,7 +70,7 @@ class MainApplication extends Application
   protected function _initDispatch(): void
   {
     $context = $this->getContext();
-    $dispatch = new Dispatch($context->getProjectRoot() . DIRECTORY_SEPARATOR . 'public', self::DISPATCH_PATH);
+    $dispatch = new Dispatch($context->getProjectRoot(), self::DISPATCH_PATH);
 
     $dispatch
       ->config()

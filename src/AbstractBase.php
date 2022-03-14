@@ -9,11 +9,11 @@ use Packaged\Context\WithContext;
 use Packaged\Context\WithContextTrait;
 use Packaged\I18n\Translatable;
 use Packaged\I18n\TranslatableTrait;
-use Packaged\Ui\Html\TemplatedHtmlElement;
+use Packaged\Ui\Html\HtmlElement;
 use PackagedUi\BemComponent\BemComponent;
 use PackagedUi\BemComponent\BemComponentTrait;
 
-abstract class AbstractBase extends TemplatedHtmlElement
+abstract class AbstractBase extends HtmlElement
   implements WithContext, ContextAware, BemComponent, Translatable
 {
   use BemComponentTrait;

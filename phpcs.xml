@@ -9,6 +9,7 @@
 
   <exclude-pattern>*/Cli/*</exclude-pattern>
   <exclude-pattern>*/*.(css|js)</exclude-pattern>
+  <exclude-pattern>*/tests/*</exclude-pattern>
 
   <!-- ignore warnings and display ERRORS only -->
   <arg value="np"/>
