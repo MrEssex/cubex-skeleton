@@ -2,9 +2,9 @@
 
 namespace CubexBase\Application;
 
-use CubexBase\Application\Inertia\InertiaController;
 use CubexBase\Application\Layout\LayoutController;
 use Exception;
+use MrEssex\CubexInertiaJsProvider\InertiaController;
 
 class Router extends LayoutController
 {
