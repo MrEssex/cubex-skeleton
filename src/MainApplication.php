@@ -130,9 +130,6 @@ class MainApplication extends Application
 
   protected function _setupApplication(): void
   {
-    $ctx = $this->getContext();
-    $ctx->prepareTranslator('/translations/', $ctx->matches(ExpectEnvironment::local()));
-
     if(!$this->getCubex() instanceof Cubex)
     {
       return;
@@ -144,11 +141,6 @@ class MainApplication extends Application
         $this->_setupHeaders($event);
       }
     );
-
-    if($ctx->matches(ExpectEnvironment::local()))
-    {
-      SitemapListener::with($this->getCubex(), $ctx);
-    }
   }
 
   protected function _setupHeaders(ResponsePreSendHeadersEvent $event)
