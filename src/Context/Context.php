@@ -2,9 +2,10 @@
 
 namespace CubexBase\Application\Context;
 
+use Cubex\Context\Context as CContext;
 use Packaged\Http\LinkBuilder\LinkBuilder;
 
-class Context extends \Cubex\Context\Context
+class Context extends CContext
 {
   /**
    * @param string   $path

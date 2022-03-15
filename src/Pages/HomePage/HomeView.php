@@ -1,10 +1,10 @@
 <?php
 
-namespace CubexBase\Application\Views\HomeView;
+namespace CubexBase\Application\Pages\HomePage;
 
 use Cubex\Mv\Model;
 use Cubex\Mv\View;
-use CubexBase\Application\Views\AbstractView;
+use CubexBase\Application\Pages\AbstractView;
 use Packaged\Context\Context;
 use Packaged\Glimpse\Tags\Text\HeadingOne;
 use Packaged\Glimpse\Tags\Text\Paragraph;
@@ -21,7 +21,7 @@ class HomeView extends AbstractView implements View
     parent::__construct();
   }
 
-  public function setContext(Context $context)
+  public function setContext(Context $context): HomeView
   {
     $context->meta()->set('pageTitle', 'Home Page');
     $context->meta()->set('pageDescription', 'This is the home page');
@@ -33,7 +33,7 @@ class HomeView extends AbstractView implements View
     return 'home-page';
   }
 
-  protected function _getContentForRender()
+  protected function _getContentForRender(): SafeHtml
   {
     $content = [];
 

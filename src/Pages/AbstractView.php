@@ -1,8 +1,9 @@
 <?php
 
-namespace CubexBase\Application\Views;
+namespace CubexBase\Application\Pages;
 
 use CubexBase\Application\AbstractBase;
+use Packaged\Context\Conditions\ExpectEnvironment;
 
 abstract class AbstractView extends AbstractBase implements ViewClass
 {
@@ -13,6 +14,6 @@ abstract class AbstractView extends AbstractBase implements ViewClass
 
   public function shouldCache(): bool
   {
-    return !$this->getContext()->isLocal();
+    return !$this->getContext()->matches(ExpectEnvironment::local());
   }
 }

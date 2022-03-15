@@ -1,5 +1,5 @@
 <?php
-namespace CubexBase\Application\Views\HomeView;
+namespace CubexBase\Application\Pages\HomePage;
 
 use Cubex\Mv\ViewModel;
 

@@ -9,6 +9,7 @@ use Cubex\Sitemap\SitemapListener;
 use Exception;
 use MrEssex\FileCache\AbstractCache;
 use MrEssex\FileCache\ApcuCache;
+use Packaged\Context\Conditions\ExpectEnvironment;
 use Packaged\Context\Context;
 use Packaged\Dispatch\Dispatch;
 use Packaged\Dispatch\Resources\ResourceFactory;
@@ -147,7 +148,7 @@ class MainApplication extends Application
   protected function _setupApplication(): void
   {
     $ctx = $this->getContext();
-    $ctx->prepareTranslator('/translations/', $ctx->isEnv(Context::ENV_LOCAL));
+    $ctx->prepareTranslator('/translations/', $ctx->matches(ExpectEnvironment::local()));
 
     if(!$this->getCubex() instanceof Cubex)
     {
@@ -161,7 +162,7 @@ class MainApplication extends Application
       }
     );
 
-    if($ctx->isLocal())
+    if($ctx->matches(ExpectEnvironment::local()))
     {
       SitemapListener::with($this->getCubex(), $ctx);
     }

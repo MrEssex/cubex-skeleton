@@ -7,8 +7,8 @@ use Cubex\I18n\GetTranslatorTrait;
 use Cubex\Mv\ViewModel;
 use CubexBase\Application\Context\Context as CBContext;
 use CubexBase\Application\MainApplication;
-use CubexBase\Application\Views\AbstractView;
-use CubexBase\Application\Views\ViewClass;
+use CubexBase\Application\Pages\AbstractView;
+use CubexBase\Application\Pages\ViewClass;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
@@ -23,6 +23,7 @@ use Packaged\I18n\Translators\Translator;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
 use PackagedUI\Pagelets\PageletResponse;
+use RuntimeException;
 use function is_array;
 use function is_scalar;
 
@@ -32,7 +33,7 @@ abstract class LayoutController extends AuthedController implements WithContext,
   use TranslatableTrait;
   use WithContextTrait;
 
-  protected function _generateRoutes()
+  protected function _generateRoutes(): string
   {
     return '';
   }
@@ -47,7 +48,7 @@ abstract class LayoutController extends AuthedController implements WithContext,
       return parent::getContext();
     }
 
-    throw new Exception('Invalid Context Passed through');
+    throw new RuntimeException('Invalid Context Passed through');
   }
 
   /**

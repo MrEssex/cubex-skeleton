@@ -31,7 +31,6 @@ catch(Throwable $e)
   }
   else
   {
-    error_log($e->getMessage());
     die('Unable to handle your request');
   }
 }
