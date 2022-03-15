@@ -22,8 +22,6 @@ use Packaged\Routing\HealthCheckCondition;
 use Packaged\Routing\Route;
 use Packaged\Routing\Routes\InsecureRequestUpgradeRoute;
 use Symfony\Component\HttpFoundation\Response as SResponse;
-use function basename;
-use function glob;
 use function in_array;
 
 /**
@@ -102,15 +100,12 @@ class MainApplication extends Application
       }
     );
 
-    foreach(glob(Path::system($this->getContext()->getProjectRoot(), 'public/resources/favicon/*')) as $path)
-    {
-      yield self::_route(
-        '/' . basename($path),
-        static function () use ($path) {
-          return ResourceFactory::fromFile($path);
-        }
-      );
-    }
+    yield self::_route(
+      '/favicon.ico',
+      static function (Context $c) {
+        return ResourceFactory::fromFile(Path::system($c->getProjectRoot(), 'public/favicon.ico'));
+      }
+    );
 
     yield self::_route(
       "/sitemap.xml",
