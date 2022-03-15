@@ -4,6 +4,7 @@ namespace CubexBase\Application\Pages\HomePage;
 
 use Cubex\Mv\Model;
 use Cubex\Mv\View;
+use CubexBase\Application\Components\ButtonComponent;
 use CubexBase\Application\Pages\AbstractView;
 use Packaged\Context\Context;
 use Packaged\Glimpse\Tags\Text\HeadingOne;
@@ -39,6 +40,7 @@ class HomeView extends AbstractView implements View
 
     $content[] = HeadingOne::create($this->_('hello_world_b10a', 'Hello World'));
     $content[] = Paragraph::create('This is something');
+    $content[] = ButtonComponent::withContext($this, 'Hello World');
 
     return new SafeHtml(implode(PHP_EOL, $content));
   }

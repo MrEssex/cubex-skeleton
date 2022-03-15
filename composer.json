@@ -12,7 +12,6 @@
   "require": {
     "php": ">=7.4",
     "ext-apcu": "*",
-    "ext-http": "*",
     "cubex/framework": "^4.15.0",
     "cubex/mv": "^0.2.0",
     "cubex/sitemap": "^0.2.0",
