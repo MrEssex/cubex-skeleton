@@ -1,8 +1,8 @@
 <?php
 namespace CubexBase\Application\Api\Storage;
 
-use Cubex\ApiTransport\Responses\ApiResponse;
 use Packaged\Dal\Ql\QlDao;
+use Packaged\Helpers\Objects;
 
 abstract class AbstractStorage extends QlDao
 {
@@ -15,7 +15,6 @@ abstract class AbstractStorage extends QlDao
   public string $created_at = '';
   public ?string $updated_at;
   public ?string $deleted_at;
-  protected ApiResponse $_response;
 
   public function save()
   {
@@ -54,12 +53,6 @@ abstract class AbstractStorage extends QlDao
 
   public function toApiResponse()
   {
-    $r = $this->_getResponse();
-    $r->id = $this->id;
-    $r->active = $this->active;
-    $r->created_at = $this->created_at;
-    $r->updated_at = $this->updated_at;
-    $r->deleted_at = $this->deleted_at;
-    return $r;
+    return Objects::hydrate($this->_getResponse(), $this);
   }
 }
