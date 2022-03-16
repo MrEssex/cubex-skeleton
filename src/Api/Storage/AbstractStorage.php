@@ -1,6 +1,7 @@
 <?php
 namespace CubexBase\Application\Api\Storage;
 
+use Exception;
 use Packaged\Dal\Ql\QlDao;
 use Packaged\Helpers\Objects;
 
@@ -16,7 +17,7 @@ abstract class AbstractStorage extends QlDao
   public ?string $updated_at;
   public ?string $deleted_at;
 
-  public function save()
+  public function save(): array
   {
     if(!$this->id)
     {
@@ -35,7 +36,7 @@ abstract class AbstractStorage extends QlDao
     return $this;
   }
 
-  public function restore()
+  public function restore(): AbstractStorage
   {
     $this->deleted_at = null;
     $this->active = true;
@@ -44,15 +45,18 @@ abstract class AbstractStorage extends QlDao
     return $this;
   }
 
-  public static function active()
+  public static function active(): array
   {
     return parent::each(['active' => 1]);
   }
 
-  abstract protected function _getResponse();
+  abstract protected function _apiResponseClass();
 
+  /**
+   * @throws Exception
+   */
   public function toApiResponse()
   {
-    return Objects::hydrate($this->_getResponse(), $this);
+    return Objects::hydrate($this->_apiResponseClass(), $this);
   }
 }

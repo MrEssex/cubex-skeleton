@@ -5,9 +5,9 @@ use Cubex\ApiTransport\Responses\AbstractResponse;
 
 class ApplicationResponse extends AbstractResponse
 {
-  public $id;
-  public $active;
-  public $created_at;
-  public $updated_at;
-  public $deleted_at;
+  public int $id = 0;
+  public bool $active = true;
+  public string $created_at = '';
+  public ?string $updated_at;
+  public ?string $deleted_at;
 }

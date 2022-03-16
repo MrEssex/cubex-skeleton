@@ -9,7 +9,7 @@ class Example extends AbstractStorage
   public string $title = '';
   public ?string $description;
 
-  protected function _getResponse(): ExampleResponse
+  protected function _apiResponseClass(): ExampleResponse
   {
     return new ExampleResponse();
   }

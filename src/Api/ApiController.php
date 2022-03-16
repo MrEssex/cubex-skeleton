@@ -1,6 +1,7 @@
 <?php
 namespace CubexBase\Application\Api;
 
+use Cubex\ApiFoundation\Auth\ApiAuthenticator;
 use Cubex\ApiFoundation\Controller\ApiController as CubexApiController;
 use CubexBase\Application\Api\Authenticator\Authenticator;
 use CubexBase\Application\Api\Modules\Example\ExampleModule;
@@ -16,7 +17,7 @@ class ApiController extends CubexApiController
     yield new ExampleModule();
   }
 
-  public function getAuthenticator(Context $context)
+  public function getAuthenticator(Context $context): ApiAuthenticator
   {
     return Authenticator::withContext($context);
   }

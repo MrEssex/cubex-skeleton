@@ -5,6 +5,6 @@ use CubexBase\Transport\Responses\ApplicationResponse;
 
 class ExampleResponse extends ApplicationResponse
 {
-  public $title;
-  public $description;
+  public string $title = '';
+  public string $description = '';
 }
