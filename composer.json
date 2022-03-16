@@ -10,8 +10,9 @@
     }
   ],
   "require": {
-    "php": ">=7.4",
+    "php": ">=8.1",
     "ext-apcu": "*",
+    "cubex/api-foundation": "^0.3.0",
     "cubex/framework": "^4.15.0",
     "cubex/mv": "^0.2.0",
     "cubex/sitemap": "^0.2.0",
@@ -43,7 +44,8 @@
   },
   "autoload": {
     "psr-4": {
-      "CubexBase\\Application\\": "src"
+      "CubexBase\\Application\\": "src",
+      "CubexBase\\Transport\\": "transport"
     }
   },
   "autoload-dev": {

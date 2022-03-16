@@ -4,6 +4,7 @@ namespace CubexBase\Application\Pages\HomePage;
 
 use Cubex\Mv\Model;
 use Cubex\Mv\View;
+use CubexBase\Application\Api\Modules\Example\Storage\Example;
 use CubexBase\Application\Components\ButtonComponent;
 use CubexBase\Application\Pages\AbstractView;
 use Packaged\Context\Context;
@@ -13,8 +14,7 @@ use Packaged\SafeHtml\SafeHtml;
 
 class HomeView extends AbstractView implements View
 {
-  /** @var Model|null|HomeViewModel */
-  protected ?Model $_model;
+  protected ?HomeViewModel $_model;
 
   public function __construct(?Model $data)
   {
@@ -41,6 +41,13 @@ class HomeView extends AbstractView implements View
     $content[] = HeadingOne::create($this->_('hello_world_b10a', 'Hello World'));
     $content[] = Paragraph::create('This is something');
     $content[] = ButtonComponent::withContext($this, 'Hello World');
+
+    /** @var Example $example */
+    foreach($this->_model->examples->examples as $example)
+    {
+      $content[] = Paragraph::create($example->title);
+      $content[] = Paragraph::create($example->description);
+    }
 
     return new SafeHtml(implode(PHP_EOL, $content));
   }

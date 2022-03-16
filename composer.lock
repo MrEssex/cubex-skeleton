@@ -4,8 +4,109 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23848f37fae1154b187ff1a3ef8aacbe",
+    "content-hash": "2dd99d264629c317735c36d0c48b6f60",
     "packages": [
+        {
+            "name": "cubex/api-foundation",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cubex/api-foundation.git",
+                "reference": "f87e925fb75940d0f519d75f0041c823a74255dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cubex/api-foundation/zipball/f87e925fb75940d0f519d75f0041c823a74255dc",
+                "reference": "f87e925fb75940d0f519d75f0041c823a74255dc",
+                "shasum": ""
+            },
+            "require": {
+                "cubex/api-transport": "^0.1",
+                "cubex/framework": "^4.3",
+                "ext-json": "*",
+                "packaged/context": "~1.3",
+                "packaged/http": "~1.6",
+                "packaged/routing": "~2.4",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cubex\\ApiFoundation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Brooke Bryan",
+                    "email": "brooke@bajb.net",
+                    "homepage": "http://www.bajb.net"
+                }
+            ],
+            "description": "Cubex API Foundation",
+            "homepage": "http://cubex.io",
+            "keywords": [
+                "api",
+                "cubex"
+            ],
+            "support": {
+                "issues": "https://github.com/cubex/api-foundation/issues",
+                "source": "https://github.com/cubex/api-foundation/tree/master"
+            },
+            "time": "2020-03-13T11:35:20+00:00"
+        },
+        {
+            "name": "cubex/api-transport",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cubex/api-transport.git",
+                "reference": "f5f8a416fab99464c1c2b4303d459be418e3eb8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cubex/api-transport/zipball/f5f8a416fab99464c1c2b4303d459be418e3eb8e",
+                "reference": "f5f8a416fab99464c1c2b4303d459be418e3eb8e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "packaged/context": "~1.3",
+                "packaged/helpers": "~1|~2",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cubex\\ApiTransport\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Brooke Bryan",
+                    "email": "brooke@bajb.net",
+                    "homepage": "http://www.bajb.net"
+                }
+            ],
+            "description": "Cubex API Transport",
+            "homepage": "http://cubex.io",
+            "keywords": [
+                "api",
+                "cubex"
+            ],
+            "support": {
+                "issues": "https://github.com/cubex/api-transport/issues",
+                "source": "https://github.com/cubex/api-transport/tree/master"
+            },
+            "time": "2020-03-13T10:11:34+00:00"
+        },
         {
             "name": "cubex/framework",
             "version": "4.18.0",
