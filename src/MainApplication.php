@@ -6,6 +6,7 @@ use Cubex\Application\Application;
 use Cubex\Cubex;
 use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
 use Cubex\Sitemap\SitemapListener;
+use CubexBase\Application\Api\ApiController;
 use CubexBase\Application\Context\AppContext;
 use CubexBase\Application\Context\FlashHeaders;
 use Exception;
@@ -142,6 +143,8 @@ class MainApplication extends Application
         }
       )
     );
+
+    yield self::_route('/v1', ApiController::class);
 
     if(ValueAs::bool($this->getContext()->config()->getItem('serve', 'redirect_https')))
     {
