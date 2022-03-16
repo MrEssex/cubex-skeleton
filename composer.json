@@ -21,6 +21,7 @@
     "packaged-ui/bem-component": "^1.1",
     "packaged-ui/pagelets": "dev-master",
     "packaged/dal": "^1.16.0",
+    "packaged/dal-schema": "dev-master",
     "packaged/dispatch": "^2.11.0",
     "packaged/enum": "^1.4.0",
     "packaged/form": "^4.0.1",
@@ -53,6 +54,12 @@
       "CubexBase\\Tests\\": "tests"
     }
   },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/packaged/dal-schema.git"
+    }
+  ],
   "minimum-stability": "alpha",
   "scripts": {
     "check": [

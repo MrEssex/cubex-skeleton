@@ -43,6 +43,8 @@ class HomeView extends AbstractView implements View
     $content[] = HeadingOne::create($this->_('hello_world_b10a', 'Hello World'));
     $content[] = Paragraph::create('This is something');
     $content[] = ButtonComponent::withContext($this, 'Hello World');
+    $content[] = ButtonComponent::primary($this, 'Hello World');
+    $content[] = ButtonComponent::secondary($this, 'Hello World');
 
     /** @var Example $example */
     foreach($this->getModel()->examples->examples as $example)

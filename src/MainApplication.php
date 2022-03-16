@@ -187,6 +187,11 @@ class MainApplication extends Application
       {
         $response->headers->set('Access-Control-Allow-Origin', $context->request()->headers->get('origin'));
       }
+
+      if($context->request()->query->has('raw') && $context->matches(ExpectEnvironment::local()))
+      {
+        $response->headers->set('Content-Type', 'application/json');
+      }
     }
 
     return $response;
