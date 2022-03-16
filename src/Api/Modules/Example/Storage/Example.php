@@ -9,23 +9,8 @@ class Example extends AbstractStorage
   public string $title = '';
   public ?string $description;
 
-  public function toApiResponse()
-  {
-    $r = $this->_getResponse();
-
-    $r->title = $this->title;
-    $r->description = $this->description;
-
-    return parent::toApiResponse();
-  }
-
   protected function _getResponse(): ExampleResponse
   {
-    if($this->_response === null)
-    {
-      $this->_response = new ExampleResponse();
-    }
-
-    return $this->_response;
+    return new ExampleResponse();
   }
 }
