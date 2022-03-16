@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": ">=8.1",
+    "php": ">=7.4",
     "ext-apcu": "*",
     "cubex/api-foundation": "^0.3.0",
     "cubex/framework": "^4.15.0",
