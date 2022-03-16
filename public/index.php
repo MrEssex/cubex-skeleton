@@ -6,7 +6,7 @@ use Composer\Autoload\ClassLoader;
 use Cubex\Cubex;
 use CubexBase\Application\Context\Context as CustomContext;
 use CubexBase\Application\MainApplication;
-use Packaged\Context\Context;
+use Packaged\Context\Conditions\ExpectEnvironment;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
@@ -23,7 +23,7 @@ try
 }
 catch(Throwable $e)
 {
-  if($cubex->getContext()->isEnv(Context::ENV_LOCAL))
+  if($cubex->getContext()->matches(ExpectEnvironment::local()))
   {
     $handler = new Run();
     $handler->pushHandler(new PrettyPageHandler());

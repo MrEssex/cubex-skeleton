@@ -2,11 +2,11 @@
 
 namespace CubexBase\Application\Pages\HomePage;
 
-use Cubex\Mv\Model;
 use Cubex\Mv\View;
 use CubexBase\Application\Api\Modules\Example\Storage\Example;
 use CubexBase\Application\Components\ButtonComponent;
 use CubexBase\Application\Pages\AbstractView;
+use CubexBase\Application\Pages\InvalidModelException;
 use Packaged\Context\Context;
 use Packaged\Glimpse\Tags\Text\HeadingOne;
 use Packaged\Glimpse\Tags\Text\Paragraph;
@@ -14,14 +14,6 @@ use Packaged\SafeHtml\SafeHtml;
 
 class HomeView extends AbstractView implements View
 {
-  protected ?HomeViewModel $_model;
-
-  public function __construct(?Model $data)
-  {
-    $this->_model = $data;
-    parent::__construct();
-  }
-
   public function setContext(Context $context): HomeView
   {
     $context->meta()->set('pageTitle', 'Home Page');
@@ -34,6 +26,16 @@ class HomeView extends AbstractView implements View
     return 'home-page';
   }
 
+  public function getModel(): ?HomeViewModel
+  {
+    if($this->_model instanceof HomeViewModel)
+    {
+      return $this->_model;
+    }
+
+    throw new InvalidModelException($this->_model, new HomeViewModel());
+  }
+
   protected function _getContentForRender(): SafeHtml
   {
     $content = [];
@@ -43,7 +45,7 @@ class HomeView extends AbstractView implements View
     $content[] = ButtonComponent::withContext($this, 'Hello World');
 
     /** @var Example $example */
-    foreach($this->_model->examples->examples as $example)
+    foreach($this->getModel()->examples->examples as $example)
     {
       $content[] = Paragraph::create($example->title);
       $content[] = Paragraph::create($example->description);

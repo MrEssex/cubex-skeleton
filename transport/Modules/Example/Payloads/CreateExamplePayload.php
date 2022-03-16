@@ -5,6 +5,6 @@ use Cubex\ApiTransport\Payloads\AbstractPayload;
 
 class CreateExamplePayload extends abstractPayload
 {
-  public $title;
-  public $description;
+  public string $title = '';
+  public string $description = '';
 }

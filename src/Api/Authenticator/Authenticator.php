@@ -13,7 +13,7 @@ class Authenticator extends ApiAuthenticator
     return true;
   }
 
-  public function hasPermission(ApiPermission ...$permission)
+  public function hasPermission(ApiPermission ...$permission): bool
   {
     foreach($permission as $p)
     {
