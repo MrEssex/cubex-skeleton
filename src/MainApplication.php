@@ -196,6 +196,11 @@ class MainApplication extends Application
       $response->headers->set('Access-Control-Allow-Origin', $ctx->request()->headers->get('origin'));
     }
 
+    if($context->request()->query->has('raw') && $context->matches(ExpectEnvironment::local()))
+    {
+      $response->headers->set('Content-Type', 'application/json');
+    }
+
     $csp = new ContentSecurityPolicy();
     $csp->setDirective(ContentSecurityPolicy::IMG_SRC, '*');
     $response->headers->set($csp->getKey(), $csp->getValue());

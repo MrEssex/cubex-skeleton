@@ -19,7 +19,9 @@
     "mressex/cubex-cli": "^0.1.0",
     "mressex/cubex-translate": "^0.1.0",
     "packaged-ui/bem-component": "^1.2.2",
-    "packaged-ui/pagelets": "2.3.6",
+    "packaged-ui/pagelets": "^2.3.6",
+    "packaged/dal": "^1.16.0",
+    "packaged/dal-schema": "dev-master",
     "packaged/dispatch": "^2.18.1",
     "packaged/enum": "^1.4.0",
     "packaged/form": "^5.1.0",
@@ -53,6 +55,13 @@
     "preferred-install": "auto",
     "sort-packages": true
   },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/packaged/dal-schema.git"
+    }
+  ],
+  "minimum-stability": "alpha",
   "scripts": {
     "check": [
       "@composer-validate",

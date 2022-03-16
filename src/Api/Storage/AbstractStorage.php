@@ -3,9 +3,10 @@ namespace CubexBase\Application\Api\Storage;
 
 use Exception;
 use Packaged\Dal\Ql\QlDao;
+use Packaged\DalSchema\DalSchemaProvider;
 use Packaged\Helpers\Objects;
 
-abstract class AbstractStorage extends QlDao
+abstract class AbstractStorage extends QlDao implements DalSchemaProvider
 {
   protected $_dataStoreName = 'cubex-base';
 
