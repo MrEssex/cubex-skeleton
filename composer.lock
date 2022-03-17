@@ -1,20 +1,20 @@
 {
-  "_readme": [
-    "This file locks the dependencies of your project to a known state",
-    "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
-    "This file is @generated automatically"
-  ],
-  "content-hash": "6e8f3fa1fa710f57e21961466d5a9681",
-  "packages": [
-    {
-      "name": "cubex/api-foundation",
-      "version": "0.3.0",
-      "source": {
-        "type": "git",
-        "url": "https://github.com/cubex/api-foundation.git",
-        "reference": "f87e925fb75940d0f519d75f0041c823a74255dc"
-      },
-      "dist": {
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "6e8f3fa1fa710f57e21961466d5a9681",
+    "packages": [
+        {
+            "name": "cubex/api-foundation",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cubex/api-foundation.git",
+                "reference": "f87e925fb75940d0f519d75f0041c823a74255dc"
+            },
+            "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/cubex/api-foundation/zipball/f87e925fb75940d0f519d75f0041c823a74255dc",
                 "reference": "f87e925fb75940d0f519d75f0041c823a74255dc",
@@ -906,16 +906,16 @@
         },
         {
             "name": "packaged/dal",
-            "version": "1.16.0",
+            "version": "1.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/packaged/dal.git",
-                "reference": "4f4b42b8f6f22910b3970333a91e50141c10c213"
+                "reference": "41d10ce3cebe7c4bb216da7cf70040edf52402b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/packaged/dal/zipball/4f4b42b8f6f22910b3970333a91e50141c10c213",
-                "reference": "4f4b42b8f6f22910b3970333a91e50141c10c213",
+                "url": "https://api.github.com/repos/packaged/dal/zipball/41d10ce3cebe7c4bb216da7cf70040edf52402b6",
+                "reference": "41d10ce3cebe7c4bb216da7cf70040edf52402b6",
                 "shasum": ""
             },
             "require": {
@@ -951,60 +951,60 @@
                     "email": "brooke@bajb.net"
                 }
             ],
-          "description": "Data Access Layer",
-          "support": {
-            "issues": "https://github.com/packaged/dal/issues",
-            "source": "https://github.com/packaged/dal/tree/1.16.0"
-          },
-          "time": "2021-09-23T12:21:50+00:00"
+            "description": "Data Access Layer",
+            "support": {
+                "issues": "https://github.com/packaged/dal/issues",
+                "source": "https://github.com/packaged/dal/tree/1.16.1"
+            },
+            "time": "2022-03-17T12:17:51+00:00"
         },
-    {
-      "name": "packaged/dal-schema",
-      "version": "dev-master",
-      "source": {
-        "type": "git",
-        "url": "https://github.com/packaged/dal-schema.git",
-        "reference": "3af259d46a776ceee5a6c87ffcf029862a9f3fed"
-      },
-      "require": {
-        "packaged/dal": "^1.11",
-        "packaged/enum": "^1.4",
-        "php": ">=7.4"
-      },
-      "require-dev": {
-        "phpunit/phpunit": "^9.5"
-      },
-      "default-branch": true,
-      "type": "library",
-      "autoload": {
-        "psr-4": {
-          "Packaged\\DalSchema\\": "src",
-          "Packaged\\Tests\\DalSchema\\": "tests"
-        }
-      },
-      "license": [
-        "MIT"
-      ],
-      "authors": [
         {
-          "name": "Brooke Bryan",
-          "email": "brooke@bajb.net"
-        }
-      ],
-      "description": "Data Access Layer : Schema Manager",
-      "time": "2021-04-16T08:35:31+00:00"
-    },
-    {
-      "name": "packaged/di-container",
-      "version": "1.0.0",
-      "source": {
-        "type": "git",
-        "url": "https://github.com/packaged/di-container.git",
-        "reference": "373e647282afc47351c8ad15bc12ee025dfb74d7"
-      },
-      "dist": {
-        "type": "zip",
-        "url": "https://api.github.com/repos/packaged/di-container/zipball/373e647282afc47351c8ad15bc12ee025dfb74d7",
+            "name": "packaged/dal-schema",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/packaged/dal-schema.git",
+                "reference": "7366b5c80e8dfbb9609c40062fe69c28499b311d"
+            },
+            "require": {
+                "packaged/dal": "^1.11",
+                "packaged/enum": "^1.4",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Packaged\\DalSchema\\": "src",
+                    "Packaged\\Tests\\DalSchema\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brooke Bryan",
+                    "email": "brooke@bajb.net"
+                }
+            ],
+            "description": "Data Access Layer : Schema Manager",
+            "time": "2022-03-17T09:42:48+00:00"
+        },
+        {
+            "name": "packaged/di-container",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/packaged/di-container.git",
+                "reference": "373e647282afc47351c8ad15bc12ee025dfb74d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/packaged/di-container/zipball/373e647282afc47351c8ad15bc12ee025dfb74d7",
                 "reference": "373e647282afc47351c8ad15bc12ee025dfb74d7",
                 "shasum": ""
             },
@@ -6109,9 +6109,9 @@
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
-      "packaged-ui/pagelets": 20,
-      "packaged/dal-schema": 20,
-      "roave/security-advisories": 20
+        "packaged-ui/pagelets": 20,
+        "packaged/dal-schema": 20,
+        "roave/security-advisories": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
