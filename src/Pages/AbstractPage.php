@@ -5,7 +5,7 @@ namespace CubexBase\Application\Pages;
 use CubexBase\Application\AbstractBase;
 use Packaged\Context\Conditions\ExpectEnvironment;
 
-abstract class AbstractView extends AbstractBase implements ViewClass
+abstract class AbstractPage extends AbstractBase implements PageClass
 {
   public function getPageClass(): string
   {

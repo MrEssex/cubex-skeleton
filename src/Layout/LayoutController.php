@@ -4,11 +4,10 @@ namespace CubexBase\Application\Layout;
 
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
-use Cubex\Mv\ViewModel;
 use CubexBase\Application\Context\Context as CBContext;
 use CubexBase\Application\MainApplication;
-use CubexBase\Application\Pages\AbstractView;
-use CubexBase\Application\Pages\ViewClass;
+use CubexBase\Application\Pages\AbstractPage;
+use CubexBase\Application\Pages\PageClass;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
@@ -57,11 +56,6 @@ abstract class LayoutController extends AuthedController implements WithContext,
    */
   protected function _prepareResponse(Context $c, $result, $buffer = null): Response
   {
-    if($result instanceof ViewModel)
-    {
-      $result = $result->createView();
-    }
-
     if(!$this->_isAppropriateResponse($result))
     {
       return parent::_prepareResponse($c, $result, $buffer);
@@ -76,12 +70,12 @@ abstract class LayoutController extends AuthedController implements WithContext,
 
     $theme->setContext($this->getContext())->setContent($result);
 
-    if($result instanceof ViewClass)
+    if($result instanceof PageClass)
     {
       $theme->setPageClass($result->getPageClass());
     }
 
-    if($result instanceof AbstractView && $result->shouldCache())
+    if($result instanceof AbstractPage && $result->shouldCache())
     {
       $path = $c->request()->getRequestUri();
       $language = $c->request()->getPreferredLanguage();

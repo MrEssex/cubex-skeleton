@@ -8,6 +8,6 @@ class HomeController extends LayoutController
 {
   public function get()
   {
-    return HomeViewModel::withContext($this)->setDefaultView(HomeView::class);
+    return HomePage::withContext($this);
   }
 }

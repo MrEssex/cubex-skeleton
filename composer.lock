@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "044388eeadfbd28d827fdb16d0857f9e",
+    "content-hash": "82b28bf13a59e4f787530d2e6e6aa415",
     "packages": [
         {
             "name": "cubex/framework",
@@ -72,54 +72,6 @@
                 "source": "https://github.com/cubex/framework/tree/4.18.0"
             },
             "time": "2021-11-17T13:20:45+00:00"
-        },
-        {
-            "name": "cubex/mv",
-            "version": "0.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cubex/mv.git",
-                "reference": "2c7c6905fe3776fbdd82c6881df62db0d39a7d2e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cubex/mv/zipball/2c7c6905fe3776fbdd82c6881df62db0d39a7d2e",
-                "reference": "2c7c6905fe3776fbdd82c6881df62db0d39a7d2e",
-                "shasum": ""
-            },
-            "require": {
-                "packaged/context": "^1.0",
-                "packaged/helpers": "^1.0|^2.0",
-                "packaged/safehtml": "^2.2",
-                "packaged/ui": "^1.7"
-            },
-            "require-dev": {
-                "cubex/framework": "^4.17",
-                "phpunit/phpunit": "^9"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Cubex\\Mv\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Brooke Bryan",
-                    "email": "brooke@bajb.net",
-                    "homepage": "http://www.bajb.net"
-                }
-            ],
-            "description": "Cubex Model View",
-            "support": {
-                "issues": "https://github.com/cubex/mv/issues",
-                "source": "https://github.com/cubex/mv/tree/0.2.0"
-            },
-            "time": "2021-11-08T09:57:58+00:00"
         },
         {
             "name": "cubex/sitemap",

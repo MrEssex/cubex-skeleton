@@ -2,7 +2,7 @@
 
 namespace CubexBase\Application\Pages;
 
-interface ViewClass
+interface PageClass
 {
   public function getPageClass(): string;
 }
