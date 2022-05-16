@@ -29,7 +29,6 @@
   "require-dev": {
     "filp/whoops": "^2.9.2",
     "packaged/codestandards": "^1.0.2",
-    "pestphp/pest": "^1.21",
     "phpstan/phpstan": "^1.0",
     "phpunit/phpunit": "^9.5.4",
     "roave/security-advisories": "dev-latest",
