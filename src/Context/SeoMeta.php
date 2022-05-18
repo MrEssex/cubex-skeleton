@@ -7,7 +7,7 @@ class SeoMeta
 {
   public $title = "Cubex Base";
   public $description = "Example application for Cubex";
-  public $keywords = ["cubex", "base", "example"];
+  public $keywords = ["Cubex", "base", "example"];
   public $robots = "index,follow";
   public $canonical = "";
 
@@ -70,6 +70,10 @@ class SeoMeta
 
   public function getCanonical()
   {
+    if(!$this->canonical)
+    {
+      return null;
+    }
     return $this->_createLinkTag('canonical', $this->canonical);
   }
 
@@ -91,5 +95,16 @@ class SeoMeta
     return CustomHtmlTag::build('link')
       ->setAttribute('rel', $rel)
       ->setAttribute('href', $href);
+  }
+
+  public function generateHtml()
+  {
+    $html = [];
+    $html[] = $this->getDescription();
+    $html[] = $this->getKeywords();
+    $html[] = $this->getRobots();
+    $html[] = $this->getCanonical();
+
+    return implode("\n", $html);
   }
 }

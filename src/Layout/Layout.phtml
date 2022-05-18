@@ -15,10 +15,7 @@ $store = Dispatch::instance()->store();
 <head>
   <title><?= $this->getContext()->seoMeta()->getTitle() ?></title>
   <meta charset="UTF-8">
-  <?= $this->getContext()->seoMeta()->getDescription() ?>
-  <?= $this->getContext()->seoMeta()->getKeywords() ?>
-  <?= $this->getContext()->seoMeta()->getCanonical() ?>
-  <?= $this->getContext()->seoMeta()->getRobots() ?>
+  <?= $this->getContext()->seoMeta()->generateHtml() ?>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, null, [ResourceStore::PRIORITY_LOW]) ?>
 </head>
