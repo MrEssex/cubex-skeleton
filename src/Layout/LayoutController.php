@@ -11,7 +11,6 @@ use CubexBase\Application\Pages\PageClass;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
-use Packaged\Context\Context as PackagedContext;
 use Packaged\Context\WithContext;
 use Packaged\Context\WithContextTrait;
 use Packaged\Http\Response;
@@ -40,7 +39,7 @@ abstract class LayoutController extends AuthedController implements WithContext,
   /**
    * @throws Exception
    */
-  public function getContext(): PackagedContext
+  public function getContext(): Context
   {
     if(parent::getContext() instanceof CBContext)
     {

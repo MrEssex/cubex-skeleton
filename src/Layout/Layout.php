@@ -1,10 +1,12 @@
 <?php
 namespace CubexBase\Application\Layout;
 
+use CubexBase\Application\Context\Context;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
 use Packaged\Dispatch\ResourceManager;
 use Packaged\Ui\Element;
+use RuntimeException;
 
 class Layout extends Element implements ContextAware
 {
@@ -13,6 +15,16 @@ class Layout extends Element implements ContextAware
   /** @var mixed */
   protected $_content;
   private string $_pageClass = "";
+
+  public function getContext(): Context
+  {
+    if($this->_context instanceof Context)
+    {
+      return $this->_context;
+    }
+
+    throw new RuntimeException('Invalid Context Passed through');
+  }
 
   public function render(): string
   {

@@ -13,9 +13,12 @@ $store = Dispatch::instance()->store();
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Cubex Base - <?= $this->getContext()->meta()->get('pageTitle', 'Learning Cubex') ?></title>
+  <title><?= $this->getContext()->seoMeta()->getTitle() ?></title>
   <meta charset="UTF-8">
-  <meta name="description" content="<?= $this->getContext()->meta()->get('pageDescription', 'Learning Cubex') ?>">
+  <?= $this->getContext()->seoMeta()->getDescription() ?>
+  <?= $this->getContext()->seoMeta()->getKeywords() ?>
+  <?= $this->getContext()->seoMeta()->getCanonical() ?>
+  <?= $this->getContext()->seoMeta()->getRobots() ?>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, null, [ResourceStore::PRIORITY_LOW]) ?>
 </head>
