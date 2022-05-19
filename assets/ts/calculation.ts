@@ -5,3 +5,6 @@ class Calculation {
 }
 
 export default Calculation;
+
+
+console.log(new Calculation().add(1, 2));

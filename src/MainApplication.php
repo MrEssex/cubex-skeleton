@@ -36,7 +36,7 @@ class MainApplication extends Application
   public function __construct(Cubex $cubex)
   {
     parent::__construct($cubex);
-    $cache = new ApcuCache();
+    $cache = new ApcuCache(); //new FileCache();
     $cache->setTtl(30);
     self::$_cache = $cache;
   }

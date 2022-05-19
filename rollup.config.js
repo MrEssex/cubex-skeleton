@@ -1,5 +1,7 @@
 import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
+import postcssComments from 'postcss-discard-comments';
+import autoprefixer from 'autoprefixer';
 import typescript from '@rollup/plugin-typescript';
 import {terser} from 'rollup-plugin-terser';
 
@@ -10,10 +12,13 @@ const production = !process.env.ROLLUP_WATCH;
 
 const commonPlugins = [
   resolve(), // tells Rollup how to find node_modules packages
-  typescript({
-    'sourceMap': !production
-  }), // run typescript compiler
+  typescript({'sourceMap': !production}), // run typescript compiler
   production && terser() // minify, but only in production
+];
+
+const postcssPlugins = [
+  autoprefixer(),
+  postcssComments({'removeAll': true})
 ];
 
 export default {
@@ -25,12 +30,13 @@ export default {
     sourcemap: !production
   },
   plugins: [
+    ...commonPlugins,
     postcss(
       {
         extract:   true,
         minimize:  production,
-        sourceMap: !production
-      }), // Extract css from js
-    ...commonPlugins
+        sourceMap: !production,
+        plugins:   postcssPlugins
+      }) // Extract css from js
   ]
 };
