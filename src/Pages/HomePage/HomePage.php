@@ -15,6 +15,7 @@ class HomePage extends AbstractPage
   {
     $seoMeta->setTitle('Home Page');
     $seoMeta->setDescription('This is the home page');
+    $seoMeta->setKeywords(['home', 'page']);
     return parent::_seoMeta($seoMeta);
   }
 
