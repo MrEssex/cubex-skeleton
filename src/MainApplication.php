@@ -8,7 +8,6 @@ use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
 use Cubex\Sitemap\SitemapListener;
 use CubexBase\Application\Context\AppContext;
 use Exception;
-use Packaged\Context\Conditions\ExpectEnvironment;
 use Packaged\Context\Context;
 use Packaged\Dispatch\Dispatch;
 use Packaged\Dispatch\Resources\ResourceFactory;

@@ -2,24 +2,11 @@
 
 namespace CubexBase\Application\Context;
 
-use Cubex\Context\Context as CContext;
-use Packaged\Http\LinkBuilder\LinkBuilder;
-use CubexBase\Application\Inertia\Inertia;
+use MrEssex\CubexInertiaJsProvider\InertiaContext;
 
-class Context extends CContext
+class Context extends InertiaContext
 {
-  protected Inertia $_inertia;
-
-  protected function _construct()
-  {
-    $this->_inertia = Inertia::withContext($this);
-    parent::_construct();
-  }
-
-  public function inertia()
-  {
-    return $this->_inertia;
-  }
+  protected ?SeoMeta $_seoMeta = null;
 
   public function seoMeta(): SeoMeta
   {

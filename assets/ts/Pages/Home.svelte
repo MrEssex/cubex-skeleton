@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Layout from '../Shared/Layout.svelte';
+  import Layout from '../Shared/Layout.svelte';
 
-    export let name;
+  export let name;
 </script>
 
 <Layout title="Home">

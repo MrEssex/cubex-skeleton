@@ -16,6 +16,7 @@ use Packaged\I18n\TranslatableTrait;
 use Packaged\I18n\Translators\Translator;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
+use RuntimeException;
 use function is_array;
 use function is_scalar;
 

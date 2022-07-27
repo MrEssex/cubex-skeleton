@@ -15,6 +15,7 @@
     "ext-json": "*",
     "cubex/framework": "^4.15.0",
     "cubex/sitemap": "^0.2.0",
+    "mressex/cubex-inertiajs-provider": "^0.1.0",
     "mressex/cubex-translate": "^0.1.0",
     "mressex/cubex-cli": "^0.1.0",
     "packaged-ui/bem-component": "^1.1",
@@ -24,8 +25,7 @@
     "packaged/form": "^4.0.1",
     "packaged/glimpse": "^2.7",
     "packaged/http": "^1.16",
-    "packaged/rwd": "^1.4.3",
-    "mressex/cubex-inertiajs-provider": "^0.1.0"
+    "packaged/rwd": "^1.4.3"
   },
   "require-dev": {
     "filp/whoops": "^2.9.2",
