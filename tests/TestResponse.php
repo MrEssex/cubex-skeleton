@@ -17,7 +17,7 @@ class TestResponse
 
   public static function fromBaseResponse($response)
   {
-    return new static($response);
+    return new self($response);
   }
 
   public function assertStatus($status)
