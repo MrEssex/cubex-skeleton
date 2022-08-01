@@ -10,7 +10,7 @@ class TestResponse
   protected $_baseResponse;
   protected $_exception;
 
-  public function __construct($response)
+  final public function __construct($response)
   {
     $this->_baseResponse = $response;
   }
