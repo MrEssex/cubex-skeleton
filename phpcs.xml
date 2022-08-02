@@ -14,6 +14,9 @@
   <!-- ignore warnings and display ERRORS only -->
   <arg value="np"/>
 
-  <rule ref="./vendor/packaged/codestandards/ruleset.xml"/>
+  <rule ref="./vendor/packaged/codestandards/ruleset.xml">
+    <exclude name="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+    <exclude name="PEAR.Functions.FunctionCallSignature.CloseBracketLine"/>
+  </rule>
 
 </ruleset>

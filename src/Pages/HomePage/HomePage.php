@@ -11,12 +11,12 @@ use Packaged\SafeHtml\SafeHtml;
 
 class HomePage extends AbstractPage
 {
-  protected function _seoMeta(SeoMeta $seoMeta)
+  protected function _seoMeta(SeoMeta $seoMeta): void
   {
     $seoMeta->setTitle('Home Page');
     $seoMeta->setDescription('This is the home page');
     $seoMeta->setKeywords(['home', 'page']);
-    return parent::_seoMeta($seoMeta);
+    parent::_seoMeta($seoMeta);
   }
 
   public function getBlockName(): string

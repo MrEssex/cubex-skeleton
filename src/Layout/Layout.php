@@ -46,7 +46,7 @@ class Layout extends Element implements ContextAware
 
   public function getPageClass(): string
   {
-    if($this->_pageClass)
+    if($this->_pageClass !== '' && $this->_pageClass !== '0')
     {
       return $this->_pageClass;
     }

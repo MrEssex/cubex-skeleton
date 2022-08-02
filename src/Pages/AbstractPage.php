@@ -19,7 +19,7 @@ abstract class AbstractPage extends AbstractBase implements PageClass
     return !$this->getContext()->matches(ExpectEnvironment::local());
   }
 
-  public function setContext(Context $context)
+  public function setContext(Context $context): AbstractPage
   {
     if($context instanceof \CubexBase\Application\Context\Context)
     {
@@ -29,8 +29,7 @@ abstract class AbstractPage extends AbstractBase implements PageClass
     return parent::setContext($context);
   }
 
-  protected function _seoMeta(SeoMeta $seoMeta)
+  protected function _seoMeta(SeoMeta $seoMeta): void
   {
-    return null;
   }
 }
