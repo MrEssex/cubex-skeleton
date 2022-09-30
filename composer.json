@@ -32,7 +32,6 @@
     "packaged/codestandards": "^1.0.2",
     "phpstan/phpstan": "^1.0",
     "phpunit/phpunit": "^9.5.4",
-    "rector/rector": "^0.13.9",
     "roave/security-advisories": "dev-latest",
     "squizlabs/php_codesniffer": "^3.6.0",
     "statickidz/php-google-translate-free": "^1.2"
@@ -58,13 +57,11 @@
       "@composer-validate",
       "@codesniffer-check",
       "@lint",
-      "@rector",
       "@test"
     ],
     "codesniffer-check": "vendor/bin/phpcs --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1",
     "composer-validate": "@composer validate --no-check-all --strict",
     "lint": "vendor/bin/phpstan analyse -l 5 src tests -c phpstan.neon",
-    "rector": "./vendor/bin/rector process --dry-run",
     "test": "./vendor/bin/phpunit"
   }
 }

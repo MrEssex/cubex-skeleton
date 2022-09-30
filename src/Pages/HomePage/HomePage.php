@@ -2,15 +2,29 @@
 
 namespace CubexBase\Application\Pages\HomePage;
 
-use CubexBase\Application\Components\ButtonComponent;
 use CubexBase\Application\Context\SeoMeta;
 use CubexBase\Application\Pages\AbstractPage;
-use Packaged\Glimpse\Tags\Text\HeadingOne;
-use Packaged\Glimpse\Tags\Text\Paragraph;
-use Packaged\SafeHtml\SafeHtml;
 
 class HomePage extends AbstractPage
 {
+  /**
+   * Keep big php functions out of the view file
+   *
+   * @param int $a
+   * @param int $b
+   *
+   * @return int
+   */
+  public function functionThatDoesTooMuchPHP(int $a = 1, int $b = 2): int
+  {
+    if(($a < $b) && ($b / $a === 1))
+    {
+      return $b;
+    }
+
+    return $a;
+  }
+
   protected function _seoMeta(SeoMeta $seoMeta): void
   {
     $seoMeta->setTitle('Home Page');
@@ -22,16 +36,5 @@ class HomePage extends AbstractPage
   public function getBlockName(): string
   {
     return 'home-page';
-  }
-
-  protected function _getContentForRender(): SafeHtml
-  {
-    $content = [];
-
-    $content[] = HeadingOne::create($this->_('hello_world_b10a', 'Hello World'));
-    $content[] = Paragraph::create('This is something');
-    $content[] = ButtonComponent::withContext($this, 'Hello World');
-
-    return new SafeHtml(implode(PHP_EOL, $content));
   }
 }

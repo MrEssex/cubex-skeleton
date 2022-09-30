@@ -1,0 +1,16 @@
+<?php
+
+use CubexBase\Application\Components\ButtonComponent;
+use CubexBase\Application\Pages\HomePage\HomePage;
+
+/**
+ * @var HomePage $this
+ */
+
+?>
+
+<h1><?= $this->_('hello_world_b10a', 'Hello World') ?></h1>
+<p><?= $this->_('this_is_something_a2dd', 'This is something') ?></p>
+<h1><?= ButtonComponent::withContext($this, $this->_('hello_world_b10a', 'Hello World')) ?></h1>
+
+<?= $this->functionThatDoesTooMuchPHP(2, 3) ?>

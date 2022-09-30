@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "target": "ES5",
-    "moduleResolution": "Node",
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "lib": [
-      "DOM"
-    ]
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "strict": true,
+    "target": "ES5"
   },
+  "include": [
+    "assets/**/*"
+  ],
   "exclude": [
-    "node_modules",
-    "**/*.test.ts"
+    "**/node_modules",
+    "**/resources",
+    "**/rollup.config.js"
   ]
 }

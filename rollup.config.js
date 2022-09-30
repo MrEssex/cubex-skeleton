@@ -2,7 +2,9 @@ import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
 import postcssComments from 'postcss-discard-comments';
 import autoprefixer from 'autoprefixer';
+import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
+import tailwind from 'tailwindcss';
 import {terser} from 'rollup-plugin-terser';
 
 // `yarn watch` -> `production` is false
@@ -12,13 +14,19 @@ const production = !process.env.ROLLUP_WATCH;
 
 const commonPlugins = [
   resolve(), // tells Rollup how to find node_modules packages
+  commonjs(),
   typescript({'sourceMap': !production}), // run typescript compiler
+  commonjs({
+    exclude:      'node_modules',
+    ignoreGlobal: true
+  }),
   production && terser() // minify, but only in production
 ];
 
 const postcssPlugins = [
   autoprefixer(),
-  postcssComments({'removeAll': true})
+  postcssComments({'removeAll': true}),
+  tailwind()
 ];
 
 export default {
