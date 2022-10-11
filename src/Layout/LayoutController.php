@@ -74,7 +74,7 @@ abstract class LayoutController extends AuthedController implements WithContext,
       $theme->setPageClass($result->getPageClass());
     }
 
-    if($result instanceof AbstractPage && $result->shouldCache())
+    if($result instanceof CachablePage && $result->shouldCache())
     {
       $path = $c->request()->getRequestUri();
       $language = $c->request()->getPreferredLanguage();

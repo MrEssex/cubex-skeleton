@@ -7,7 +7,7 @@ use CubexBase\Application\Context\SeoMeta;
 use Packaged\Context\Conditions\ExpectEnvironment;
 use Packaged\Context\Context;
 
-abstract class AbstractPage extends AbstractBase implements PageClass
+abstract class AbstractPage extends AbstractBase implements PageClass, CachablePage
 {
   public function getPageClass(): string
   {
