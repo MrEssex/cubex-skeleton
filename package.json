@@ -7,6 +7,7 @@
   "bugs": {
     "url": "https://github.com/MrEssex/cubex-base/issues"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MrEssex/cubex-base.git"
@@ -28,16 +29,9 @@
     "last 2 versions",
     "Firefox ESR"
   ],
-  "dependencies": {
-    "@at-rules/breakpoints": "^1.0.0",
-    "@at-rules/grid": "^1.0.0",
-    "normalize.css": "^8.0.1"
-  },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.1.3",
-    "@rollup/plugin-typescript": "^8.3.0",
+    "@mressex/flutter": "^1.0.0",
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.1.0",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
@@ -52,13 +46,8 @@
     "mocha": "^9.2.0",
     "npm-run-all": "^4.1.5",
     "nyc": "^15.1.0",
-    "postcss": "^8.4.6",
     "postcss-discard-comments": "^5.1.1",
-    "postcss-scss": "^4.0.3",
     "prettier": "^2.7.1",
-    "rollup": "^2.67.1",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.49.7",
     "sass-true": "^6.0.1",
     "stylelint": "^14.11.0",
@@ -67,9 +56,6 @@
     "stylelint-config-standard-scss": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
     "stylelint-scss": "^4.1.0",
-    "tailwindcss": "^3.1.8",
-    "ts-node": "^10.5.0",
-    "tslib": "^2.3.1",
-    "typescript": "^4.5.5"
+    "typescript": "^4.8.4"
   }
 }
