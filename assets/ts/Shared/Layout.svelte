@@ -12,6 +12,6 @@
     <Link class="mr-4" href="/">Home</Link>
     <Link class="mr-4" href="/about">About</Link>
   </nav>
-
+  
   <slot/>
 </div>
