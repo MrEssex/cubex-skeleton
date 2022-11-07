@@ -1,4 +1,4 @@
-import Flutter from 'flutter';
+import Flutter from '@mressex/flutter';
 import postcssComments from 'postcss-discard-comments';
 import autoprefixer from 'autoprefixer';
 
