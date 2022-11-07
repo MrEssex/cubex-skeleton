@@ -6,7 +6,7 @@ use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
 use CubexBase\Application\Context\Context as CBContext;
 use CubexBase\Application\MainApplication;
-use CubexBase\Application\Pages\AbstractPage;
+use CubexBase\Application\Pages\CachablePage;
 use CubexBase\Application\Pages\PageClass;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
