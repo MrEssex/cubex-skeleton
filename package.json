@@ -7,7 +7,6 @@
   "bugs": {
     "url": "https://github.com/MrEssex/cubex-base/issues"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MrEssex/cubex-base.git"
@@ -56,6 +55,8 @@
     "stylelint-config-standard-scss": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
     "stylelint-scss": "^4.1.0",
+    "ts-node": "^10.5.0",
+    "tslib": "^2.3.1",
     "typescript": "^4.8.4"
   }
 }
