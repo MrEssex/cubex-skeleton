@@ -3,6 +3,7 @@
 namespace CubexBase\Application\Pages;
 
 use CubexBase\Application\AbstractBase;
+use CubexBase\Application\Context\AppContext;
 use CubexBase\Application\Context\SeoMeta;
 use Packaged\Context\Conditions\ExpectEnvironment;
 use Packaged\Context\Context;
@@ -21,7 +22,7 @@ abstract class AbstractPage extends AbstractBase implements PageClass, CachableP
 
   public function setContext(Context $context): AbstractPage
   {
-    if($context instanceof \CubexBase\Application\Context\Context)
+    if($context instanceof AppContext)
     {
       $this->_seoMeta($context->seoMeta());
     }

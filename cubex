@@ -2,12 +2,12 @@
 <?php
 
 use Cubex\Cubex;
-use CubexBase\Application\Context\Context;
+use CubexBase\Application\Context\AppContext;
 use MrEssex\CubexCli\CliWrapper;
 
 $loader = require('vendor/autoload.php');
 
-$app = Cubex::withCustomContext(Context::class, __DIR__, $loader);
+$app = Cubex::withCustomContext(AppContext::class, __DIR__, $loader);
 
 CliWrapper::initialise($app);
 CliWrapper::initialiseAlternativeRoot($app, 'mressex/cubex-translate');

@@ -13,6 +13,6 @@ Flutter
   .typescript()
   .resolve()
   .commonJs()
-  .postCss({plugins: plugins});
+  .postCss({plugins});
 
 export default Flutter.getRollupConfig();

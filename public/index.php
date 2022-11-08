@@ -4,7 +4,7 @@ define('PHP_START', microtime(true));
 
 use Composer\Autoload\ClassLoader;
 use Cubex\Cubex;
-use CubexBase\Application\Context\Context as CustomContext;
+use CubexBase\Application\Context\AppContext;
 use CubexBase\Application\MainApplication;
 use Packaged\Context\Context;
 use Whoops\Handler\PrettyPageHandler;
@@ -15,7 +15,7 @@ $projectRoot = dirname(__DIR__);
 /** @var ClassLoader $loader */
 $loader = require($projectRoot . '/vendor/autoload.php');
 
-$cubex = Cubex::withCustomContext(CustomContext::class, $projectRoot, $loader);
+$cubex = Cubex::withCustomContext(AppContext::class, $projectRoot, $loader);
 
 try
 {

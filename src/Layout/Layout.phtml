@@ -11,7 +11,7 @@ use Packaged\Dispatch\ResourceStore;
 $store = Dispatch::instance()->store();
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="<?= $this->getContext()->currentLanguage() ?>">
 <head>
   <title><?= $this->getContext()->seoMeta()->getTitle() ?></title>
   <meta charset="UTF-8">

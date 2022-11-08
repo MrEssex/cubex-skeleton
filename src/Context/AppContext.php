@@ -2,10 +2,10 @@
 
 namespace CubexBase\Application\Context;
 
-use Cubex\Context\Context as CContext;
+use Cubex\Context\Context;
 use Packaged\Http\LinkBuilder\LinkBuilder;
 
-class Context extends CContext
+class AppContext extends Context
 {
   protected ?SeoMeta $_seoMeta = null;
 

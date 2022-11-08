@@ -2,7 +2,7 @@
 namespace CubexBase\Tests;
 
 use Cubex\Cubex;
-use CubexBase\Application\Context\Context as CContext;
+use CubexBase\Application\Context\AppContext;
 use CubexBase\Application\MainApplication;
 use JsonException;
 use Packaged\Context\Context;
@@ -82,7 +82,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     $loader = require($projectRoot . '/vendor/autoload.php');
     $request = Request::create($uri, $method, $parameters, $cookies, $files, $server, $content);
 
-    $customContext = new CContext($request);
+    $customContext = new AppContext($request);
     $cubex = new Cubex($projectRoot, $loader);
     $cubex->prepareContext($customContext);
     $cubex->share(Context::class, $customContext);

@@ -4,7 +4,7 @@ namespace CubexBase\Application\Layout;
 
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
-use CubexBase\Application\Context\Context as CBContext;
+use CubexBase\Application\Context\AppContext;
 use CubexBase\Application\MainApplication;
 use CubexBase\Application\Pages\CachablePage;
 use CubexBase\Application\Pages\PageClass;
@@ -41,7 +41,7 @@ abstract class LayoutController extends AuthedController implements WithContext,
    */
   public function getContext(): Context
   {
-    if(parent::getContext() instanceof CBContext)
+    if(parent::getContext() instanceof AppContext)
     {
       return parent::getContext();
     }

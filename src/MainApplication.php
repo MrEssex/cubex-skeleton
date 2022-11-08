@@ -26,7 +26,7 @@ use Symfony\Component\HttpFoundation\Response as SResponse;
 use function in_array;
 
 /**
- * @method \CubexBase\Application\Context\Context getContext(): context
+ * @method \CubexBase\Application\Context\AppContext getContext(): context
  */
 class MainApplication extends Application
 {

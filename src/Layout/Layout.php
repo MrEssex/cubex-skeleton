@@ -1,7 +1,7 @@
 <?php
 namespace CubexBase\Application\Layout;
 
-use CubexBase\Application\Context\Context;
+use CubexBase\Application\Context\AppContext;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
 use Packaged\Dispatch\ResourceManager;
@@ -16,9 +16,9 @@ class Layout extends Element implements ContextAware
   protected $_content;
   private string $_pageClass = "";
 
-  public function getContext(): Context
+  public function getContext(): AppContext
   {
-    if($this->_context instanceof Context)
+    if($this->_context instanceof AppContext)
     {
       return $this->_context;
     }
