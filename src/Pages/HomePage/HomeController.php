@@ -6,7 +6,6 @@ use CubexBase\Application\Layout\LayoutController;
 
 class HomeController extends LayoutController
 {
-
   /**
    * Get the Home Page
    * Do all the controller logic in here such as getting model info and doing calculations
