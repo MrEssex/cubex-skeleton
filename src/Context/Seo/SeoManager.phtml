@@ -11,3 +11,11 @@ use CubexBase\Application\Context\Seo\SeoManager;
   <meta name="description" content="<?= $this->get('description') ?> ">
   <meta property="og:description" content="<?= $this->get('description') ?> ">
 <?php endif ?>
+
+<?php if($this->get('viewport')): ?>
+  <meta name="viewport" content="<?= $this->get('viewport') ?>">
+<?php endif; ?>
+
+<?php if($this->get('theme_color')): ?>
+  <meta name="theme-color" content="<?= $this->get('theme_color') ?>">
+<?php endif; ?>

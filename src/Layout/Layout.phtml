@@ -32,9 +32,7 @@ $seo = $ctx->seo();
   <link rel="apple-touch-icon" href="<?= $ctx->linkBuilder('/icon.png') ?>">
   <link type="text/plain" rel="author" href="<?= $ctx->linkBuilder('/humans.txt') ?>">
   <link rel="manifest" href="<?= $ctx->linkBuilder('/site.webmanifest') ?>">
-  <meta name="theme-color" content="#fafafa">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, null, [ResourceStore::PRIORITY_LOW]) ?>
 </head>
 <body class="<?= $this->getPageClass() ?>">

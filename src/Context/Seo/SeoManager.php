@@ -13,6 +13,8 @@ use Throwable;
  * Class SeoManager
  * @method title(string $title = null)
  * @method description(string $description = null)
+ * @method viewport(string $viewport = null)
+ * @method themeColor(string $color = null)
  *
  * @package CubexBase\Application\Context\Seo
  */
