@@ -5,9 +5,10 @@ namespace CubexBase\Application\Layout;
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
 use CubexBase\Application\Context\AppContext;
+use CubexBase\Application\Http\AbstractPage;
+use CubexBase\Application\Http\CachablePage;
+use CubexBase\Application\Http\PageClass;
 use CubexBase\Application\MainApplication;
-use CubexBase\Application\Pages\CachablePage;
-use CubexBase\Application\Pages\PageClass;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
@@ -60,18 +61,24 @@ abstract class LayoutController extends AuthedController implements WithContext,
       return parent::_prepareResponse($c, $result, $buffer);
     }
 
-    $theme = new Layout();
+    $theme = Layout::withContext($this);
 
     if($result instanceof PageletResponse)
     {
       $result = JsonResponse::create($result);
     }
 
-    $theme->setContext($this->getContext())->setContent($result);
+    $theme->setContent($result);
 
     if($result instanceof PageClass)
     {
       $theme->setPageClass($result->getPageClass());
+    }
+
+    if($result instanceof AbstractPage)
+    {
+      $theme->setHeader($result->getHeader());
+      $theme->setFooter($result->getFooter());
     }
 
     if($result instanceof CachablePage && $result->shouldCache())

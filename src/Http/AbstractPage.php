@@ -1,10 +1,10 @@
 <?php
 
-namespace CubexBase\Application\Pages;
+namespace CubexBase\Application\Http;
 
 use CubexBase\Application\AbstractBase;
 use CubexBase\Application\Context\AppContext;
-use CubexBase\Application\Context\SeoMeta;
+use CubexBase\Application\Context\Seo\SeoManager;
 use Packaged\Context\Conditions\ExpectEnvironment;
 use Packaged\Context\Context;
 
@@ -22,15 +22,19 @@ abstract class AbstractPage extends AbstractBase implements PageClass, CachableP
 
   public function setContext(Context $context): AbstractPage
   {
+    parent::setContext($context);
+
     if($context instanceof AppContext)
     {
-      $this->_seoMeta($context->seoMeta());
+      $this->_seo($context->seo());
     }
 
-    return parent::setContext($context);
+    return $this;
   }
 
-  protected function _seoMeta(SeoMeta $seoMeta): void
-  {
-  }
+  protected function _seo(SeoManager $seoMeta): void { }
+
+  public function getHeader(): ?AbstractBase { return null; }
+
+  public function getFooter(): ?AbstractBase { return null; }
 }

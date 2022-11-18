@@ -8,19 +8,39 @@ use Packaged\Dispatch\ResourceStore;
  * @var Layout $this
  */
 
+$ctx = $this->getContext();
 $store = Dispatch::instance()->store();
+$seo = $ctx->seo();
 ?>
 <!doctype html>
-<html lang="<?= $this->getContext()->currentLanguage() ?>">
+<html lang="<?= $ctx->currentLanguage() ?>">
 <head>
-  <title><?= $this->getContext()->seoMeta()->getTitle() ?></title>
   <meta charset="UTF-8">
-  <?= $this->getContext()->seoMeta()->generateHtml() ?>
+
+  <?php //Declare title like this to prevent editor complaining ?>
+  <?php if($seo->get('title')): ?>
+    <title><?= $seo->get('title') ?></title>
+    <?php if(!$seo->get('og_title')): ?>
+      <meta property="og:title" content="<?= $seo->get('title') ?>">
+    <?php endif ?>
+  <?php endif ?>
+
+  <?= $seo->render() ?>
+
+  <link rel="icon" href="<?= $ctx->linkBuilder('/favicon.ico?v=1.0') ?>">
+  <link rel="icon" href="<?= $ctx->linkBuilder('/icon.svg') ?>" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="<?= $ctx->linkBuilder('/icon.png') ?>">
+  <link type="text/plain" rel="author" href="<?= $ctx->linkBuilder('/humans.txt') ?>">
+  <link rel="manifest" href="<?= $ctx->linkBuilder('/site.webmanifest') ?>">
+  <meta name="theme-color" content="#fafafa">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, null, [ResourceStore::PRIORITY_LOW]) ?>
 </head>
 <body class="<?= $this->getPageClass() ?>">
+<?= $this->getHeader() ?>
 <?= $this->getContent() ?>
+<?= $this->getFooter() ?>
 <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, ResourceStore::PRIORITY_LOW) ?>
 <?= $store->generateHtmlIncludes(ResourceStore::TYPE_JS) ?>
 </body>

@@ -6,6 +6,7 @@ use Cubex\Application\Application;
 use Cubex\Cubex;
 use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
 use Cubex\Sitemap\SitemapListener;
+use CubexBase\Application\Context\AppContext;
 use Exception;
 use MrEssex\FileCache\AbstractCache;
 use MrEssex\FileCache\ApcuCache;
@@ -15,6 +16,7 @@ use Packaged\Dispatch\Dispatch;
 use Packaged\Dispatch\Resources\ResourceFactory;
 use Packaged\Helpers\Path;
 use Packaged\Helpers\ValueAs;
+use Packaged\Http\Headers\ContentSecurityPolicy;
 use Packaged\Http\Response;
 use Packaged\Http\Responses\TextResponse;
 use Packaged\Routing\Handler\FuncHandler;
@@ -26,7 +28,7 @@ use Symfony\Component\HttpFoundation\Response as SResponse;
 use function in_array;
 
 /**
- * @method \CubexBase\Application\Context\AppContext getContext(): context
+ * @method AppContext getContext(): context
  */
 class MainApplication extends Application
 {
@@ -68,24 +70,21 @@ class MainApplication extends Application
    */
   protected function _initDispatch(): void
   {
-    $context = $this->getContext();
-    $dispatch = new Dispatch($context->getProjectRoot(), self::DISPATCH_PATH);
+    $ctx = $this->getContext();
+    $config = $ctx->config();
+    $dispatch = new Dispatch($ctx->getProjectRoot(), self::DISPATCH_PATH);
 
     $dispatch
       ->config()
-      ->addItem(
-        'optimisation',
-        'webp',
-        $context->config()->getItem('dispatch', 'opt-webp', true)
-      );
+      ->addItem('optimisation', 'webp', $config->getItem('dispatch', 'opt-webp', true));
 
     $dispatch
       ->config()
-      ->addItem('ext.css', 'sourcemap', $context->config()->getItem('dispatch', 'opt-sourcemap', false));
+      ->addItem('ext.css', 'sourcemap', $config->getItem('dispatch', 'opt-sourcemap', false));
 
     $dispatch
       ->config()
-      ->addItem('ext.js', 'sourcemap', $context->config()->getItem('dispatch', 'opt-sourcemap', false));
+      ->addItem('ext.js', 'sourcemap', $config->getItem('dispatch', 'opt-sourcemap', false));
 
     Dispatch::bind($dispatch);
   }
@@ -101,12 +100,27 @@ class MainApplication extends Application
       }
     );
 
-    yield self::_route(
-      '/favicon.ico',
-      static function (Context $c) {
-        return ResourceFactory::fromFile(Path::system($c->getProjectRoot(), 'public/favicon.ico'));
-      }
-    );
+    $resourceRoutes = ['favicon.ico', 'icon.png', 'icon.svg', 'tile.png', 'tile-wide.png', 'icon-512x512.png'];
+    foreach($resourceRoutes as $route)
+    {
+      yield self::_route(
+        '/' . $route,
+        static function (Context $c) use ($route) {
+          return ResourceFactory::fromFile(Path::system($c->getProjectRoot(), 'public/' . $route));
+        }
+      );
+    }
+
+    $textRoutes = ['robots.txt', 'site.webmanifest', 'humans.txt'];
+    foreach($textRoutes as $route)
+    {
+      yield self::_route(
+        '/' . $route,
+        static function (Context $c) use ($route) {
+          return TextResponse::create(file_get_contents(Path::system($c->getProjectRoot(), 'public/' . $route)));
+        }
+      );
+    }
 
     yield self::_route(
       "/sitemap.xml",
@@ -116,13 +130,6 @@ class MainApplication extends Application
           200,
           ['content-type' => 'text/xml']
         );
-      }
-    );
-
-    yield self::_route(
-      "/robots.txt",
-      static function (Context $c) {
-        return TextResponse::create(file_get_contents(Path::system($c->getProjectRoot(), 'public/robots.txt')));
       }
     );
 
@@ -174,16 +181,20 @@ class MainApplication extends Application
 
     if($response instanceof Response)
     {
-      $context = $event->getContext();
+      $ctx = $event->getContext();
       $allowed = [
-        $context->request()->urlSprintf(),
+        $ctx->request()->urlSprintf(),
         'https://fonts.googleapis.com',
       ];
 
-      if(in_array($context->request()->headers->get('origin'), $allowed, true))
+      if(in_array($ctx->request()->headers->get('origin'), $allowed, true))
       {
-        $response->headers->set('Access-Control-Allow-Origin', $context->request()->headers->get('origin'));
+        $response->headers->set('Access-Control-Allow-Origin', $ctx->request()->headers->get('origin'));
       }
+
+      $csp = new ContentSecurityPolicy();
+      $csp->setDirective(ContentSecurityPolicy::IMG_SRC, '*');
+      $response->addHeader($csp);
     }
 
     return $response;

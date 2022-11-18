@@ -1,0 +1,17 @@
+{
+  "short_name": "Cubex Skeleton",
+  "name": "Cubex Skeleton",
+  "icons": [{
+    "src": "icon.png",
+    "type": "image/png",
+    "sizes": "192x192",
+  },
+  {
+    "src": "/icon-512x512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#fafafa",
+  "theme_color": "#fafafa"
+}

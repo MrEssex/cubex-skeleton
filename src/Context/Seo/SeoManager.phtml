@@ -1,0 +1,13 @@
+<?php
+
+use CubexBase\Application\Context\Seo\SeoManager;
+
+/**
+ * @var SeoManager $this
+ */
+?>
+
+<?php if($this->get('description')): ?>
+  <meta name="description" content="<?= $this->get('description') ?> ">
+  <meta property="og:description" content="<?= $this->get('description') ?> ">
+<?php endif ?>

@@ -2,19 +2,26 @@
 namespace CubexBase\Application\Layout;
 
 use CubexBase\Application\Context\AppContext;
+use CubexBase\Application\Partials\Footer\FooterPartial;
+use CubexBase\Application\Partials\Header\HeaderPartial;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
+use Packaged\Context\WithContext;
+use Packaged\Context\WithContextTrait;
 use Packaged\Dispatch\ResourceManager;
 use Packaged\Ui\Element;
 use RuntimeException;
 
-class Layout extends Element implements ContextAware
+class Layout extends Element implements ContextAware, WithContext
 {
   use ContextAwareTrait;
+  use WithContextTrait;
 
   /** @var mixed */
   protected $_content;
-  private string $_pageClass = "";
+  protected string $_pageClass = "";
+  protected $_header;
+  protected $_footer;
 
   public function getContext(): AppContext
   {
@@ -57,6 +64,34 @@ class Layout extends Element implements ContextAware
   public function setPageClass(string $pageClass): self
   {
     $this->_pageClass = $pageClass;
+    return $this;
+  }
+
+  public function getHeader()
+  {
+    return $this->_header ?? HeaderPartial::withContext($this);
+  }
+
+  public function getFooter()
+  {
+    return $this->_footer ?? FooterPartial::withContext($this);
+  }
+
+  public function setHeader($header)
+  {
+    if($header !== null)
+    {
+      $this->_header = $header;
+    }
+    return $this;
+  }
+
+  public function setFooter($footer)
+  {
+    if($footer !== null)
+    {
+      $this->_footer = $footer;
+    }
     return $this;
   }
 }
