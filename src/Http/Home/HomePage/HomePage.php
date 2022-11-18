@@ -9,8 +9,8 @@ class HomePage extends AbstractPage
 {
   protected function _seo(SeoManager $seoMeta): void
   {
-    $seoMeta->title($this->getContext()->getSiteName() . ' - Home Page');
     parent::_seo($seoMeta);
+    $seoMeta->title($this->getContext()->getSiteName() . ' - Home Page');
   }
 
   public function getBlockName(): string

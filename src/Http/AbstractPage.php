@@ -32,7 +32,11 @@ abstract class AbstractPage extends AbstractBase implements PageClass, CachableP
     return $this;
   }
 
-  protected function _seo(SeoManager $seoMeta): void { }
+  protected function _seo(SeoManager $seoMeta): void
+  {
+    $seoMeta->title($this->getContext()->getSiteName());
+    $seoMeta->description($this->_('default_site_description_a3f4', 'Default Site Description'));
+  }
 
   public function getHeader(): ?AbstractBase { return null; }
 

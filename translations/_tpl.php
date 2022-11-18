@@ -11,4 +11,7 @@ return [
   'an_example_description_bb03' => [
     '_' => 'An example description',
   ],
+  'default_site_description_a3f4' => [
+    '_' => 'Default Site Description',
+  ],
 ];
