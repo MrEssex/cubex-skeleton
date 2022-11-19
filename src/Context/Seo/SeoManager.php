@@ -13,8 +13,21 @@ use Throwable;
  * Class SeoManager
  * @method title(string $title = null)
  * @method description(string $description = null)
+ * @method keywords(string $keywords = null)
  * @method viewport(string $viewport = null)
  * @method themeColor(string $color = null)
+ * @method refresh(string $refresh = null)
+ * @method generator(string $generator = null)
+ * @method referrer(string $referrer = null)
+ * @method colorScheme(string $colorScheme = null)
+ * @method ogTitle(string $title = null)
+ * @method ogDescription(string $description = null)
+ * @method ogUrl(string $url = null)
+ * @method ogImage(string $image = null)
+ * @method ogType(string $type = null)
+ * @method ogLocale(string $locale = null)
+ * @method twitterSite(string $site = null)
+ * @method twitterCreator(string $creator = null)
  *
  * @package CubexBase\Application\Context\Seo
  */
@@ -26,15 +39,50 @@ class SeoManager implements ContextAware, WithContext
 
   protected array $_values = [];
 
-  public function get(string $name)
+  protected array $_meta = [
+    'title',
+    'description',
+    'keywords',
+    'author',
+    'viewport',
+    'theme_color',
+    'refresh',
+    'generator',
+    'referrer',
+    'color_scheme',
+  ];
+
+  protected array $_ogMeta = [
+    'og_title',
+    'og_description',
+    'og_url',
+    'og_image',
+    'og_type',
+    'og_locale',
+  ];
+
+  protected array $_twitterMeta = [
+    'twitter_site',
+    'twitter_creator',
+  ];
+
+  public function get(string $name): string
   {
     $key = Strings::stringToUnderScore($name);
+    if(!$this->_isKeyAllowed($key))
+    {
+      return '';
+    }
     return $this->_values[$key] ?? '';
   }
 
-  public function set(string $name, $arguments)
+  public function set(string $name, $arguments): string
   {
     $key = Strings::stringToUnderScore($name);
+    if(!$this->_isKeyAllowed($key))
+    {
+      return '';
+    }
     $this->_values[$key] = $arguments[0];
     return $this->_values[$key];
   }
@@ -62,15 +110,36 @@ class SeoManager implements ContextAware, WithContext
 
   public function render(): string
   {
-    $html = '';
-    try
-    {
-      $html = $this->_renderTemplate();
-    }
-    catch(Throwable $e)
-    {
-    }
+    return $this->_renderTemplate();
+  }
 
-    return $html;
+  protected function _isKeyAllowed(string $key): bool
+  {
+    $meta = array_merge($this->_meta, $this->_ogMeta, $this->_twitterMeta);
+    return in_array($key, $meta);
+  }
+
+  public function getOgMeta(): array
+  {
+    return $this->_ogMeta;
+  }
+
+  public function getTwitterMeta(): array
+  {
+    return $this->_twitterMeta;
+  }
+
+  public function getMeta(): array
+  {
+    return [
+      'theme_color',
+      'keywords',
+      'author',
+      'viewport',
+      'refresh',
+      'generator',
+      'referrer',
+      'color_scheme',
+    ];
   }
 }

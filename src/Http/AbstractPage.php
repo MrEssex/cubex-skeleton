@@ -6,7 +6,7 @@ use CubexBase\Application\AbstractBase;
 use CubexBase\Application\Context\AppContext;
 use CubexBase\Application\Context\Seo\SeoManager;
 use Packaged\Context\Conditions\ExpectEnvironment;
-use Packaged\Ui\Html\HtmlElement;
+use Packaged\Context\Context;
 
 abstract class AbstractPage extends AbstractBase implements PageClass, CachablePage
 {
@@ -24,13 +24,14 @@ abstract class AbstractPage extends AbstractBase implements PageClass, CachableP
 
   public function getFooter(): ?AbstractBase { return null; }
 
-  protected function _prepareForProduce(): HtmlElement
+  public function setContext(Context $context): AbstractPage
   {
-    if($this->getContext() instanceof AppContext)
+    parent::setContext($context);
+    if($context instanceof AppContext)
     {
-      $this->_seo($this->getContext()->seo());
+      $this->_seo($context->seo());
     }
-    return parent::_prepareForProduce();
+    return $this;
   }
 
   protected function _seo(SeoManager $seoMeta): void
@@ -39,5 +40,6 @@ abstract class AbstractPage extends AbstractBase implements PageClass, CachableP
     $seoMeta->description($this->_('default_site_description_a3f4', 'Default Site Description'));
     $seoMeta->viewport('width=device-width, initial-scale=1');
     $seoMeta->themeColor('#fafafa');
+    $seoMeta->ogType('website');
   }
 }

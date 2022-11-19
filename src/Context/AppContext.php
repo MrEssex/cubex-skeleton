@@ -31,17 +31,13 @@ class AppContext extends Context implements Translatable
   {
     if($this->_seo === null)
     {
-      // add defaults
-      $seo = SeoManager::withContext($this);
-      $seo->title($this->getSiteName());
-      $seo->description($this->_('an_example_description_bb03', 'An example description'));
-      $this->_seo = $seo;
+      $this->_seo = SeoManager::withContext($this);
     }
 
     return $this->_seo;
   }
 
-  public function getSiteName()
+  public function getSiteName(): string
   {
     return 'Cubex Base';
   }

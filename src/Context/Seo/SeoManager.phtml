@@ -12,10 +12,20 @@ use CubexBase\Application\Context\Seo\SeoManager;
   <meta property="og:description" content="<?= $this->get('description') ?> ">
 <?php endif ?>
 
-<?php if($this->get('viewport')): ?>
-  <meta name="viewport" content="<?= $this->get('viewport') ?>">
-<?php endif; ?>
+<?php foreach($this->getMeta() as $meta): ?>
+  <?php if($this->get($meta)): ?>
+    <meta name="<?= str_replace('_', '-', $meta) ?>" content="<?= $this->get($meta) ?>">
+  <?php endif; ?>
+<?php endforeach; ?>
 
-<?php if($this->get('theme_color')): ?>
-  <meta name="theme-color" content="<?= $this->get('theme_color') ?>">
-<?php endif; ?>
+<?php foreach($this->getOgMeta() as $ogMeta): ?>
+  <?php if($this->get($ogMeta)): ?>
+    <meta name="<?= str_replace('_', ':', $ogMeta) ?>" content="<?= $this->get($ogMeta) ?>">
+  <?php endif; ?>
+<?php endforeach; ?>
+
+<?php foreach($this->getTwitterMeta() as $twitterMeta): ?>
+  <?php if($this->get($twitterMeta)): ?>
+    <meta name="<?= str_replace('_', ':', $twitterMeta) ?>" content="<?= $this->get($twitterMeta) ?>">
+  <?php endif; ?>
+<?php endforeach; ?>

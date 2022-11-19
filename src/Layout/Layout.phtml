@@ -35,10 +35,13 @@ $seo = $ctx->seo();
 
   <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, null, [ResourceStore::PRIORITY_LOW]) ?>
 </head>
+
 <body class="<?= $this->getPageClass() ?>">
+
 <?= $this->getHeader() ?>
 <?= $this->getContent() ?>
 <?= $this->getFooter() ?>
+
 <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, ResourceStore::PRIORITY_LOW) ?>
 <?= $store->generateHtmlIncludes(ResourceStore::TYPE_JS) ?>
 </body>
