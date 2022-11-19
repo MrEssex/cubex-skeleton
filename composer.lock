@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f49c6bd8405d8c72341354d5b4cf16b4",
+    "content-hash": "e4b7d3a5487e072675fba495608a39c4",
     "packages": [
         {
             "name": "cubex/framework",
@@ -5343,7 +5343,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4|^8.0",
+        "php": "^8.0",
         "ext-apcu": "*"
     },
     "platform-dev": {
