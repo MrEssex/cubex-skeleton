@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": ">=7.4",
+    "php": "^7.4|^8.0",
     "ext-apcu": "*",
     "cubex/framework": "^4.15.0",
     "cubex/sitemap": "^0.2.0",
