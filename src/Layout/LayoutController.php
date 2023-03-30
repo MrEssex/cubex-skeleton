@@ -4,7 +4,7 @@ namespace CubexBase\Application\Layout;
 
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
-use CubexBase\Application\Context\Context as CBContext;
+use CubexBase\Application\Context\AppContext;
 use Exception;
 use MrEssex\CubexInertiaJsProvider\InertiaResponse;
 use Packaged\Context\Context;
@@ -25,19 +25,6 @@ abstract class LayoutController extends AuthedController implements WithContext,
   use GetTranslatorTrait;
   use TranslatableTrait;
   use WithContextTrait;
-
-  /**
-   * @throws Exception
-   */
-  public function getContext(): Context
-  {
-    if(parent::getContext() instanceof AppContext)
-    {
-      return parent::getContext();
-    }
-
-    throw new RuntimeException('Invalid Context Passed through');
-  }
 
   /**
    * @throws Exception
@@ -64,5 +51,18 @@ abstract class LayoutController extends AuthedController implements WithContext,
   protected function _isAppropriateResponse($result): bool
   {
     return $result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result);
+  }
+
+  /**
+   * @throws Exception
+   */
+  public function getContext(): Context
+  {
+    if(parent::getContext() instanceof AppContext)
+    {
+      return parent::getContext();
+    }
+
+    throw new RuntimeException('Invalid Context Passed through');
   }
 }

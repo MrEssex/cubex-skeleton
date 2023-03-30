@@ -1,4 +1,4 @@
-name: Build
+name: Lint
 
 on:
   push:
@@ -7,15 +7,10 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
-    name: PHP ${{ matrix.php }} Build
-
-    strategy:
-      fail-fast: false
-      matrix:
-        php: [ '8.0', '8.1', '8.2' ]
+    name: Linter
 
     steps:
       - uses: actions/checkout@v3
@@ -30,7 +25,7 @@ jobs:
 
       - uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
+          php-version: 8.0
           extensions: apcu
           coverage: none
 
@@ -48,5 +43,4 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run build
-
+      - run: npm run lint

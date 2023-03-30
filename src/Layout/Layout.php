@@ -2,8 +2,6 @@
 namespace CubexBase\Application\Layout;
 
 use CubexBase\Application\Context\AppContext;
-use CubexBase\Application\Partials\Footer\FooterPartial;
-use CubexBase\Application\Partials\Header\HeaderPartial;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
 use Packaged\Context\WithContext;
