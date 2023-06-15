@@ -1,5 +1,5 @@
 <?php
-namespace CubexBase\Tests;
+namespace CubexBase\Tests\Support;
 
 use Packaged\Http\Response;
 use PHPUnit\Framework\Assert;

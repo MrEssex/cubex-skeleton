@@ -4,12 +4,14 @@ namespace CubexBase\Application\Layout;
 
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
+use Cubex\Mv\ViewModel;
 use CubexBase\Application\Context\AppContext;
-use CubexBase\Application\Http\AbstractPage;
-use CubexBase\Application\Http\CachablePage;
 use CubexBase\Application\Http\PageClass;
 use CubexBase\Application\MainApplication;
+use CubexBase\Application\Views\AbstractView;
+use CubexBase\Application\Views\CachableView;
 use Exception;
+use Helpdot\Helpdot\Layout\BackendLayout\BackendLayout;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
 use Packaged\Context\WithContext;
@@ -31,11 +33,6 @@ abstract class LayoutController extends AuthedController implements WithContext,
   use GetTranslatorTrait;
   use TranslatableTrait;
   use WithContextTrait;
-
-  protected function _generateRoutes(): string
-  {
-    return '';
-  }
 
   /**
    * @throws Exception
@@ -70,18 +67,24 @@ abstract class LayoutController extends AuthedController implements WithContext,
 
     $theme->setContent($result);
 
-    if($result instanceof PageClass)
+    $view = null;
+    if($result instanceof ViewModel)
     {
-      $theme->setPageClass($result->getPageClass());
+      $view = $result->createView();
+      if($view instanceof AbstractView)
+      {
+        $theme->setHeader($view->getHeader());
+        $theme->setFooter($view->getFooter());
+        $theme->setPageClass($view->getBlockName() . '-page');
+        $theme->setContent($view->render());
+      }
+    }
+    else
+    {
+      $theme->setContent($result);
     }
 
-    if($result instanceof AbstractPage)
-    {
-      $theme->setHeader($result->getHeader());
-      $theme->setFooter($result->getFooter());
-    }
-
-    if($result instanceof CachablePage && $result->shouldCache())
+    if($view instanceof CachableView && $view->shouldCache())
     {
       $path = $c->request()->getRequestUri();
       $language = $c->request()->getPreferredLanguage();
@@ -94,6 +97,7 @@ abstract class LayoutController extends AuthedController implements WithContext,
 
   protected function _isAppropriateResponse($result): bool
   {
-    return $result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result);
+    return $result instanceof ViewModel || $result instanceof Element ||
+      $result instanceof HtmlElement || is_scalar($result) || is_array($result);
   }
 }

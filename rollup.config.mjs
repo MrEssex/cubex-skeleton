@@ -1,18 +1,47 @@
-import Flutter from '@mressex/flutter';
-import postcssComments from 'postcss-discard-comments';
 import autoprefixer from 'autoprefixer';
+import tailwind from 'tailwindcss';
+import postcssComments from 'postcss-discard-comments';
+import postcss from 'rollup-plugin-postcss';
+import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
+import copy from 'rollup-plugin-copy';
+import typescript from '@rollup/plugin-typescript';
 
-const plugins = [
-  postcssComments({removeAll: true}),
-  autoprefixer()
+const production = process.env.NODE_ENV === 'production';
+
+const commonPlugins = [
+  resolve(),
+  typescript({'sourceMap': !production}),
+  production && terser()
 ];
 
-Flutter
-  .setInputPath('assets/entry.ts')
-  .setOutputPath('main.js', 'resources/main.min.js')
-  .typescript()
-  .resolve()
-  .commonJs()
-  .postCss({plugins});
+const postcssPlugins = [
+  autoprefixer(),
+  postcssComments({'removeAll': true}),
+  tailwind()
+];
 
-export default Flutter.getRollupConfig();
+export default {
+  input:   'assets/index.ts',
+  output:  {
+    file:      'resources/main.min.js',
+    name:      'main.js',
+    format:    'iife',
+    sourcemap: !production
+  },
+  plugins: [
+    ...commonPlugins,
+    postcss({
+      extract:   true,
+      minimize:  production,
+      sourceMap: !production,
+      plugins:   postcssPlugins
+    }),
+    copy({
+      targets: [
+        {src: 'assets/font/*', dest: 'resources/font'},
+        {src: 'assets/img/*', dest: 'resources/img'}
+      ]
+    })
+  ]
+};

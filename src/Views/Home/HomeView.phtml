@@ -1,0 +1,17 @@
+<?php
+
+use CubexBase\Application\Components\Button\Button;
+use CubexBase\Application\Views\Home\HomeView;
+
+/**
+ * @var HomeView $this
+ */
+?>
+
+  <h1><?= $this->_('hello_world_b10a', 'Hello World') ?></h1>
+  <p><?= $this->_('this_is_something_a2dd', 'This is something') ?></p>
+
+<?php for($i = 0; $i < 100; $i++): ?>
+  <p><?= $this->_('this_is_something_a2dd', 'This is something') ?></p>
+  <h1><?= Button::withContext($this, $this->_('hello_world_b10a', 'Hello World')) ?></h1>
+<?php endfor; ?>

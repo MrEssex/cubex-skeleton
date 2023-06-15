@@ -1,9 +1,10 @@
 <?php
-namespace CubexBase\Application\Components;
+namespace CubexBase\Application\Components\Button;
 
+use CubexBase\Application\AbstractBase;
 use Packaged\SafeHtml\SafeHtml;
 
-class ButtonComponent extends AbstractComponent
+class Button extends AbstractBase
 {
   protected $_tag = 'button';
   protected ?string $_content;
@@ -19,7 +20,7 @@ class ButtonComponent extends AbstractComponent
     return 'btn';
   }
 
-  protected function _getContentForRender()
+  protected function _getContentForRender(): SafeHtml
   {
     return new SafeHtml($this->_content);
   }

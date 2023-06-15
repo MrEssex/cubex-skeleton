@@ -2,16 +2,12 @@
 
 namespace CubexBase\Application;
 
-use Cubex\Routing\RouteProcessor;
-use CubexBase\Application\Http\Home\HomeController;
-use CubexBase\Application\Http\NotFoundPage\NotFoundController;
+use CubexBase\Application\Controllers\FrontendController;
 
-class Router extends RouteProcessor
+class Router extends \Cubex\Routing\Router
 {
   protected function _generateRoutes()
   {
-    yield self::_route('/$', HomeController::class);
-
-    return NotFoundController::class;
+    return FrontendController::class;
   }
 }

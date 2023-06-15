@@ -1,5 +1,5 @@
 <?php
-namespace CubexBase\Tests;
+namespace CubexBase\Tests\Support;
 
 use Cubex\Cubex;
 use CubexBase\Application\Context\AppContext;
