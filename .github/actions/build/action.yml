@@ -9,7 +9,7 @@ inputs:
   node_version:
     description: "Node version"
     required: true
-    default: "14"
+    default: "18.16.0"
 
 runs:
   using: "composite"

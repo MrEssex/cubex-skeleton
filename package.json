@@ -16,7 +16,7 @@
   "main": "rollup.config.js",
   "scripts": {
     "test": "mocha",
-    "coverage": "nyc yarn test",
+    "coverage": "nyc npm run test",
     "lint:scss": "stylelint assets/scss/**/*.scss",
     "lint:ts": "eslint assets/ts/**",
     "lint": "run-s lint:*",
