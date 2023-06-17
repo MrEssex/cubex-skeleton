@@ -4,10 +4,12 @@ namespace CubexBase\Application\Context;
 
 use Cubex\Context\Context;
 use Cubex\I18n\GetTranslatorTrait;
-use CubexBase\Application\Context\Seo\SeoManager;
 use Packaged\Http\LinkBuilder\LinkBuilder;
 use Packaged\I18n\Translatable;
 use Packaged\I18n\TranslatableTrait;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class AppContext extends Context implements Translatable
 {
@@ -28,5 +30,27 @@ class AppContext extends Context implements Translatable
   public function getSiteName(): string
   {
     return 'Cubex Base';
+  }
+
+  public function getSession(): SessionInterface
+  {
+    if(!$this->request()->hasSession())
+    {
+      $this->request()->setSession(new Session());
+    }
+
+    return $this->request()->getSession();
+  }
+
+  public function getFlashBag(): FlashBag
+  {
+    if(!$this->getSession()->has('flashes'))
+    {
+      $this->getSession()->set('flashes', new FlashBag());
+    }
+
+    /** @var FlashBag $sessionBag */
+    $sessionBag = $this->getSession()->getBag('flashes');
+    return $sessionBag;
   }
 }

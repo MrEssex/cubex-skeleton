@@ -6,17 +6,14 @@ use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
 use Cubex\Mv\ViewModel;
 use CubexBase\Application\Context\AppContext;
-use CubexBase\Application\Http\PageClass;
 use CubexBase\Application\MainApplication;
 use CubexBase\Application\Views\AbstractView;
 use CubexBase\Application\Views\CachableView;
 use Exception;
-use Helpdot\Helpdot\Layout\BackendLayout\BackendLayout;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
 use Packaged\Context\WithContext;
 use Packaged\Context\WithContextTrait;
-use Packaged\Http\Response;
 use Packaged\Http\Responses\JsonResponse;
 use Packaged\I18n\Translatable;
 use Packaged\I18n\TranslatableTrait;
@@ -51,7 +48,7 @@ abstract class LayoutController extends AuthedController implements WithContext,
    * @throws InvalidArgumentException
    * @throws Exception
    */
-  protected function _prepareResponse(Context $c, $result, $buffer = null): Response
+  protected function _prepareResponse(Context $c, $result, $buffer = null)
   {
     if(!$this->_isAppropriateResponse($result))
     {

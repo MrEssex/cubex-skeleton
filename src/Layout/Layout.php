@@ -17,11 +17,10 @@ class Layout extends Element implements ContextAware, WithContext
   use ContextAwareTrait;
   use WithContextTrait;
 
-  /** @var mixed */
-  protected $_content;
+  protected mixed $_content;
   protected string $_pageClass = "";
-  protected $_header;
-  protected $_footer;
+  protected mixed $_header;
+  protected mixed $_footer;
 
   public function getContext(): AppContext
   {
@@ -77,7 +76,7 @@ class Layout extends Element implements ContextAware, WithContext
     return $this->_footer ?? FooterPartial::withContext($this);
   }
 
-  public function setHeader($header)
+  public function setHeader($header): static
   {
     if($header !== null)
     {
@@ -86,7 +85,7 @@ class Layout extends Element implements ContextAware, WithContext
     return $this;
   }
 
-  public function setFooter($footer)
+  public function setFooter($footer): static
   {
     if($footer !== null)
     {

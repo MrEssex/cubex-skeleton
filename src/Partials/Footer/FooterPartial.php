@@ -2,7 +2,6 @@
 namespace CubexBase\Application\Partials\Footer;
 
 use CubexBase\Application\AbstractBase;
-use CubexBase\Application\Partials\AbstractPartial;
 use Packaged\SafeHtml\SafeHtml;
 
 class FooterPartial extends AbstractBase
