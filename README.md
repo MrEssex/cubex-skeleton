@@ -10,7 +10,5 @@ Playground for Learning Cubex. I recommended this as a template to build off.
 
 ## Requirements
 
-- Composer
-- Node with Yarn Package Manager
-- php ^7.4
-- ext-apcu enabled
+- Node ^20.2.0
+- php ^8.1 (ext-apcu)

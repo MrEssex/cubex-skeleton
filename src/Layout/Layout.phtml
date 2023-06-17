@@ -10,7 +10,7 @@ use Packaged\Dispatch\ResourceStore;
 
 $ctx = $this->getContext();
 $store = Dispatch::instance()->store();
-$flashes = $flashes = $ctx->getFlashBag();
+$flashes = $ctx->getFlashBag();
 ?>
 <!doctype html>
 <html lang="<?= $ctx->currentLanguage() ?>">
@@ -35,6 +35,12 @@ $flashes = $flashes = $ctx->getFlashBag();
       <p><?= $message ?></p>
     </div>
   <?php endforeach; ?>
+<?php endif; ?>
+
+<?php if($ctx->getSession()->has('user')): ?>
+  <div class="alert alert-info">
+    <p>Logged in as <?= $ctx->getSession()->get('user') ?></p>
+  </div>
 <?php endif; ?>
 
 <?= $this->getHeader() ?>

@@ -14,6 +14,8 @@ class FrontendController extends LayoutController
   {
     yield self::_route('$', 'home');
     yield self::_route('test', 'test');
+    yield self::_route('login', 'login');
+    yield self::_route('logout', 'logout');
 
     return 'error';
   }
@@ -27,6 +29,25 @@ class FrontendController extends LayoutController
   {
     $flashes = $ctx->getFlashBag();
     $flashes->add('success', 'This is a success message');
+
+    return RedirectResponse::create('/');
+  }
+
+  public function processLogin(AppContext $ctx): RedirectResponse
+  {
+    $flashes = $ctx->getFlashBag();
+    $flashes->add('success', 'You have been logged in');
+
+    $user = 'test';
+    $ctx->getSession()->set('user', $user);
+
+    return RedirectResponse::create('/');
+  }
+
+  public function processLogout(AppContext $ctx): RedirectResponse
+  {
+    $ctx->getSession()->remove('user');
+    $ctx->getSession()->invalidate();
 
     return RedirectResponse::create('/');
   }
