@@ -50,18 +50,17 @@ abstract class LayoutController extends AuthedController implements WithContext,
    */
   protected function _prepareResponse(Context $c, $result, $buffer = null)
   {
+    if($result instanceof PageletResponse && $this->_isPageletRequest($c))
+    {
+      $result = JsonResponse::create($result);
+    }
+
     if(!$this->_isAppropriateResponse($result))
     {
       return parent::_prepareResponse($c, $result, $buffer);
     }
 
     $theme = Layout::withContext($this);
-
-    if($result instanceof PageletResponse)
-    {
-      $result = JsonResponse::create($result);
-    }
-
     $theme->setContent($result);
 
     $view = null;
@@ -96,5 +95,11 @@ abstract class LayoutController extends AuthedController implements WithContext,
   {
     return $result instanceof ViewModel || $result instanceof Element ||
       $result instanceof HtmlElement || is_scalar($result) || is_array($result);
+  }
+
+  protected function _isPageletRequest(Context $ctx): bool
+  {
+    return $ctx->request()->headers->has('x-pagelet-request') &&
+      $ctx->request()->isXmlHttpRequest();
   }
 }

@@ -7,6 +7,7 @@ use Cubex\Cubex;
 use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
 use Cubex\Sitemap\SitemapListener;
 use CubexBase\Application\Context\AppContext;
+use CubexBase\Application\Context\FlashHeaders;
 use Exception;
 use MrEssex\FileCache\AbstractCache;
 use MrEssex\FileCache\ApcuCache;
@@ -166,6 +167,7 @@ class MainApplication extends Application
       ResponsePreSendHeadersEvent::class,
       function (ResponsePreSendHeadersEvent $event) {
         $this->_setupHeaders($event);
+        $this->_setupCookies($event);
       }
     );
 
@@ -175,27 +177,25 @@ class MainApplication extends Application
     }
   }
 
-  protected function _setupHeaders(ResponsePreSendHeadersEvent $event)
+  protected function _setupHeaders(ResponsePreSendHeadersEvent $event): SResponse
   {
     $response = $event->getResponse();
+    /** @var AppContext $ctx */
+    $ctx = $event->getContext();
 
-    if($response instanceof Response)
+    $allowed = [
+      $ctx->request()->urlSprintf(),
+      'https://fonts.googleapis.com',
+    ];
+
+    if(in_array($ctx->request()->headers->get('origin'), $allowed, true))
     {
-      $ctx = $event->getContext();
-      $allowed = [
-        $ctx->request()->urlSprintf(),
-        'https://fonts.googleapis.com',
-      ];
-
-      if(in_array($ctx->request()->headers->get('origin'), $allowed, true))
-      {
-        $response->headers->set('Access-Control-Allow-Origin', $ctx->request()->headers->get('origin'));
-      }
-
-      $csp = new ContentSecurityPolicy();
-      $csp->setDirective(ContentSecurityPolicy::IMG_SRC, '*');
-      $response->addHeader($csp);
+      $response->headers->set('Access-Control-Allow-Origin', $ctx->request()->headers->get('origin'));
     }
+
+    $csp = new ContentSecurityPolicy();
+    $csp->setDirective(ContentSecurityPolicy::IMG_SRC, '*');
+    $response->headers->set($csp->getKey(), $csp->getValue());
 
     return $response;
   }
@@ -203,5 +203,25 @@ class MainApplication extends Application
   protected function _defaultHandler(): Handler
   {
     return new Router();
+  }
+
+  protected function _setupCookies(ResponsePreSendHeadersEvent $event)
+  {
+    $response = $event->getResponse();
+    /** @var AppContext $ctx */
+    $ctx = $event->getContext();
+
+    // Add flash messages to cookies
+    $flash = $ctx->flash();
+    if($flash->hasMessages())
+    {
+      $response->headers->setCookie(
+        $flash->toCookie()
+      );
+    }
+    else
+    {
+      $response->headers->clearCookie('flash');
+    }
   }
 }

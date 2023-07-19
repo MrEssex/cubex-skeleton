@@ -4,6 +4,7 @@ namespace CubexBase\Application\Views;
 
 use Cubex\I18n\GetTranslatorTrait;
 use CubexBase\Application\AbstractBase;
+use CubexBase\Application\Context\AppContext;
 use Packaged\Context\Conditions\ExpectEnvironment;
 use Packaged\Context\WithContext;
 use Packaged\Context\WithContextTrait;
@@ -16,6 +17,9 @@ use PackagedUi\BemComponent\BemComponent;
 use PackagedUi\BemComponent\BemComponentTrait;
 use Throwable;
 
+/**
+ * @method AppContext getContext()
+ */
 abstract class AbstractView extends \Cubex\Mv\AbstractView
   implements CachableView, WithContext, BemComponent, Translatable
 {
@@ -32,11 +36,6 @@ abstract class AbstractView extends \Cubex\Mv\AbstractView
   protected function _render(): ?ISafeHtmlProducer
   {
     return new SafeHtml($this->_renderTemplate());
-  }
-
-  public function getPageClass(): string
-  {
-    return $this->getBlockName();
   }
 
   public function shouldCache(): bool

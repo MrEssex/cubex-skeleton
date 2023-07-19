@@ -4,17 +4,17 @@ namespace CubexBase\Application\Context;
 
 use Cubex\Context\Context;
 use Cubex\I18n\GetTranslatorTrait;
+use CubexBase\Application\Context\Providers\FlashMessageProvider;
 use Packaged\Http\LinkBuilder\LinkBuilder;
 use Packaged\I18n\Translatable;
 use Packaged\I18n\TranslatableTrait;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class AppContext extends Context implements Translatable
 {
   use TranslatableTrait;
   use GetTranslatorTrait;
+
+  protected ?FlashMessageProvider $flash = null;
 
   /**
    * @param string   $path
@@ -27,30 +27,13 @@ class AppContext extends Context implements Translatable
     return LinkBuilder::fromRequest($this->request(), $path, $query)->setSubDomain('www');
   }
 
-  public function getSiteName(): string
+  public function flash(): FlashMessageProvider
   {
-    return 'Cubex Base';
-  }
-
-  public function getSession(): SessionInterface
-  {
-    if(!$this->request()->hasSession())
+    if($this->flash === null)
     {
-      $this->request()->setSession(new Session());
+      $this->flash = FlashMessageProvider::hydrateFromRequest($this->request());
     }
 
-    return $this->request()->getSession();
-  }
-
-  public function getFlashBag(): FlashBag
-  {
-    if(!$this->getSession()->has('flashes'))
-    {
-      $this->getSession()->set('flashes', new FlashBag());
-    }
-
-    /** @var FlashBag $sessionBag */
-    $sessionBag = $this->getSession()->getBag('flashes');
-    return $sessionBag;
+    return $this->flash;
   }
 }

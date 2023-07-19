@@ -10,7 +10,6 @@ use Packaged\Dispatch\ResourceStore;
 
 $ctx = $this->getContext();
 $store = Dispatch::instance()->store();
-$flashes = $ctx->getFlashBag();
 ?>
 <!doctype html>
 <html lang="<?= $ctx->currentLanguage() ?>">
@@ -29,19 +28,11 @@ $flashes = $ctx->getFlashBag();
 
 <body class="<?= $this->getPageClass() ?>">
 
-<?php if($flashes->has('success')): ?>
-  <?php foreach($flashes->get('success') as $message): ?>
-    <div class="alert alert-success">
-      <p><?= $message ?></p>
-    </div>
-  <?php endforeach; ?>
-<?php endif; ?>
-
-<?php if($ctx->getSession()->has('user')): ?>
-  <div class="alert alert-info">
-    <p>Logged in as <?= $ctx->getSession()->get('user') ?></p>
+<?php foreach($ctx->flash()->getMessages() as $message): ?>
+  <div class="alert alert-<?= $message['type'] ?>">
+    <p><?= $message['message'] ?></p>
   </div>
-<?php endif; ?>
+<?php endforeach; ?>
 
 <?= $this->getHeader() ?>
 <?= $this->getContent() ?>
