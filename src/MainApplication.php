@@ -8,7 +8,6 @@ use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
 use Cubex\Sitemap\SitemapListener;
 use CubexBase\Application\Api\ApiController;
 use CubexBase\Application\Context\AppContext;
-use CubexBase\Application\Context\FlashHeaders;
 use Exception;
 use MrEssex\FileCache\AbstractCache;
 use MrEssex\FileCache\ApcuCache;
@@ -144,8 +143,6 @@ class MainApplication extends Application
       )
     );
 
-    yield self::_route('/v1', ApiController::class);
-
     if(ValueAs::bool($this->getContext()->config()->getItem('serve', 'redirect_https')))
     {
       yield InsecureRequestUpgradeRoute::i();
@@ -196,7 +193,7 @@ class MainApplication extends Application
       $response->headers->set('Access-Control-Allow-Origin', $ctx->request()->headers->get('origin'));
     }
 
-    if($context->request()->query->has('raw') && $context->matches(ExpectEnvironment::local()))
+    if($ctx->request()->query->has('raw') && $ctx->matches(ExpectEnvironment::local()))
     {
       $response->headers->set('Content-Type', 'application/json');
     }

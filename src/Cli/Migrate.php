@@ -1,9 +1,9 @@
 <?php
 namespace CubexBase\Application\Cli;
 
-use Cubex\Console\ConsoleCommand;
-use CubexBase\Application\Context\Context;
+use CubexBase\Application\Context\Providers\DatabaseProvider;
 use Exception;
+use MrEssex\CubexCli\ConsoleCommand;
 use Packaged\Dal\Exceptions\DalResolver\ConnectionNotFoundException;
 use Packaged\Dal\Exceptions\DalResolver\DataStoreNotFoundException;
 use Packaged\Dal\Foundation\Dao;
@@ -24,9 +24,8 @@ class Migrate extends ConsoleCommand
   public function executeCommand(InputInterface $input, OutputInterface $output): void
   {
     $schemas = DalSchema::findSchemas(dirname(__DIR__), 'CubexBase\\Application\\');
-
-    $context = new Context();
-    $context->registerDatabaseConnections();
+    $ctx = $this->getContext();
+    DatabaseProvider::instance($ctx)->registerDatabaseConnections($ctx->getEnvironment());
 
     foreach($schemas as $schema)
     {

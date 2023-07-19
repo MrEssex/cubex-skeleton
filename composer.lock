@@ -4,8 +4,109 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ca1137dfaef1096356691d1ffd38ddc",
+    "content-hash": "c5954ff000c924fed58cdad9c0fc0c20",
     "packages": [
+        {
+            "name": "cubex/api-foundation",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cubex/api-foundation.git",
+                "reference": "f87e925fb75940d0f519d75f0041c823a74255dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cubex/api-foundation/zipball/f87e925fb75940d0f519d75f0041c823a74255dc",
+                "reference": "f87e925fb75940d0f519d75f0041c823a74255dc",
+                "shasum": ""
+            },
+            "require": {
+                "cubex/api-transport": "^0.1",
+                "cubex/framework": "^4.3",
+                "ext-json": "*",
+                "packaged/context": "~1.3",
+                "packaged/http": "~1.6",
+                "packaged/routing": "~2.4",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cubex\\ApiFoundation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Brooke Bryan",
+                    "email": "brooke@bajb.net",
+                    "homepage": "http://www.bajb.net"
+                }
+            ],
+            "description": "Cubex API Foundation",
+            "homepage": "http://cubex.io",
+            "keywords": [
+                "api",
+                "cubex"
+            ],
+            "support": {
+                "issues": "https://github.com/cubex/api-foundation/issues",
+                "source": "https://github.com/cubex/api-foundation/tree/master"
+            },
+            "time": "2020-03-13T11:35:20+00:00"
+        },
+        {
+            "name": "cubex/api-transport",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cubex/api-transport.git",
+                "reference": "f5f8a416fab99464c1c2b4303d459be418e3eb8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cubex/api-transport/zipball/f5f8a416fab99464c1c2b4303d459be418e3eb8e",
+                "reference": "f5f8a416fab99464c1c2b4303d459be418e3eb8e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "packaged/context": "~1.3",
+                "packaged/helpers": "~1|~2",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cubex\\ApiTransport\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Brooke Bryan",
+                    "email": "brooke@bajb.net",
+                    "homepage": "http://www.bajb.net"
+                }
+            ],
+            "description": "Cubex API Transport",
+            "homepage": "http://cubex.io",
+            "keywords": [
+                "api",
+                "cubex"
+            ],
+            "support": {
+                "issues": "https://github.com/cubex/api-transport/issues",
+                "source": "https://github.com/cubex/api-transport/tree/master"
+            },
+            "time": "2020-03-13T10:11:34+00:00"
+        },
         {
             "name": "cubex/framework",
             "version": "4.18.0",
@@ -75,16 +176,16 @@
         },
         {
             "name": "cubex/mv",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cubex/mv.git",
-                "reference": "2c7c6905fe3776fbdd82c6881df62db0d39a7d2e"
+                "reference": "63e54de549ff932e06917f48b737da258ce6827f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cubex/mv/zipball/2c7c6905fe3776fbdd82c6881df62db0d39a7d2e",
-                "reference": "2c7c6905fe3776fbdd82c6881df62db0d39a7d2e",
+                "url": "https://api.github.com/repos/cubex/mv/zipball/63e54de549ff932e06917f48b737da258ce6827f",
+                "reference": "63e54de549ff932e06917f48b737da258ce6827f",
                 "shasum": ""
             },
             "require": {
@@ -117,9 +218,9 @@
             "description": "Cubex Model View",
             "support": {
                 "issues": "https://github.com/cubex/mv/issues",
-                "source": "https://github.com/cubex/mv/tree/0.2.0"
+                "source": "https://github.com/cubex/mv/tree/0.3.0"
             },
-            "time": "2021-11-08T09:57:58+00:00"
+            "time": "2023-06-02T17:12:15+00:00"
         },
         {
             "name": "cubex/sitemap",
@@ -210,6 +311,102 @@
                 "source": "https://github.com/doctrine/deprecations/tree/v1.1.1"
             },
             "time": "2023-06-03T09:27:29+00:00"
+        },
+        {
+            "name": "doctrine/inflector",
+            "version": "1.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/inflector.git",
+                "reference": "4bd5c1cdfcd00e9e2d8c484f79150f67e5d355d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/4bd5c1cdfcd00e9e2d8c484f79150f67e5d355d9",
+                "reference": "4bd5c1cdfcd00e9e2d8c484f79150f67e5d355d9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^8.0",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12",
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Inflector\\": "lib/Doctrine/Inflector",
+                    "Doctrine\\Common\\Inflector\\": "lib/Doctrine/Common/Inflector"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "PHP Doctrine Inflector is a small library that can perform string manipulations with regard to upper/lowercase and singular/plural forms of words.",
+            "homepage": "https://www.doctrine-project.org/projects/inflector.html",
+            "keywords": [
+                "inflection",
+                "inflector",
+                "lowercase",
+                "manipulation",
+                "php",
+                "plural",
+                "singular",
+                "strings",
+                "uppercase",
+                "words"
+            ],
+            "support": {
+                "issues": "https://github.com/doctrine/inflector/issues",
+                "source": "https://github.com/doctrine/inflector/tree/1.4.4"
+            },
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finflector",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-04-16T17:34:40+00:00"
         },
         {
             "name": "mressex/cache",
@@ -433,6 +630,46 @@
             "time": "2023-02-24T17:44:49+00:00"
         },
         {
+            "name": "packaged/cassandrathrift",
+            "version": "20.1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/packaged/cassandrathrift.git",
+                "reference": "2d380177cd43d8c80b6d0fe22412e577d35c605b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/packaged/cassandrathrift/zipball/2d380177cd43d8c80b6d0fe22412e577d35c605b",
+                "reference": "2d380177cd43d8c80b6d0fe22412e577d35c605b",
+                "shasum": ""
+            },
+            "require": {
+                "packaged/thrift": "^0.15.0",
+                "php": "^5.5 || ^7.0 || ^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "cassandra\\": "src/cassandra"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Cassandra Thrift Wrapper",
+            "homepage": "http://wiki.apache.org/cassandra/API10",
+            "keywords": [
+                "cassandra",
+                "thrift"
+            ],
+            "support": {
+                "issues": "https://github.com/packaged/cassandrathrift/issues",
+                "source": "https://github.com/packaged/cassandrathrift/tree/20.1.0.5"
+            },
+            "time": "2021-09-23T11:05:37+00:00"
+        },
+        {
             "name": "packaged/config",
             "version": "1.10.1",
             "source": {
@@ -569,6 +806,96 @@
                 "source": "https://github.com/packaged/context-i18n/tree/master"
             },
             "time": "2020-09-06T21:19:11+00:00"
+        },
+        {
+            "name": "packaged/dal",
+            "version": "1.18.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/packaged/dal.git",
+                "reference": "afcf618d9ce53e49a0dc05ff18bdcc11ed91fb9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/packaged/dal/zipball/afcf618d9ce53e49a0dc05ff18bdcc11ed91fb9d",
+                "reference": "afcf618d9ce53e49a0dc05ff18bdcc11ed91fb9d",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/inflector": "~1.0",
+                "ext-json": "*",
+                "packaged/cassandrathrift": "^20.1.0",
+                "packaged/config": "~1.1",
+                "packaged/docblock": "~0.1||~1.0",
+                "packaged/helpers": "~1.23||~2.5",
+                "packaged/log": "~1.0",
+                "packaged/querybuilder": "~0.21",
+                "php": "^7.2||^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.6.8"
+            },
+            "suggest": {
+                "ext-apcu": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Packaged\\Dal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brooke Bryan",
+                    "email": "brooke@bajb.net"
+                }
+            ],
+            "description": "Data Access Layer",
+            "support": {
+                "issues": "https://github.com/packaged/dal/issues",
+                "source": "https://github.com/packaged/dal/tree/1.18.1"
+            },
+            "time": "2023-07-10T08:56:36+00:00"
+        },
+        {
+            "name": "packaged/dal-schema",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/packaged/dal-schema.git",
+                "reference": "4d51a1b39fee79de118f4a0b92d5ba4f1f67af64"
+            },
+            "require": {
+                "packaged/dal": "^1.11",
+                "packaged/enum": "^1.4",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Packaged\\DalSchema\\": "src",
+                    "Packaged\\Tests\\DalSchema\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brooke Bryan",
+                    "email": "brooke@bajb.net"
+                }
+            ],
+            "description": "Data Access Layer : Schema Manager",
+            "time": "2023-06-07T10:28:33+00:00"
         },
         {
             "name": "packaged/di-container",
@@ -1071,6 +1398,95 @@
             "time": "2022-07-21T13:53:13+00:00"
         },
         {
+            "name": "packaged/log",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/packaged/log.git",
+                "reference": "06a67510d2229fabfd52188a7efa1bd161045f0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/packaged/log/zipball/06a67510d2229fabfd52188a7efa1bd161045f0e",
+                "reference": "06a67510d2229fabfd52188a7efa1bd161045f0e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1",
+                "psr/log": "1.1.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Packaged\\Log\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brooke Bryan",
+                    "email": "brooke@bajb.net"
+                }
+            ],
+            "description": "Generic Logger",
+            "support": {
+                "issues": "https://github.com/packaged/log/issues",
+                "source": "https://github.com/packaged/log/tree/master"
+            },
+            "time": "2019-11-08T13:21:59+00:00"
+        },
+        {
+            "name": "packaged/querybuilder",
+            "version": "0.23.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/packaged/querybuilder.git",
+                "reference": "f1cfc5444117490d6823f02d623954ea65d9a76f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/packaged/querybuilder/zipball/f1cfc5444117490d6823f02d623954ea65d9a76f",
+                "reference": "f1cfc5444117490d6823f02d623954ea65d9a76f",
+                "shasum": ""
+            },
+            "require": {
+                "packaged/helpers": "^1.0||^2.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8.0",
+                "satooshi/php-coveralls": "~1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Packaged\\QueryBuilder\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Brooke Bryan",
+                    "email": "brooke@bajb.net"
+                }
+            ],
+            "description": "Abstract Query Builder",
+            "support": {
+                "issues": "https://github.com/packaged/querybuilder/issues",
+                "source": "https://github.com/packaged/querybuilder/tree/0.23.1"
+            },
+            "time": "2021-03-31T21:39:23+00:00"
+        },
+        {
             "name": "packaged/routing",
             "version": "2.6.0",
             "source": {
@@ -1203,6 +1619,45 @@
                 "source": "https://github.com/packaged/safehtml/tree/2.2.2"
             },
             "time": "2022-10-04T14:08:46+00:00"
+        },
+        {
+            "name": "packaged/thrift",
+            "version": "0.15.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/packaged/thrift.git",
+                "reference": "dbf4e5ff5c85d56ccae62265ed25424b366ce269"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/packaged/thrift/zipball/dbf4e5ff5c85d56ccae62265ed25424b366ce269",
+                "reference": "dbf4e5ff5c85d56ccae62265ed25424b366ce269",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5 || ^7.0 || ^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Thrift\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Apache Thrift",
+            "homepage": "http://thrift.apache.org/",
+            "keywords": [
+                "apache",
+                "thrift"
+            ],
+            "support": {
+                "issues": "https://github.com/packaged/thrift/issues",
+                "source": "https://github.com/packaged/thrift/tree/0.15.0"
+            },
+            "time": "2021-09-23T10:34:40+00:00"
         },
         {
             "name": "packaged/ui",
@@ -5474,12 +5929,13 @@
     "aliases": [],
     "minimum-stability": "alpha",
     "stability-flags": {
+        "packaged/dal-schema": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0",
+        "php": ">=8.1",
         "ext-apcu": "*"
     },
     "platform-dev": {

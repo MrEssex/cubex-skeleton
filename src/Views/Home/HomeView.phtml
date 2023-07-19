@@ -1,6 +1,5 @@
 <?php
 
-use CubexBase\Application\Components\Button\Button;
 use CubexBase\Application\Views\Home\HomeView;
 
 /**
@@ -12,11 +11,8 @@ use CubexBase\Application\Views\Home\HomeView;
 <p><?= $this->_('this_is_something_a2dd', 'This is something') ?></p>
 
 
-<?php for($i = 0; $i < 100; $i++): ?>
+<?php foreach($this->_model->examples->examples as $example): ?>
   <p class="text-blue-400 ?>">
-    <?= $this->_('this_is_something_a2dd', 'This is something') ?>
+    <?= $example->title ?>
   </p>
-  <h1><?= Button::withContext($this, $this->_('hello_world_b10a', 'Hello World')) ?></h1>
-<?php endfor; ?>
-
-
+<?php endforeach; ?>
