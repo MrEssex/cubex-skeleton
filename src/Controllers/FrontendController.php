@@ -2,9 +2,11 @@
 
 namespace CubexBase\Application\Controllers;
 
+use CubexBase\Application\Api\Modules\Example\Procedures\ListExample;
 use CubexBase\Application\Context\AppContext;
 use CubexBase\Application\Layout\LayoutController;
 use CubexBase\Application\Views\Home\HomeViewModel;
+use CubexBase\Transport\Modules\Example\Payloads\ListExamplePayload;
 use Packaged\Http\Response;
 use Packaged\Http\Responses\RedirectResponse;
 
@@ -20,7 +22,11 @@ class FrontendController extends LayoutController
 
   public function processHome(AppContext $ctx)
   {
-    return HomeViewModel::withContext($this);
+    $examples = ListExample::withContext($this)->execute(ListExamplePayload::i());
+
+    $model = HomeViewModel::withContext($this);
+    $model->examples = $examples;
+    return $model;
   }
 
   public function processTest(AppContext $ctx): RedirectResponse

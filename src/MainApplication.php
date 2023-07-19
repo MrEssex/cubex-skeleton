@@ -6,8 +6,8 @@ use Cubex\Application\Application;
 use Cubex\Cubex;
 use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
 use Cubex\Sitemap\SitemapListener;
+use CubexBase\Application\Api\ApiController;
 use CubexBase\Application\Context\AppContext;
-use CubexBase\Application\Context\FlashHeaders;
 use Exception;
 use MrEssex\FileCache\AbstractCache;
 use MrEssex\FileCache\ApcuCache;
@@ -191,6 +191,11 @@ class MainApplication extends Application
     if(in_array($ctx->request()->headers->get('origin'), $allowed, true))
     {
       $response->headers->set('Access-Control-Allow-Origin', $ctx->request()->headers->get('origin'));
+    }
+
+    if($ctx->request()->query->has('raw') && $ctx->matches(ExpectEnvironment::local()))
+    {
+      $response->headers->set('Content-Type', 'application/json');
     }
 
     $csp = new ContentSecurityPolicy();

@@ -4,6 +4,7 @@ namespace CubexBase\Application\Context;
 
 use Cubex\Context\Context;
 use Cubex\I18n\GetTranslatorTrait;
+use CubexBase\Application\Context\Providers\DatabaseProvider;
 use CubexBase\Application\Context\Providers\FlashMessageProvider;
 use Packaged\Http\LinkBuilder\LinkBuilder;
 use Packaged\I18n\Translatable;
@@ -15,6 +16,14 @@ class AppContext extends Context implements Translatable
   use GetTranslatorTrait;
 
   protected ?FlashMessageProvider $flash = null;
+
+  protected bool $_dbConfigured = false;
+
+  protected function _initialize(): void
+  {
+    parent::_initialize();
+    DatabaseProvider::instance($this)->registerDatabaseConnections($this->getEnvironment());
+  }
 
   /**
    * @param string   $path
