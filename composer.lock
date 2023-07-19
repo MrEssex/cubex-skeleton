@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ca1137dfaef1096356691d1ffd38ddc",
+    "content-hash": "f8451781c36de833681940087929c07f",
     "packages": [
         {
             "name": "cubex/framework",
@@ -212,59 +212,6 @@
             "time": "2023-06-03T09:27:29+00:00"
         },
         {
-            "name": "mressex/cache",
-            "version": "0.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/MrEssex/simple-cache.git",
-                "reference": "de2cf936edebb4d8bd95f6d0f49d95bda5ee2cb7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/MrEssex/simple-cache/zipball/de2cf936edebb4d8bd95f6d0f49d95bda5ee2cb7",
-                "reference": "de2cf936edebb4d8bd95f6d0f49d95bda5ee2cb7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-apcu": "*",
-                "php": "^7.4 || ^8.0",
-                "psr/simple-cache": "^1.0"
-            },
-            "provide": {
-                "psr/simple-cache-implementation": "^1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.5.2",
-                "roave/security-advisories": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "MrEssex\\FileCache\\": "src",
-                    "MrEssex\\FileCache\\Tests\\": "tests"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kyle Essex"
-                }
-            ],
-            "description": "Different PSR-16 cache implementations",
-            "keywords": [
-                "cache",
-                "caching"
-            ],
-            "support": {
-                "issues": "https://github.com/MrEssex/simple-cache/issues",
-                "source": "https://github.com/MrEssex/simple-cache/tree/0.5.1"
-            },
-            "time": "2023-06-14T15:53:01+00:00"
-        },
-        {
             "name": "mressex/cubex-cli",
             "version": "0.1.0",
             "source": {
@@ -303,6 +250,51 @@
                 "source": "https://github.com/MrEssex/cubex-cli/tree/0.1.0"
             },
             "time": "2022-09-30T12:42:41+00:00"
+        },
+        {
+            "name": "mressex/cubex-inertiajs-provider",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MrEssex/cubex-inertiajs-integration.git",
+                "reference": "2a72ae3120868237593696e58b87c723ab32ad54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MrEssex/cubex-inertiajs-integration/zipball/2a72ae3120868237593696e58b87c723ab32ad54",
+                "reference": "2a72ae3120868237593696e58b87c723ab32ad54",
+                "shasum": ""
+            },
+            "require": {
+                "packaged/context": "^1.8",
+                "packaged/http": "^1.21",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "roave/security-advisories": "dev-latest"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MrEssex\\CubexInertiaJsProvider\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Essex",
+                    "email": "kylegavinessex@hotmail.com"
+                }
+            ],
+            "description": "Cubex InertiaJS Integration",
+            "support": {
+                "issues": "https://github.com/MrEssex/cubex-inertiajs-integration/issues",
+                "source": "https://github.com/MrEssex/cubex-inertiajs-integration/tree/0.1.2"
+            },
+            "time": "2022-03-14T15:27:18+00:00"
         },
         {
             "name": "mressex/cubex-translate",
@@ -1614,57 +1606,6 @@
                 "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
             "time": "2021-05-03T11:20:27+00:00"
-        },
-        {
-            "name": "psr/simple-cache",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/simple-cache.git",
-                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
-                "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\SimpleCache\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interfaces for simple caching",
-            "keywords": [
-                "cache",
-                "caching",
-                "psr",
-                "psr-16",
-                "simple-cache"
-            ],
-            "support": {
-                "source": "https://github.com/php-fig/simple-cache/tree/master"
-            },
-            "time": "2017-10-23T01:57:42+00:00"
         },
         {
             "name": "statickidz/php-google-translate-free",

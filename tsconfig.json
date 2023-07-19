@@ -1,16 +1,13 @@
 {
+  "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
-    "useDefineForClassFields": false,
-    "experimentalDecorators": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "types": [
-      "mocha"
-    ],
+    "module": "ESNext",
+    "allowSyntheticDefaultImports": true,
     "lib": [
-      "dom",
-      "ESNext"
+      "DOM"
     ]
-  }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }

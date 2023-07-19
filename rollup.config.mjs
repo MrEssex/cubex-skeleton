@@ -6,12 +6,26 @@ import resolve from '@rollup/plugin-node-resolve';
 import terser from '@rollup/plugin-terser';
 import copy from 'rollup-plugin-copy';
 import typescript from '@rollup/plugin-typescript';
+import svelte from 'rollup-plugin-svelte';
+import json from '@rollup/plugin-json';
+import sveltePreprocess from 'svelte-preprocess';
+import commonJs from '@rollup/plugin-commonjs';
 
 const production = process.env.NODE_ENV === 'production';
 
 const commonPlugins = [
-  resolve(),
   typescript({'sourceMap': !production}),
+  svelte({
+    preprocess: sveltePreprocess(),
+    emitCss:    true
+  }),
+  json(),
+  commonJs(),
+  resolve({
+    browser:        true,
+    preferBuiltins: true,
+    dedupe:         ['svelte']
+  }),
   production && terser()
 ];
 
@@ -24,10 +38,11 @@ const postcssPlugins = [
 export default {
   input:   'assets/index.ts',
   output:  {
-    file:      'resources/main.min.js',
-    name:      'main.js',
-    format:    'iife',
-    sourcemap: !production
+    inlineDynamicImports: true,
+    file:                 'resources/main.min.js',
+    name:                 'main.js',
+    format:               'iife',
+    sourcemap:            !production
   },
   plugins: [
     ...commonPlugins,
