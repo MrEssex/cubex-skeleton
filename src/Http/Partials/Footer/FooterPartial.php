@@ -1,7 +1,7 @@
 <?php
-namespace CubexBase\Application\Partials\Footer;
+namespace CubexBase\Application\Http\Partials\Footer;
 
-use CubexBase\Application\AbstractBase;
+use CubexBase\Application\Http\AbstractBase;
 use Packaged\SafeHtml\SafeHtml;
 
 class FooterPartial extends AbstractBase

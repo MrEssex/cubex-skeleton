@@ -1,8 +1,8 @@
 <?php
 
-namespace CubexBase\Application\Views\Home;
+namespace CubexBase\Application\Http\Views\Home;
 
-use CubexBase\Application\Views\AbstractView;
+use CubexBase\Application\Http\Views\AbstractView;
 
 class HomeView extends AbstractView
 {

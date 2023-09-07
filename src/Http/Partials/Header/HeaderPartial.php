@@ -1,7 +1,7 @@
 <?php
-namespace CubexBase\Application\Partials\Header;
+namespace CubexBase\Application\Http\Partials\Header;
 
-use CubexBase\Application\AbstractBase;
+use CubexBase\Application\Http\AbstractBase;
 use Packaged\SafeHtml\SafeHtml;
 
 class HeaderPartial extends AbstractBase

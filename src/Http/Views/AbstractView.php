@@ -1,9 +1,9 @@
 <?php
 
-namespace CubexBase\Application\Views;
+namespace CubexBase\Application\Http\Views;
 
-use CubexBase\Application\AbstractBase;
 use CubexBase\Application\Context\AppContext;
+use CubexBase\Application\Http\AbstractBase;
 use Packaged\Context\Conditions\ExpectEnvironment;
 use Packaged\Ui\TemplateLoaderTrait;
 

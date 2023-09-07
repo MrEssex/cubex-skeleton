@@ -1,6 +1,6 @@
 <?php
 
-namespace CubexBase\Application;
+namespace CubexBase\Application\Http;
 
 use Cubex\I18n\GetTranslatorTrait;
 use CubexBase\Application\Context\AppContext;

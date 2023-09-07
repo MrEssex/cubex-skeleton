@@ -3,7 +3,7 @@
 namespace CubexBase\Application;
 
 use CubexBase\Application\Api\ApiController;
-use CubexBase\Application\Controllers\FrontendController;
+use CubexBase\Application\Http\Controllers\FrontendController;
 
 class Router extends \Cubex\Routing\Router
 {

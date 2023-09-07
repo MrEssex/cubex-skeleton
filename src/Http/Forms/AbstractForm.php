@@ -1,6 +1,6 @@
 <?php
 
-namespace CubexBase\Application\Forms;
+namespace CubexBase\Application\Http\Forms;
 
 use Cubex\I18n\GetTranslatorTrait;
 use Packaged\Context\ContextAware;

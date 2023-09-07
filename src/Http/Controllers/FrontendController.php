@@ -1,10 +1,10 @@
 <?php
 
-namespace CubexBase\Application\Controllers;
+namespace CubexBase\Application\Http\Controllers;
 
 use CubexBase\Application\Context\AppContext;
-use CubexBase\Application\Layout\LayoutController;
-use CubexBase\Application\Views\Home\HomeView;
+use CubexBase\Application\Http\Layout\LayoutController;
+use CubexBase\Application\Http\Views\Home\HomeView;
 use Packaged\Http\Response;
 use Packaged\Http\Responses\RedirectResponse;
 

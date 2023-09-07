@@ -1,13 +1,13 @@
 <?php
 
-namespace CubexBase\Application\Layout;
+namespace CubexBase\Application\Http\Layout;
 
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
 use Cubex\Mv\ViewModel;
 use CubexBase\Application\Context\AppContext;
+use CubexBase\Application\Http\Views\AbstractView;
 use CubexBase\Application\MainApplication;
-use CubexBase\Application\Views\AbstractView;
 use CubexBase\Application\Views\CachableView;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;

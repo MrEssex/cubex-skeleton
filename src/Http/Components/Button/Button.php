@@ -1,7 +1,7 @@
 <?php
-namespace CubexBase\Application\Components\Button;
+namespace CubexBase\Application\Http\Components\Button;
 
-use CubexBase\Application\AbstractBase;
+use CubexBase\Application\Http\AbstractBase;
 use Packaged\SafeHtml\SafeHtml;
 
 class Button extends AbstractBase
