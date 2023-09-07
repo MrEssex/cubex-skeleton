@@ -13,7 +13,7 @@ abstract class AbstractProvider implements ContextAware, WithContext
   use ContextAwareTrait;
   use WithContextTrait;
 
-  protected static self $_instance;
+  protected static ?self $_instance = null;
 
   /**
    * AbstractProvider constructor.
