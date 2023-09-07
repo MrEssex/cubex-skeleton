@@ -2,15 +2,15 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es2021: true,
+    es2021: true
   },
   parserOptions: {
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['prettier'],
   extends: ['plugin:prettier/recommended'],
   rules: {
-    'prettier/prettier': 'warn',
+    'prettier/prettier': 'warn'
   },
   overrides: [
     {
@@ -18,7 +18,7 @@ module.exports = {
       parser: '@typescript-eslint/parser',
       plugins: ['@typescript-eslint', 'import', 'prettier'],
       parserOptions: {
-        project: './tsconfig.json',
+        project: './tsconfig.json'
       },
       extends: [
         'eslint:recommended',
@@ -27,7 +27,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
         'plugin:prettier/recommended',
         'plugin:import/typescript',
-        'airbnb-typescript/base',
+        'airbnb-typescript/base'
       ],
       rules: {
         'no-plusplus': 'off',
@@ -35,7 +35,8 @@ module.exports = {
         'import/prefer-default-export': 'off',
         'prettier/prettier': 'warn',
         'comma-dangle': ['error', 'never'],
-      },
-    },
-  ],
+        '@typescript-eslint/comma-dangle': ['error', 'never']
+      }
+    }
+  ]
 };
