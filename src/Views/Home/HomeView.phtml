@@ -9,10 +9,3 @@ use CubexBase\Application\Views\Home\HomeView;
 
 <h1><?= $this->_('hello_world_b10a', 'Hello World') ?></h1>
 <p><?= $this->_('this_is_something_a2dd', 'This is something') ?></p>
-
-
-<?php foreach($this->_model->examples->examples as $example): ?>
-  <p class="text-blue-400 ?>">
-    <?= $example->title ?>
-  </p>
-<?php endforeach; ?>

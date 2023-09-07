@@ -1,30 +1,9 @@
 {
   "extends": [
     "stylelint-config-standard",
-    "stylelint-config-standard-scss",
-    "stylelint-config-prettier"
-  ],
-  "plugins": [
-    "stylelint-scss",
-    "stylelint-prettier"
+    "stylelint-config-sass-guidelines"
   ],
   "rules": {
-    "at-rule-no-unknown": null,
-    "selector-list-comma-newline-after": "never-multi-line",
-    "scss/at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": [
-          "tailwind",
-          "apply",
-          "variants",
-          "responsive",
-          "screen"
-        ]
-      }
-    ]
-  },
-  "ignoreFiles": [
-    "**/*.css"
-  ]
+    "max-nesting-depth": 3
+  }
 }

@@ -23,7 +23,7 @@ $store = Dispatch::instance()->store();
   <link rel="manifest" href="<?= $ctx->linkBuilder('/site.webmanifest') ?>">
   <title>Cubex Skeleton</title>
 
-  <?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, null, [ResourceStore::PRIORITY_LOW]) ?>
+  <?= $store->generateHtmlIncludes() ?>
 </head>
 
 <body class="<?= $this->getPageClass() ?>">
@@ -38,7 +38,7 @@ $store = Dispatch::instance()->store();
 <?= $this->getContent() ?>
 <?= $this->getFooter() ?>
 
-<?= $store->generateHtmlIncludes(ResourceStore::TYPE_CSS, ResourceStore::PRIORITY_LOW) ?>
+
 <?= $store->generateHtmlIncludes(ResourceStore::TYPE_JS) ?>
 </body>
 </html>

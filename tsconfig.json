@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
-    "useDefineForClassFields": false,
-    "experimentalDecorators": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "types": [
-      "mocha"
-    ],
+    "target": "es2016",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
     "lib": [
-      "dom",
-      "ESNext"
+      "ES2016",
+      "DOM"
     ]
   }
 }

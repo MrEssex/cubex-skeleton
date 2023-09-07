@@ -7,7 +7,6 @@ use Packaged\Http\Request;
 
 class FlashMessageProvider
 {
-
   protected array $_messages = [];
 
   public function hasMessages(): bool

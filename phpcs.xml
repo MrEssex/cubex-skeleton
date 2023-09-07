@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<ruleset name="Cubex Base Codesniffer">
+<ruleset name="Project Ruleset">
 
   <description>PHPCS configuration file.</description>
 

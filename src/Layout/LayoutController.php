@@ -11,17 +11,14 @@ use CubexBase\Application\Views\AbstractView;
 use CubexBase\Application\Views\CachableView;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
-use Packaged\Context\Conditions\ExpectEnvironment;
 use Packaged\Context\Context;
 use Packaged\Context\WithContext;
 use Packaged\Context\WithContextTrait;
-use Packaged\Http\Responses\JsonResponse;
 use Packaged\I18n\Translatable;
 use Packaged\I18n\TranslatableTrait;
 use Packaged\I18n\Translators\Translator;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
-use PackagedUI\Pagelets\PageletResponse;
 use RuntimeException;
 use function is_array;
 use function is_scalar;
@@ -51,11 +48,6 @@ abstract class LayoutController extends AuthedController implements WithContext,
    */
   protected function _prepareResponse(Context $c, $result, $buffer = null)
   {
-    if($result instanceof PageletResponse && $this->_isPageletRequest($c))
-    {
-      $result = JsonResponse::create($result);
-    }
-
     if(!$this->_isAppropriateResponse($result))
     {
       return parent::_prepareResponse($c, $result, $buffer);
@@ -64,24 +56,14 @@ abstract class LayoutController extends AuthedController implements WithContext,
     $theme = Layout::withContext($this);
     $theme->setContent($result);
 
-    $view = null;
-    if($result instanceof ViewModel)
+    if($result instanceof AbstractView)
     {
-      $view = $result->createView();
-      if($view instanceof AbstractView)
-      {
-        $theme->setHeader($view->getHeader());
-        $theme->setFooter($view->getFooter());
-        $theme->setPageClass($view->getBlockName() . '-page');
-        $theme->setContent($view->render());
-      }
-    }
-    else
-    {
-      $theme->setContent($result);
+      $theme->setHeader($result->getHeader());
+      $theme->setFooter($result->getFooter());
+      $theme->setPageClass($result->getBlockName() . '-page');
     }
 
-    if($view instanceof CachableView && $view->shouldCache())
+    if($result instanceof AbstractView && $result->shouldCache())
     {
       $path = $c->request()->getRequestUri();
       $language = $c->request()->getPreferredLanguage();
@@ -96,11 +78,5 @@ abstract class LayoutController extends AuthedController implements WithContext,
   {
     return $result instanceof ViewModel || $result instanceof Element ||
       $result instanceof HtmlElement || is_scalar($result) || is_array($result);
-  }
-
-  protected function _isPageletRequest(Context $ctx): bool
-  {
-    return $ctx->request()->headers->has('x-pagelet-request') &&
-      $ctx->request()->isXmlHttpRequest();
   }
 }

@@ -2,41 +2,17 @@
 
 namespace CubexBase\Application\Views;
 
-use Cubex\I18n\GetTranslatorTrait;
 use CubexBase\Application\AbstractBase;
 use CubexBase\Application\Context\AppContext;
 use Packaged\Context\Conditions\ExpectEnvironment;
-use Packaged\Context\WithContext;
-use Packaged\Context\WithContextTrait;
-use Packaged\I18n\Translatable;
-use Packaged\I18n\TranslatableTrait;
-use Packaged\SafeHtml\ISafeHtmlProducer;
-use Packaged\SafeHtml\SafeHtml;
 use Packaged\Ui\TemplateLoaderTrait;
-use PackagedUi\BemComponent\BemComponent;
-use PackagedUi\BemComponent\BemComponentTrait;
-use Throwable;
 
 /**
  * @method AppContext getContext()
  */
-abstract class AbstractView extends \Cubex\Mv\AbstractView
-  implements CachableView, WithContext, BemComponent, Translatable
+abstract class AbstractView extends AbstractBase
 {
   use TemplateLoaderTrait;
-  use BemComponentTrait;
-  use TranslatableTrait;
-  use GetTranslatorTrait;
-  use WithContextTrait;
-
-  /**
-   * @return ISafeHtmlProducer|null
-   * @throws Throwable
-   */
-  protected function _render(): ?ISafeHtmlProducer
-  {
-    return new SafeHtml($this->_renderTemplate());
-  }
 
   public function shouldCache(): bool
   {
