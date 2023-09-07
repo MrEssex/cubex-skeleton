@@ -183,8 +183,8 @@ class MainApplication extends Application
     $ctx = $event->getContext();
 
     $allowed = [
-      $ctx->request()->urlSprintf(),
-      'https://fonts.googleapis.com',
+      $ctx->request()->urlSprintf(), // Self
+      'https://fonts.googleapis.com', // Google Fonts
     ];
 
     if(in_array($ctx->request()->headers->get('origin'), $allowed, true))
@@ -192,8 +192,11 @@ class MainApplication extends Application
       $response->headers->set('Access-Control-Allow-Origin', $ctx->request()->headers->get('origin'));
     }
 
-    $csp = new ContentSecurityPolicy();
-    $csp->setDirective(ContentSecurityPolicy::IMG_SRC, '*');
+    $csp = new ContentSecurityPolicy([
+      ContentSecurityPolicy::DEFAULT_SRC => ["'self'"],
+      ContentSecurityPolicy::OBJECT_SRC  => ["'none'"],
+      ContentSecurityPolicy::FRAME_ANCESTORS  => ["'none'"],
+    ]);
     $response->headers->set($csp->getKey(), $csp->getValue());
 
     return $response;
