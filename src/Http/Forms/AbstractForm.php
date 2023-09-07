@@ -3,6 +3,8 @@
 namespace CubexBase\Application\Http\Forms;
 
 use Cubex\I18n\GetTranslatorTrait;
+use CubexBase\Application\Http\Forms\Decorators\DefaultSubmitDecorator;
+use CubexBase\Application\Http\Forms\Decorators\FormDecorator;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
 use Packaged\Context\WithContext;
@@ -17,5 +19,19 @@ abstract class AbstractForm extends CsrfForm implements ContextAware, Translatab
   use TranslatableTrait;
   use GetTranslatorTrait;
   use WithContextTrait;
+
+  protected string $_submitValue = "Submit";
+
+  protected function _defaultSubmitDecorator(): DefaultSubmitDecorator
+  {
+    $dec = DefaultSubmitDecorator::withContext($this);
+    $dec->setValue($this->_submitValue);
+    return $dec;
+  }
+
+  protected function _defaultDecorator(): FormDecorator
+  {
+    return FormDecorator::withContext($this);
+  }
 }
 

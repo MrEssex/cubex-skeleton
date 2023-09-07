@@ -8,6 +8,22 @@
             "excludeFromSitemap": false,
             "changeFrequency": "monthly",
             "history": []
+        },
+        "/v1/example": {
+            "title": null,
+            "lastModified": null,
+            "priority": 1,
+            "excludeFromSitemap": false,
+            "changeFrequency": "monthly",
+            "history": []
+        },
+        "/api/v1/example": {
+            "title": null,
+            "lastModified": null,
+            "priority": 1,
+            "excludeFromSitemap": false,
+            "changeFrequency": "monthly",
+            "history": []
         }
     }
 }

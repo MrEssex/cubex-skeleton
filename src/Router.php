@@ -9,7 +9,7 @@ class Router extends \Cubex\Routing\Router
 {
   protected function _generateRoutes()
   {
-    yield self::_route('/v1', ApiController::class);
+    yield self::_route('/api/v1', ApiController::class);
 
     return FrontendController::class;
   }
