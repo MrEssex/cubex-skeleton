@@ -17,7 +17,7 @@
   "scripts": {
     "build": "rollup -c",
     "lint": "npm run lint:ts && npm run lint:css",
-    "lint:css": "stylelint assets/**/*.scss",
+    "lint:css": "stylelint assets/scss/**/*.scss",
     "lint:ts": "eslint --ext .ts,.tsx assets",
     "test": "nyc --report=text npm run test:ts",
     "test:ts": "mocha",

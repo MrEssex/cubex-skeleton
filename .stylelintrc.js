@@ -44,6 +44,8 @@ module.exports = {
       }
     ],
     'order/properties-order': [propertiesOrder, {severity: 'warning', unspecified: 'bottomAlphabetical'}],
-    'scss/at-rule-no-unknown': null
+    'scss/at-rule-no-unknown': null,
+    'selector-no-qualifying-type': null,
+    'media-query-no-invalid': null
   }
 };
