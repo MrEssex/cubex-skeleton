@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5954ff000c924fed58cdad9c0fc0c20",
+    "content-hash": "55260d223b84315679693dfe8cc68edf",
     "packages": [
         {
             "name": "cubex/api-foundation",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cubex/api-foundation.git",
-                "reference": "f87e925fb75940d0f519d75f0041c823a74255dc"
+                "reference": "51becc5a6e30012f0f6d95ff35587946731160f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cubex/api-foundation/zipball/f87e925fb75940d0f519d75f0041c823a74255dc",
-                "reference": "f87e925fb75940d0f519d75f0041c823a74255dc",
+                "url": "https://api.github.com/repos/cubex/api-foundation/zipball/51becc5a6e30012f0f6d95ff35587946731160f5",
+                "reference": "51becc5a6e30012f0f6d95ff35587946731160f5",
                 "shasum": ""
             },
             "require": {
@@ -54,9 +54,9 @@
             ],
             "support": {
                 "issues": "https://github.com/cubex/api-foundation/issues",
-                "source": "https://github.com/cubex/api-foundation/tree/master"
+                "source": "https://github.com/cubex/api-foundation/tree/0.4.0"
             },
-            "time": "2020-03-13T11:35:20+00:00"
+            "time": "2023-05-26T10:22:37+00:00"
         },
         {
             "name": "cubex/api-transport",
@@ -173,54 +173,6 @@
                 "source": "https://github.com/cubex/framework/tree/4.18.0"
             },
             "time": "2021-11-17T13:20:45+00:00"
-        },
-        {
-            "name": "cubex/mv",
-            "version": "0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cubex/mv.git",
-                "reference": "63e54de549ff932e06917f48b737da258ce6827f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cubex/mv/zipball/63e54de549ff932e06917f48b737da258ce6827f",
-                "reference": "63e54de549ff932e06917f48b737da258ce6827f",
-                "shasum": ""
-            },
-            "require": {
-                "packaged/context": "^1.0",
-                "packaged/helpers": "^1.0|^2.0",
-                "packaged/safehtml": "^2.2",
-                "packaged/ui": "^1.7"
-            },
-            "require-dev": {
-                "cubex/framework": "^4.17",
-                "phpunit/phpunit": "^9"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Cubex\\Mv\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Brooke Bryan",
-                    "email": "brooke@bajb.net",
-                    "homepage": "http://www.bajb.net"
-                }
-            ],
-            "description": "Cubex Model View",
-            "support": {
-                "issues": "https://github.com/cubex/mv/issues",
-                "source": "https://github.com/cubex/mv/tree/0.3.0"
-            },
-            "time": "2023-06-02T17:12:15+00:00"
         },
         {
             "name": "cubex/sitemap",

@@ -13,10 +13,10 @@ class HomeControllerTest extends TestCase
 
     // Ensure the correct resources are been applied to the layout
     $regex = '#<link href="/_res/r/.*/main.min.css" rel="stylesheet" type="text/css">#';
-    $this->assertMatchesRegularExpression($regex, $response->content);
+    $this->assertMatchesRegularExpression($regex, $response->getContent());
     $regex = '#<script src="/_res/r/.*/main.min.js"></script>#';
-    $this->assertMatchesRegularExpression($regex, $response->content);
+    $this->assertMatchesRegularExpression($regex, $response->getContent());
 
-    $this->assertStringContainsString('Hello World', $response->content);
+    $this->assertStringContainsString('Hello World', $response->getContent());
   }
 }

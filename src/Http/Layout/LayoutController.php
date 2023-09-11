@@ -4,12 +4,10 @@ namespace CubexBase\Application\Http\Layout;
 
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
-use Cubex\Mv\ViewModel;
 use CubexBase\Application\Context\AppContext;
 use CubexBase\Application\Http\Views\AbstractView;
 use CubexBase\Application\Http\Views\Error\ErrorView;
 use CubexBase\Application\MainApplication;
-use CubexBase\Application\Views\CachableView;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
@@ -91,8 +89,7 @@ abstract class LayoutController extends AuthedController implements WithContext,
 
   protected function _isAppropriateResponse($result): bool
   {
-    return $result instanceof ViewModel || $result instanceof Element ||
-      $result instanceof HtmlElement || is_scalar($result) || is_array($result);
+    return $result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result);
   }
 
   protected function _makeCubexResponse($content)
