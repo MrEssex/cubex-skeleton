@@ -59,3 +59,8 @@ runs:
       shell: "bash"
       run: |
         npm install
+
+    - name: Build
+      shell: "bash"
+      run: |
+        npm run build
