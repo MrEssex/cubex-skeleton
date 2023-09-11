@@ -109,7 +109,7 @@ abstract class LayoutController extends AuthedController implements WithContext,
   protected function _getHandler(Context $context)
   {
     $handler = parent::_getHandler($context);
-    return $handler ?: 'error';
+    return $handler ?: 'error'; // If no handler default to error (processError)
   }
 
   public function processError(AppContext $ctx)
