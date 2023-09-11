@@ -4,6 +4,7 @@
   "description": "Playground for Learning Cubex",
   "keywords": [],
   "homepage": "https://github.com/MrEssex/cubex-base#readme",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/MrEssex/cubex-base/issues"
   },
