@@ -19,8 +19,8 @@
     "lint": "npm run lint:ts && npm run lint:css",
     "lint:css": "stylelint assets/scss/**/*.scss",
     "lint:ts": "eslint --ext .ts,.tsx assets",
-    "test": "nyc --report=text npm run test:ts",
-    "test:ts": "mocha",
+    "coverage": "nyc --report=text npm run test",
+    "test": "mocha",
     "watch": "rollup -c -w"
   },
   "browserslist": [
@@ -37,6 +37,7 @@
     "@types/mocha": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
     "autoprefixer": "^10.4.14",
     "chai": "^4.3.7",
     "eslint": "^8.46.0",
