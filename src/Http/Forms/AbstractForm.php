@@ -25,13 +25,24 @@ abstract class AbstractForm extends CsrfForm implements ContextAware, Translatab
   protected function _defaultSubmitDecorator(): DefaultSubmitDecorator
   {
     $dec = DefaultSubmitDecorator::withContext($this);
-    $dec->setValue($this->_submitValue);
+    $dec->setValue($this->getSubmitValue());
+    $dec->setInput($this->_defaultSubmitDecoratorInput());
     return $dec;
   }
 
   protected function _defaultDecorator(): FormDecorator
   {
     return FormDecorator::withContext($this);
+  }
+
+  protected function _defaultSubmitDecoratorInput()
+  {
+    return null;
+  }
+
+  public function getSubmitValue(): string
+  {
+    return $this->_submitValue;
   }
 }
 

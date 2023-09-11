@@ -78,7 +78,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     string $content = null
   ): TestResponse
   {
-    $projectRoot = dirname(__DIR__);
+    $projectRoot = dirname(__DIR__, 2);
     $loader = require($projectRoot . '/vendor/autoload.php');
     $request = Request::create($uri, $method, $parameters, $cookies, $files, $server, $content);
 

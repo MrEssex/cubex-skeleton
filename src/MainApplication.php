@@ -170,7 +170,9 @@ class MainApplication extends Application
       }
     );
 
-    if($ctx->matches(ExpectEnvironment::local()))
+    // Dont generate sitemap on api requests
+    if($ctx->matches(ExpectEnvironment::local())
+      && !str_starts_with($ctx->request()->path(), '/api'))
     {
       SitemapListener::with($this->getCubex(), $ctx);
     }
@@ -194,8 +196,8 @@ class MainApplication extends Application
 
     $csp = new ContentSecurityPolicy([
       ContentSecurityPolicy::DEFAULT_SRC => ["'self'"],
-      ContentSecurityPolicy::OBJECT_SRC  => ["'none'"],
-      ContentSecurityPolicy::FRAME_ANCESTORS  => ["'none'"],
+      ContentSecurityPolicy::OBJECT_SRC => ["'none'"],
+      ContentSecurityPolicy::FRAME_ANCESTORS => ["'none'"],
     ]);
     $response->headers->set($csp->getKey(), $csp->getValue());
 

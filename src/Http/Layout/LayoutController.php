@@ -7,6 +7,7 @@ use Cubex\I18n\GetTranslatorTrait;
 use Cubex\Mv\ViewModel;
 use CubexBase\Application\Context\AppContext;
 use CubexBase\Application\Http\Views\AbstractView;
+use CubexBase\Application\Http\Views\Error\ErrorView;
 use CubexBase\Application\MainApplication;
 use CubexBase\Application\Views\CachableView;
 use Exception;
@@ -53,6 +54,15 @@ abstract class LayoutController extends AuthedController implements WithContext,
       return parent::_prepareResponse($c, $result, $buffer);
     }
 
+    // Send the raw response if it's an ajax request
+    if($c->request()->isXmlHttpRequest())
+    {
+      if(is_scalar($result) || is_array($result))
+      {
+        return parent::_prepareResponse($c, $result, $buffer);
+      }
+    }
+
     $theme = Layout::withContext($this);
     $theme->setContent($result);
 
@@ -61,14 +71,19 @@ abstract class LayoutController extends AuthedController implements WithContext,
       $theme->setHeader($result->getHeader());
       $theme->setFooter($result->getFooter());
       $theme->setPageClass($result->getBlockName() . '-page');
-    }
 
-    if($result instanceof AbstractView && $result->shouldCache())
-    {
-      $path = $c->request()->getRequestUri();
-      $language = $c->request()->getPreferredLanguage();
+      if($result->shouldCache())
+      {
+        $path = $c->request()->getRequestUri();
+        $language = $c->request()->getPreferredLanguage();
 
-      MainApplication::$_cache->set($path . $language, $theme->produceSafeHTML());
+        MainApplication::$_cache->set($path . $language, $theme->produceSafeHTML());
+      }
+
+      if(!$result->shouldIndex())
+      {
+        $c->meta()->set('no-index', true);
+      }
     }
 
     return parent::_prepareResponse($c, $theme, $buffer);
@@ -78,5 +93,28 @@ abstract class LayoutController extends AuthedController implements WithContext,
   {
     return $result instanceof ViewModel || $result instanceof Element ||
       $result instanceof HtmlElement || is_scalar($result) || is_array($result);
+  }
+
+  protected function _makeCubexResponse($content)
+  {
+    $result = parent::_makeCubexResponse($content);
+    $meta = $this->getContext()->meta();
+    if($meta->has('status-code'))
+    {
+      $result->setStatusCode($meta->get('status-code'));
+    }
+    return $result;
+  }
+
+  protected function _getHandler(Context $context)
+  {
+    $handler = parent::_getHandler($context);
+    return $handler ?: 'error';
+  }
+
+  public function processError(AppContext $ctx)
+  {
+    $ctx->meta()->set('status-code', 404);
+    return ErrorView::withContext($this);
   }
 }

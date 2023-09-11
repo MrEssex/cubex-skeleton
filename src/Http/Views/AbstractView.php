@@ -22,4 +22,6 @@ abstract class AbstractView extends AbstractBase
   public function getHeader(): ?AbstractBase { return null; }
 
   public function getFooter(): ?AbstractBase { return null; }
+
+  public function shouldIndex(): bool { return true; }
 }

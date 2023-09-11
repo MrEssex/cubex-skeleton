@@ -19,11 +19,23 @@ class DefaultSubmitDecorator extends FormSubmitDecorator implements ContextAware
   use TranslatableTrait;
   use GetTranslatorTrait;
 
+  protected mixed $_input;
+
+  public function setInput(mixed $input): DefaultSubmitDecorator
+  {
+    $this->_input = $input;
+    return $this;
+  }
+
   protected function _input()
   {
-    $input = Button::create($this->_getValue());
-    $input->addClass('btn--processing btn btn--success');
-    $input->setAttribute('data-processing-text', 'processing');
-    return $input;
+    if($this->_input === null)
+    {
+      $input = Button::create($this->_getValue());
+      $input->addClass('btn--processing btn btn--success');
+      $input->setAttribute('data-processing-text', 'processing');
+      $this->_input = $input;
+    }
+    return $this->_input;
   }
 }

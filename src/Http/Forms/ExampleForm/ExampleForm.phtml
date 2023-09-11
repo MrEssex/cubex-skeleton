@@ -1,0 +1,17 @@
+<?php
+
+use CubexBase\Application\Http\Forms\Decorators\FormDecorator;
+use CubexBase\Application\Http\Forms\ExampleForm\ExampleForm;
+
+/**
+ * @var FormDecorator $this
+ * @var ExampleForm   $form
+ */
+$form = $this->getForm();
+?>
+
+
+<div class="form-wrapper">
+  <?= $form->decorate($form->name) ?>
+  <?= $form->getSubmitDecorator() ?>
+</div>

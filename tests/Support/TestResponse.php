@@ -3,11 +3,11 @@ namespace CubexBase\Tests\Support;
 
 use Packaged\Http\Response;
 use PHPUnit\Framework\Assert;
+use ReflectionClass;
 
 class TestResponse
 {
-  /** @var Response */
-  protected $_baseResponse;
+  protected Response $_baseResponse;
   protected $_exception;
 
   final public function __construct($response)
@@ -35,6 +35,22 @@ class TestResponse
 
   public function __get($key)
   {
-    return $this->_baseResponse->{$key};
+    $class = new ReflectionClass($this->_baseResponse);
+    $property = $class->getProperty($key);
+    $property->setAccessible(true);
+    return $property->getValue($this->_baseResponse);
+  }
+
+  public function __set(string $name, $value): void
+  {
+    $class = new ReflectionClass($this->_baseResponse);
+    $property = $class->getProperty($name);
+    $property->setAccessible(true);
+    $property->setValue($this->_baseResponse, $value);
+  }
+
+  public function __isset(string $name): bool
+  {
+    return isset($this->_baseResponse->{$name});
   }
 }
