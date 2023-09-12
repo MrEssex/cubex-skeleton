@@ -5,8 +5,8 @@ namespace CubexBase\Application\Http\Layout;
 use Cubex\Controller\AuthedController;
 use Cubex\I18n\GetTranslatorTrait;
 use CubexBase\Application\Context\AppContext;
+use CubexBase\Application\Http\Middleware\WithMiddlewareTrait;
 use CubexBase\Application\Http\Views\AbstractView;
-use CubexBase\Application\Http\Views\Error\ErrorView;
 use CubexBase\Application\MainApplication;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
@@ -27,6 +27,8 @@ abstract class LayoutController extends AuthedController implements WithContext,
   use GetTranslatorTrait;
   use TranslatableTrait;
   use WithContextTrait;
+  use WithMiddlewareTrait;
+  use ErrorPageTrait;
 
   /**
    * @throws Exception
@@ -90,28 +92,5 @@ abstract class LayoutController extends AuthedController implements WithContext,
   protected function _isAppropriateResponse($result): bool
   {
     return $result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result);
-  }
-
-  protected function _makeCubexResponse($content)
-  {
-    $result = parent::_makeCubexResponse($content);
-    $meta = $this->getContext()->meta();
-    if($meta->has('status-code'))
-    {
-      $result->setStatusCode($meta->get('status-code'));
-    }
-    return $result;
-  }
-
-  protected function _getHandler(Context $context)
-  {
-    $handler = parent::_getHandler($context);
-    return $handler ?: 'error'; // If no handler default to error (processError)
-  }
-
-  public function processError(AppContext $ctx)
-  {
-    $ctx->meta()->set('status-code', 404);
-    return ErrorView::withContext($this);
   }
 }

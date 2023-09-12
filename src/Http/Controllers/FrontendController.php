@@ -10,5 +10,6 @@ class FrontendController extends LayoutController
   {
     yield self::_route('$', HomeController::class);
     yield self::_route('test', TestController::class);
+    yield self::_route('secure', SecureController::class);
   }
 }
