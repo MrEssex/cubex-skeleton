@@ -1,10 +1,10 @@
 <?php
-namespace CubexBase\Application\Http\Partials\Footer;
+namespace CubexBase\Application\Http\Components\Footer;
 
 use CubexBase\Application\Http\AbstractBase;
 use Packaged\SafeHtml\SafeHtml;
 
-class FooterPartial extends AbstractBase
+class Footer extends AbstractBase
 {
   protected $_tag = 'footer';
 

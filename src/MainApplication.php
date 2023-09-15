@@ -195,7 +195,8 @@ class MainApplication extends Application
     }
 
     $csp = new ContentSecurityPolicy([
-      ContentSecurityPolicy::DEFAULT_SRC => ["'self'"],
+      ContentSecurityPolicy::DEFAULT_SRC => ["'self'", "http://www.cubexbase.local-host.xyz:6090"],
+      ContentSecurityPolicy::SCRIPT_SRC => ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
       ContentSecurityPolicy::OBJECT_SRC => ["'none'"],
       ContentSecurityPolicy::FRAME_ANCESTORS => ["'none'"],
     ]);

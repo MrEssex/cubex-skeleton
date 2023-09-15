@@ -2,8 +2,8 @@
 namespace CubexBase\Application\Http\Layout;
 
 use CubexBase\Application\Context\AppContext;
-use CubexBase\Application\Http\Partials\Footer\FooterPartial;
-use CubexBase\Application\Http\Partials\Header\HeaderPartial;
+use CubexBase\Application\Http\Components\Footer\Footer;
+use CubexBase\Application\Http\Components\Header\Header;
 use Packaged\Context\ContextAware;
 use Packaged\Context\ContextAwareTrait;
 use Packaged\Context\WithContext;
@@ -68,12 +68,12 @@ class Layout extends Element implements ContextAware, WithContext
 
   public function getHeader()
   {
-    return $this->_header ?? HeaderPartial::withContext($this);
+    return $this->_header ?? Header::withContext($this);
   }
 
   public function getFooter()
   {
-    return $this->_footer ?? FooterPartial::withContext($this);
+    return $this->_footer ?? Footer::withContext($this);
   }
 
   public function setHeader($header): static

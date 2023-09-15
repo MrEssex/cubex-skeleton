@@ -7,6 +7,7 @@ use MrEssex\CubexCli\ConsoleCommand;
 use Packaged\Dal\Exceptions\DalResolver\ConnectionNotFoundException;
 use Packaged\Dal\Exceptions\DalResolver\DataStoreNotFoundException;
 use Packaged\Dal\Foundation\Dao;
+use Packaged\Dal\Ql\AbstractQlConnection;
 use Packaged\Dal\Ql\QlDataStore;
 use Packaged\DalSchema\DalSchema;
 use ReflectionException;
@@ -37,10 +38,12 @@ class Migrate extends ConsoleCommand
       {
         return;
       }
+
+      /** @var AbstractQlConnection $connection */
       $connection = $datastore->getConnection();
 
       $output->writeln("Migrating Table: {$schema->getName()}");
-      DalSchema::migrateTables($connection, $datastore->getConfig()->getItem('connection'), ...$schemas);
+      DalSchema::migrateTables($connection, $connection->getConfig()->getItem('database'), ...$schemas);
     }
   }
 }

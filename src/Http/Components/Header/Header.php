@@ -1,10 +1,10 @@
 <?php
-namespace CubexBase\Application\Http\Partials\Header;
+namespace CubexBase\Application\Http\Components\Header;
 
 use CubexBase\Application\Http\AbstractBase;
 use Packaged\SafeHtml\SafeHtml;
 
-class HeaderPartial extends AbstractBase
+class Header extends AbstractBase
 {
   protected $_tag = 'header';
 
