@@ -16,22 +16,17 @@ abstract class AbstractProvider implements ContextAware, WithContext
   protected static ?self $_instance = null;
 
   /**
-   * AbstractProvider constructor.
-   */
-  private function __construct() { }
-
-  /**
    * Returns an instance of the provider
    *
    * @param Context $context
    *
    * @return static
    */
-  public static function instance(Context $context): static
+  public static function instance(Context $context, ...$args): static
   {
     if(!static::$_instance instanceof static)
     {
-      static::$_instance = static::withContext($context);
+      static::$_instance = static::withContext($context, ...$args);
     }
 
     return static::$_instance;

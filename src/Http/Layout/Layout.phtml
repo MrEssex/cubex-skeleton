@@ -21,7 +21,10 @@ $store = Dispatch::instance()->store();
   <link rel="apple-touch-icon" href="<?= $ctx->linkBuilder('/icon.png') ?>">
   <link type="text/plain" rel="author" href="<?= $ctx->linkBuilder('/humans.txt') ?>">
   <link rel="manifest" href="<?= $ctx->linkBuilder('/site.webmanifest') ?>">
-  <title>Cubex Skeleton</title>
+
+  <?php if($this->getContext()->seo()): ?>
+    <?= $this->getContext()->seo() ?>
+  <?php endif; ?>
 
   <?= $store->generateHtmlIncludes() ?>
 </head>

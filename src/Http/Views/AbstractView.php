@@ -14,14 +14,14 @@ abstract class AbstractView extends AbstractBase
 {
   use TemplateLoaderTrait;
 
+  public function getHeader(): ?AbstractBase { return null; }
+
+  public function getFooter(): ?AbstractBase { return null; }
+
   public function shouldCache(): bool
   {
     return !$this->getContext()->matches(ExpectEnvironment::local());
   }
-
-  public function getHeader(): ?AbstractBase { return null; }
-
-  public function getFooter(): ?AbstractBase { return null; }
 
   public function shouldIndex(): bool { return true; }
 }

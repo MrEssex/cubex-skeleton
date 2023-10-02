@@ -5,6 +5,9 @@ namespace CubexBase\Application\Cache;
 use Packaged\Dal\Cache\CacheDao;
 use Packaged\Dal\Exceptions\DataStore\DaoNotFoundException;
 
+/**
+ * Use the Cache DAO (see conf) to store and retrieve data
+ */
 abstract class CacheObject extends CacheDao
 {
   final protected function __construct(protected string $_cacheKey = "")

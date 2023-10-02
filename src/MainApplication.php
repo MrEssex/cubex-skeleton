@@ -25,7 +25,6 @@ use Packaged\Routing\HealthCheckCondition;
 use Packaged\Routing\Route;
 use Packaged\Routing\Routes\InsecureRequestUpgradeRoute;
 use Symfony\Component\HttpFoundation\Response as SResponse;
-use function in_array;
 
 /**
  * @method AppContext getContext(): context
@@ -171,8 +170,7 @@ class MainApplication extends Application
     );
 
     // Dont generate sitemap on api requests
-    if($ctx->matches(ExpectEnvironment::local())
-      && !str_starts_with($ctx->request()->path(), '/api'))
+    if($ctx->matches(ExpectEnvironment::local()) && !str_starts_with($ctx->request()->path(), '/api'))
     {
       SitemapListener::with($this->getCubex(), $ctx);
     }
@@ -194,8 +192,10 @@ class MainApplication extends Application
       $response->headers->set('Access-Control-Allow-Origin', $ctx->request()->headers->get('origin'));
     }
 
+    $url = 'http://www.cubexbase.local-host.xyz:6090';
     $csp = new ContentSecurityPolicy([
-      ContentSecurityPolicy::DEFAULT_SRC => ["'self'", "http://www.cubexbase.local-host.xyz:6090"],
+      ContentSecurityPolicy::DEFAULT_SRC => ["'self'"],
+      ContentSecurityPolicy::IMG_SRC => ["'self'", $url],
       ContentSecurityPolicy::SCRIPT_SRC => ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
       ContentSecurityPolicy::OBJECT_SRC => ["'none'"],
       ContentSecurityPolicy::FRAME_ANCESTORS => ["'none'"],

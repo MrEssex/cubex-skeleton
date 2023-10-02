@@ -2,47 +2,16 @@
 
 namespace CubexBase\Application\Http\Layout;
 
-use Cubex\Controller\AuthedController;
-use Cubex\I18n\GetTranslatorTrait;
-use CubexBase\Application\Context\AppContext;
-use CubexBase\Application\Http\Middleware\WithMiddlewareTrait;
 use CubexBase\Application\Http\Views\AbstractView;
 use CubexBase\Application\MainApplication;
 use Exception;
 use MrEssex\FileCache\Exceptions\InvalidArgumentException;
 use Packaged\Context\Context;
-use Packaged\Context\WithContext;
-use Packaged\Context\WithContextTrait;
-use Packaged\I18n\Translatable;
-use Packaged\I18n\TranslatableTrait;
-use Packaged\I18n\Translators\Translator;
 use Packaged\Ui\Element;
 use Packaged\Ui\Html\HtmlElement;
-use RuntimeException;
-use function is_array;
-use function is_scalar;
 
-abstract class LayoutController extends AuthedController implements WithContext, Translatable, Translator
+abstract class LayoutController extends WithErrorController
 {
-  use GetTranslatorTrait;
-  use TranslatableTrait;
-  use WithContextTrait;
-  use WithMiddlewareTrait;
-  use ErrorPageTrait;
-
-  /**
-   * @throws Exception
-   */
-  public function getContext(): Context
-  {
-    if(parent::getContext() instanceof AppContext)
-    {
-      return parent::getContext();
-    }
-
-    throw new RuntimeException('Invalid Context Passed through');
-  }
-
   /**
    * @throws InvalidArgumentException
    * @throws Exception

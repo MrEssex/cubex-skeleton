@@ -20,6 +20,9 @@ class HomeController extends LayoutController
     $form->hydrate($ctx->request()->request->all());
     $form->hydrate($ctx->request()->query->all());
 
+    $seo = $ctx->seo();
+    $seo->meta('description', 'This is the description');
+
     return HomeView::withContext($this)
       ->setForm($form);
   }

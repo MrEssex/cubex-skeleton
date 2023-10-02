@@ -10,8 +10,10 @@ use Packaged\Context\WithContext;
 use Packaged\Context\WithContextTrait;
 use Packaged\Dispatch\ResourceManager;
 use Packaged\Ui\Element;
-use RuntimeException;
 
+/**
+ * @method AppContext getContext();
+ */
 class Layout extends Element implements ContextAware, WithContext
 {
   use ContextAwareTrait;
@@ -22,21 +24,11 @@ class Layout extends Element implements ContextAware, WithContext
   protected mixed $_header;
   protected mixed $_footer;
 
-  public function getContext(): AppContext
+  public function __construct()
   {
-    if($this->_context instanceof AppContext)
-    {
-      return $this->_context;
-    }
-
-    throw new RuntimeException('Invalid Context Passed through');
-  }
-
-  public function render(): string
-  {
+    // Require default resources
     ResourceManager::resources()->requireCss('main.min.css');
     ResourceManager::resources()->requireJs('main.min.js');
-    return parent::render();
   }
 
   public function getContent()

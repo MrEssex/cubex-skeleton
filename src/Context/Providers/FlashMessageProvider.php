@@ -2,12 +2,25 @@
 
 namespace CubexBase\Application\Context\Providers;
 
+use Packaged\Context\Context;
 use Packaged\Http\Cookies\Cookie;
 use Packaged\Http\Request;
 
-class FlashMessageProvider
+/**
+ * @method static FlashMessageProvider instance(Context $context, ...$args)
+ */
+class FlashMessageProvider extends AbstractProvider
 {
   protected array $_messages = [];
+
+  public function __construct(Request $request)
+  {
+    $cookie = $request->cookies->get('flash');
+    if($cookie)
+    {
+      $this->_messages = json_decode($cookie, true);
+    }
+  }
 
   public function hasMessages(): bool
   {
@@ -33,16 +46,5 @@ class FlashMessageProvider
   public function toCookie(): Cookie
   {
     return new Cookie('flash', json_encode($this->_messages), time() + 60);
-  }
-
-  public static function hydrateFromRequest(Request $request): FlashMessageProvider
-  {
-    $flash = new self();
-    $cookie = $request->cookies->get('flash');
-    if($cookie)
-    {
-      $flash->_messages = json_decode($cookie, true);
-    }
-    return $flash;
   }
 }
