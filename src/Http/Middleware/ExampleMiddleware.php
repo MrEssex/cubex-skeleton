@@ -2,13 +2,19 @@
 
 namespace CubexBase\Application\Http\Middleware;
 
-use Packaged\Http\Responses\RedirectResponse;
+use Cubex\Middleware\Middleware;
+use Packaged\Context\Context;
+use Symfony\Component\HttpFoundation\Response;
 
-class ExampleMiddleware extends AbstractMiddleware
+class ExampleMiddleware extends Middleware
 {
-  public function process(&$response): bool
+  public function handle(Context $c): Response
   {
-    $response = RedirectResponse::create('/');
-    return false;
+    echo "<pre>Pre Middleware</pre><br>";
+    $response = $this->next($c);
+    echo $response->getContent();
+    echo "<br><pre>Post Middleware</pre>";
+    die;
+    return $response;
   }
 }
