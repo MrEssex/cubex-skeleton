@@ -19,7 +19,7 @@ class SecureController extends LayoutController
 
   public function getSecure(AppContext $ctx)
   {
-    return 'This should never be seen';
+    return Response::create('This should never be seen');
   }
 
   public function handle(Context $c): Response
