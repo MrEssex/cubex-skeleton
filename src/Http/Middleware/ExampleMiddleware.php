@@ -19,6 +19,5 @@ class ExampleMiddleware extends Middleware
 
     // redirect to home page
     return RedirectResponse::create('/');
-    return $response;
   }
 }
