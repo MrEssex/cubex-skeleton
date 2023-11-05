@@ -19,6 +19,7 @@ abstract class AbstractProvider implements ContextAware, WithContext
    * Returns an instance of the provider
    *
    * @param Context $context
+   * @param mixed   ...$args
    *
    * @return static
    */

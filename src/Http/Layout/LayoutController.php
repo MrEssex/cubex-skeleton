@@ -2,6 +2,8 @@
 
 namespace CubexBase\Application\Http\Layout;
 
+use Cubex\CubexAware;
+use CubexBase\Application\Http\Layout\DefaultLayout\Layout;
 use CubexBase\Application\Http\Views\AbstractView;
 use CubexBase\Application\MainApplication;
 use Exception;
@@ -32,7 +34,7 @@ abstract class LayoutController extends WithErrorController
       }
     }
 
-    $theme = Layout::withContext($this);
+    $theme = $this->getTheme();
     $theme->setContent($result);
 
     if($result instanceof AbstractView)
@@ -61,5 +63,15 @@ abstract class LayoutController extends WithErrorController
   protected function _isAppropriateResponse($result): bool
   {
     return $result instanceof Element || $result instanceof HtmlElement || is_scalar($result) || is_array($result);
+  }
+
+  public function getTheme()
+  {
+    $ctx = $this->getContext();
+    if($ctx instanceof CubexAware)
+    {
+      return $ctx->getCubex()->resolve(Layout::class);
+    }
+    return Layout::withContext($this);
   }
 }

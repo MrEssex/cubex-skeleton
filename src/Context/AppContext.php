@@ -19,7 +19,7 @@ class AppContext extends Context implements Translatable
   protected function _initialize(): void
   {
     parent::_initialize();
-    $cubex = $this->getCubex();
+    $cubex = @$this->getCubex();
 
     //Register the database
     $databaseProvider = DatabaseProvider::instance($this);
@@ -39,15 +39,5 @@ class AppContext extends Context implements Translatable
   public function linkBuilder(string $path = '', array $query = []): LinkBuilder
   {
     return LinkBuilder::fromRequest($this->request(), $path, $query)->setSubDomain('www');
-  }
-
-  public function flash(): FlashMessageProvider
-  {
-    return $this->getCubex()->retrieve(FlashMessageProvider::class);
-  }
-
-  public function seo(): SeoProvider
-  {
-    return $this->getCubex()->retrieve(SeoProvider::class);
   }
 }

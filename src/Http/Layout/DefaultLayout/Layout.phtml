@@ -1,6 +1,6 @@
 <?php
 
-use CubexBase\Application\Http\Layout\Layout;
+use CubexBase\Application\Http\Layout\DefaultLayout\Layout;
 use Packaged\Dispatch\Dispatch;
 use Packaged\Dispatch\ResourceStore;
 
@@ -22,8 +22,8 @@ $store = Dispatch::instance()->store();
   <link type="text/plain" rel="author" href="<?= $ctx->linkBuilder('/humans.txt') ?>">
   <link rel="manifest" href="<?= $ctx->linkBuilder('/site.webmanifest') ?>">
 
-  <?php if($this->getContext()->seo()): ?>
-    <?= $this->getContext()->seo() ?>
+  <?php if($this->seoProvider): ?>
+    <?= $this->seoProvider ?>
   <?php endif; ?>
 
   <?= $store->generateHtmlIncludes() ?>
@@ -31,7 +31,7 @@ $store = Dispatch::instance()->store();
 
 <body class="<?= $this->getPageClass() ?>">
 
-<?php foreach($ctx->flash()->getMessages() as $message): ?>
+<?php foreach($this->flash->getMessages() as $message): ?>
   <div class="alert alert-<?= $message['type'] ?>">
     <p><?= $message['message'] ?></p>
   </div>

@@ -7,6 +7,7 @@ use Cubex\Cubex;
 use Cubex\Events\Handle\ResponsePreSendHeadersEvent;
 use Cubex\Sitemap\SitemapListener;
 use CubexBase\Application\Context\AppContext;
+use CubexBase\Application\Context\Providers\FlashMessageProvider;
 use Exception;
 use MrEssex\FileCache\AbstractCache;
 use MrEssex\FileCache\ApcuCache;
@@ -36,10 +37,11 @@ class MainApplication extends Application
 
   public function __construct(Cubex $cubex)
   {
-    parent::__construct($cubex);
     $cache = new ApcuCache(); //new FileCache();
     $cache->setTtl(30);
     self::$_cache = $cache;
+
+    parent::__construct($cubex);
   }
 
   public function handle(Context $c): SResponse
@@ -62,6 +64,15 @@ class MainApplication extends Application
   {
     parent::_initialize();
     $this->_initDispatch();
+
+    $cubex = @$this->getCubex();
+    $cubex->aliasAbstract(AppContext::class, Context::class);
+    $cubex->onAfterResolve(function ($inst) {
+      if($inst instanceof Context)
+      {
+        $inst->setContext($this->getContext());
+      }
+    });
   }
 
   /**
@@ -217,7 +228,7 @@ class MainApplication extends Application
     $ctx = $event->getContext();
 
     // Add flash messages to cookies
-    $flash = $ctx->flash();
+    $flash = $ctx->getCubex()->retrieve(FlashMessageProvider::class);
     if($flash->hasMessages())
     {
       $response->headers->setCookie(

@@ -1,7 +1,9 @@
 <?php
-namespace CubexBase\Application\Http\Layout;
+namespace CubexBase\Application\Http\Layout\DefaultLayout;
 
 use CubexBase\Application\Context\AppContext;
+use CubexBase\Application\Context\Providers\FlashMessageProvider;
+use CubexBase\Application\Context\Providers\SeoProvider;
 use CubexBase\Application\Http\Components\Footer\Footer;
 use CubexBase\Application\Http\Components\Header\Header;
 use Packaged\Context\ContextAware;
@@ -24,7 +26,10 @@ class Layout extends Element implements ContextAware, WithContext
   protected mixed $_header;
   protected mixed $_footer;
 
-  public function __construct()
+  public function __construct(
+    public ?SeoProvider          $seoProvider = null,
+    public ?FlashMessageProvider $flash = null
+  )
   {
     // Require default resources
     ResourceManager::resources()->requireCss('main.min.css');
