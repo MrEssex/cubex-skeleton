@@ -23,7 +23,6 @@ abstract class WithErrorController extends AuthedController implements WithConte
   use GetTranslatorTrait;
   use TranslatableTrait;
   use WithContextTrait;
-  use WithMiddlewareTrait;
 
   protected function _getHandler(Context $context): callable|string|Handler
   {
