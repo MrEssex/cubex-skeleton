@@ -3,8 +3,6 @@
 namespace CubexBase\Application\Http\Layout;
 
 use Cubex\Controller\AuthedController;
-use Cubex\Cubex;
-use Cubex\CubexAware;
 use Cubex\I18n\GetTranslatorTrait;
 use CubexBase\Application\Context\AppContext;
 use CubexBase\Application\Http\Middleware\WithMiddlewareTrait;
@@ -34,10 +32,9 @@ abstract class WithErrorController extends AuthedController implements WithConte
   {
     while(is_callable($handler))
     {
-      /** @var Cubex $cubex */
-      if($c instanceof CubexAware)
+      $cubex = $this->_cubex();
+      if($cubex)
       {
-        $cubex = @$c->getCubex();
         $handler = $cubex->resolveMethod($handler[0], $handler[1]);
       }
     }

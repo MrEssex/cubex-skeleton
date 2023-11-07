@@ -36,7 +36,7 @@ class AppContext extends Context implements Translatable
    *
    * @return LinkBuilder
    */
-  public function linkBuilder(string $path = '', array $query = []): LinkBuilder
+  public function www(string $path = '', array $query = []): LinkBuilder
   {
     return LinkBuilder::fromRequest($this->request(), $path, $query)->setSubDomain('www');
   }

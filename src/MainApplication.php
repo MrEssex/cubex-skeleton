@@ -166,13 +166,8 @@ class MainApplication extends Application
   {
     $ctx = $this->getContext();
     $ctx->prepareTranslator('/translations/', $ctx->matches(ExpectEnvironment::local()));
-
-    if(!$this->getCubex() instanceof Cubex)
-    {
-      return;
-    }
-
-    $this->getCubex()->listen(
+    $cubex = @$this->getCubex();
+    $cubex->listen(
       ResponsePreSendHeadersEvent::class,
       function (ResponsePreSendHeadersEvent $event) {
         $this->_setupHeaders($event);
@@ -183,7 +178,7 @@ class MainApplication extends Application
     // Dont generate sitemap on api requests
     if($ctx->matches(ExpectEnvironment::local()) && !str_starts_with($ctx->request()->path(), '/api'))
     {
-      SitemapListener::with($this->getCubex(), $ctx);
+      SitemapListener::with($cubex, $ctx);
     }
   }
 
@@ -203,11 +198,17 @@ class MainApplication extends Application
       $response->headers->set('Access-Control-Allow-Origin', $ctx->request()->headers->get('origin'));
     }
 
-    $url = 'http://www.cubexbase.local-host.xyz:6090';
+    $currentUrl = $ctx->request()->urlSprintf();
+    $schema = $ctx->request()->getScheme();
+    if(!str_contains($currentUrl, $schema . '://www'))
+    {
+      $currentUrl = str_replace($schema . '://', $schema . '://www.', $currentUrl);
+    }
+
     $csp = new ContentSecurityPolicy([
-      ContentSecurityPolicy::DEFAULT_SRC => ["'self'"],
-      ContentSecurityPolicy::IMG_SRC => ["'self'", $url],
-      ContentSecurityPolicy::SCRIPT_SRC => ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+      ContentSecurityPolicy::DEFAULT_SRC => ["'self'", $currentUrl],
+      ContentSecurityPolicy::IMG_SRC => ["'self'", $currentUrl],
+      ContentSecurityPolicy::SCRIPT_SRC => ["'self'", "'unsafe-inline'", "'unsafe-eval'", $currentUrl],
       ContentSecurityPolicy::OBJECT_SRC => ["'none'"],
       ContentSecurityPolicy::FRAME_ANCESTORS => ["'none'"],
     ]);
@@ -224,20 +225,12 @@ class MainApplication extends Application
   protected function _setupCookies(ResponsePreSendHeadersEvent $event)
   {
     $response = $event->getResponse();
-    /** @var AppContext $ctx */
-    $ctx = $event->getContext();
+    $cubex = @$this->getCubex();
 
     // Add flash messages to cookies
-    $flash = $ctx->getCubex()->retrieve(FlashMessageProvider::class);
-    if($flash->hasMessages())
-    {
-      $response->headers->setCookie(
-        $flash->toCookie()
-      );
-    }
-    else
-    {
+    $flash = $cubex->retrieve(FlashMessageProvider::class);
+    $flash->hasMessages() ?
+      $response->headers->setCookie($flash->toCookie()) :
       $response->headers->clearCookie('flash');
-    }
   }
 }

@@ -16,11 +16,11 @@ $store = Dispatch::instance()->store();
 <head>
   <meta charset="UTF-8">
 
-  <link rel="icon" href="<?= $ctx->linkBuilder('/favicon.ico?v=1.0') ?>">
-  <link rel="icon" href="<?= $ctx->linkBuilder('/icon.svg') ?>" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="<?= $ctx->linkBuilder('/icon.png') ?>">
-  <link type="text/plain" rel="author" href="<?= $ctx->linkBuilder('/humans.txt') ?>">
-  <link rel="manifest" href="<?= $ctx->linkBuilder('/site.webmanifest') ?>">
+  <link rel="icon" href="<?= $ctx->www('/favicon.ico?v=1.0') ?>">
+  <link rel="icon" href="<?= $ctx->www('/icon.svg') ?>" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="<?= $ctx->www('/icon.png') ?>">
+  <link type="text/plain" rel="author" href="<?= $ctx->www('/humans.txt') ?>">
+  <link rel="manifest" href="<?= $ctx->www('/site.webmanifest') ?>">
 
   <?php if($this->seoProvider): ?>
     <?= $this->seoProvider ?>
