@@ -5,37 +5,30 @@ module.exports = {
     es2021: true
   },
   parserOptions: {
-    sourceType: 'module'
-  },
-  plugins: ['prettier'],
-  extends: ['plugin:prettier/recommended'],
-  rules: {
-    'prettier/prettier': 'warn'
+    sourceType: "module"
   },
   overrides: [
     {
-      files: '*.ts',
-      parser: '@typescript-eslint/parser',
-      plugins: ['@typescript-eslint', 'import', 'prettier'],
+      files: "*.ts",
+      parser: "@typescript-eslint/parser",
+      plugins: ["@typescript-eslint", "import"],
       parserOptions: {
-        project: './tsconfig.json'
+        project: "./tsconfig.json"
       },
       extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/eslint-recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'plugin:prettier/recommended',
-        'plugin:import/typescript',
-        'airbnb-typescript/base'
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:import/typescript",
+        "airbnb-typescript/base"
       ],
       rules: {
-        'no-plusplus': 'off',
-        'no-underscore-dangle': 'off',
-        'import/prefer-default-export': 'off',
-        'prettier/prettier': 'warn',
-        'comma-dangle': ['error', 'never'],
-        '@typescript-eslint/comma-dangle': ['error', 'never']
+        "no-plusplus": "off",
+        "no-underscore-dangle": "off",
+        "import/prefer-default-export": "off",
+        "comma-dangle": ["error", "never"],
+        "@typescript-eslint/comma-dangle": ["error", "never"]
       }
     }
   ]
