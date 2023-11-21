@@ -20,7 +20,7 @@
     "lint": "npm run lint:ts && npm run lint:css",
     "lint:css": "stylelint assets/scss/**/*.scss",
     "lint:ts": "eslint --ext .ts,.tsx assets",
-    "test": "mocha",
+    "test": "cross-env TS_NODE_PROJECT=tsconfig.test.json mocha",
     "watch": "cross-env NODE_ENV=development gulp watch"
   },
   "browserslist": [
