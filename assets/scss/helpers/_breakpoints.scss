@@ -1,0 +1,30 @@
+$breakpoints: (
+  "xs": 0, //targeting <568px devices (e.g. all iPhones <6)
+  "sm": 568px, //targeting >=568px devices (e.g. iPhones >=6)
+  "md": 768px, //targeting >=768px tablets (e.g. portrait iPad)
+  "lg": 1004px //targeting >=1024px tablets (e.g. landscape iPad) and desktops but leaving room for the scroll bar
+);
+
+@mixin breakpoint-down($to) {
+  @media (max-width: map-get($breakpoints, $to) - 1px) {
+    @content
+  }
+}
+
+@mixin breakpoint-up($from) {
+  @media (min-width: map-get($breakpoints, $from) + 1) {
+    @content
+  }
+}
+
+@mixin breakpoint($from, $to: null) {
+  @if $from and $to {
+    @media (min-width: map-get($breakpoints, $from)) and (max-width: map-get($breakpoints, $to) - 1) {
+      @content
+    }
+  } @else {
+    @include breakpoint-up($from) {
+      @content
+    }
+  }
+}

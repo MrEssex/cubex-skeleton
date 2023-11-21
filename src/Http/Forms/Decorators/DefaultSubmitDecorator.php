@@ -17,7 +17,10 @@ class DefaultSubmitDecorator extends FormSubmitDecorator implements ContextAware
   use WithContextTrait;
   use ContextAwareTrait;
   use TranslatableTrait;
-  use GetTranslatorTrait;
+  use GetTranslatorTrait
+  {
+    GetTranslatorTrait::_getTranslator insteadof TranslatableTrait;
+  }
 
   protected mixed $_input;
 

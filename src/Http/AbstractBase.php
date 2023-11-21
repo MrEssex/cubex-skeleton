@@ -26,7 +26,10 @@ abstract class AbstractBase extends TemplatedHtmlElement
   use ContextAwareTrait;
   use WithContextTrait;
   use TranslatableTrait;
-  use GetTranslatorTrait;
+  use GetTranslatorTrait
+  {
+    GetTranslatorTrait::_getTranslator insteadof TranslatableTrait;
+  }
 
   public function __construct()
   {

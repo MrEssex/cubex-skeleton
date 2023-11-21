@@ -16,6 +16,14 @@
             "excludeFromSitemap": false,
             "changeFrequency": "monthly",
             "history": []
+        },
+        "/dashboard": {
+            "title": null,
+            "lastModified": null,
+            "priority": 1,
+            "excludeFromSitemap": false,
+            "changeFrequency": "monthly",
+            "history": []
         }
     }
 }

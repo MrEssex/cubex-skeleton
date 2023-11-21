@@ -17,8 +17,11 @@ abstract class AbstractForm extends CsrfForm implements ContextAware, Translatab
 {
   use ContextAwareTrait;
   use TranslatableTrait;
-  use GetTranslatorTrait;
   use WithContextTrait;
+  use GetTranslatorTrait
+  {
+    GetTranslatorTrait::_getTranslator insteadof TranslatableTrait;
+  }
 
   protected string $_submitValue = "Submit";
 

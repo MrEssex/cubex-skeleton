@@ -14,7 +14,10 @@ use Packaged\I18n\TranslatableTrait;
 class AppContext extends Context implements Translatable
 {
   use TranslatableTrait;
-  use GetTranslatorTrait;
+  use GetTranslatorTrait
+  {
+    GetTranslatorTrait::_getTranslator insteadof TranslatableTrait;
+  }
 
   protected function _initialize(): void
   {

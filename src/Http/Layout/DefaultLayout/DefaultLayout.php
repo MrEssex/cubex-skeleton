@@ -16,7 +16,7 @@ use Packaged\Ui\Element;
 /**
  * @method AppContext getContext();
  */
-class Layout extends Element implements ContextAware, WithContext
+class DefaultLayout extends Element implements ContextAware, WithContext
 {
   use ContextAwareTrait;
   use WithContextTrait;
