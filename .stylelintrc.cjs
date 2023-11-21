@@ -39,13 +39,19 @@ module.exports = {
         ignore: [
           'first-nested',
           'blockless-after-same-name-blockless',
-          'after-comment'
+          'after-comment',
+          "else"
         ]
       }
     ],
     'order/properties-order': [propertiesOrder, {severity: 'warning', unspecified: 'bottomAlphabetical'}],
     'scss/at-rule-no-unknown': null,
     'selector-no-qualifying-type': null,
-    'media-query-no-invalid': null
+    'media-query-no-invalid': null,
+    "block-closing-brace-newline-after": [
+      "always", {
+        "ignoreAtRules": [ "if", "else" ]
+      }
+    ],
   }
 };
