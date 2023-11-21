@@ -15,12 +15,12 @@
   "author": "",
   "main": "rollup.config.js",
   "scripts": {
+    "build": "cross-env NODE_ENV=production gulp",
+    "coverage": "nyc --report=text npm run test",
     "lint": "npm run lint:ts && npm run lint:css",
     "lint:css": "stylelint assets/scss/**/*.scss",
     "lint:ts": "eslint --ext .ts,.tsx assets",
-    "coverage": "nyc --report=text npm run test",
     "test": "mocha",
-    "build": "cross-env NODE_ENV=production gulp",
     "watch": "cross-env NODE_ENV=development gulp watch"
   },
   "browserslist": [
@@ -30,9 +30,9 @@
   ],
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "^1.0.2",
-    "@rollup/plugin-commonjs": "^25.0.3",
-    "@rollup/plugin-node-resolve": "^15.1.0",
-    "@rollup/plugin-terser": "^0.4.3",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.5",
     "@rollup/stream": "^3.0.1",
     "@types/chai": "^4.3.5",
@@ -42,6 +42,7 @@
     "@typescript-eslint/parser": "^6.2.1",
     "autoprefixer": "^10.4.14",
     "chai": "^4.3.7",
+    "cross-env": "^7.0.3",
     "eslint": "^8.46.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
@@ -63,6 +64,7 @@
     "postcss": "^8.4.31",
     "postcss-discard-comments": "^6.0.0",
     "prettier": "^3.0.0",
+    "rollup": "^4.5.0",
     "sass": "^1.64.2",
     "stylelint": "^15.10.2",
     "stylelint-config-clean-order": "^0.1.1",
@@ -72,8 +74,5 @@
     "typescript": "^5.1.6",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
-  },
-  "dependencies": {
-    "cross-env": "^7.0.3"
   }
 }
